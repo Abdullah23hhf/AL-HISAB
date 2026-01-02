@@ -27,7 +27,6 @@
         /* Modern Header */
         header { background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; width: 100%; }
         
-        /* FIX: Adjusted padding and width for mobile */
         nav { max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; width: 100%; }
         
         .logo-area { display: flex; align-items: center; text-decoration: none; gap: 10px; flex-shrink: 1; }
@@ -36,12 +35,9 @@
             width: 40px; height: 40px; border-radius: 10px; 
             display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
         }
-        /* FIX: Scaling logo text for small screens */
         .site-name { font-family: 'Cinzel', serif; font-size: 20px; color: var(--brand-green); white-space: nowrap; }
 
-        /* Navigation Right Controls */
         .nav-right { display: flex; align-items: center; gap: 10px; }
-        .cta-gold { background: var(--gold); color: white !important; border-radius: 5px; font-weight: 700 !important; text-decoration: none; padding: 8px 12px; font-size: 11px; text-transform: uppercase; white-space: nowrap; }
         
         .menu-toggle { font-size: 22px; color: var(--brand-green); cursor: pointer; background: none; border: none; padding: 5px; }
 
@@ -51,9 +47,8 @@
             background: var(--brand-green); z-index: 2000; transition: 0.4s;
             padding: 30px; display: flex; flex-direction: column; gap: 5px;
             box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-            overflow-y: auto; /* FIX: Allow scrolling if menu is long */
+            overflow-y: auto;
         }
-        /* FIX: Ensure menu doesn't exceed screen width on tiny phones */
         @media (max-width: 320px) { .side-menu { width: 260px; } }
 
         .side-menu.active { right: 0; }
@@ -67,31 +62,37 @@
 
         /* Hero Area */
         .hero { 
-            min-height: 60vh; /* FIX: Changed from 70vh to min-height to prevent content cut-off */
+            min-height: 60vh;
             background: linear-gradient(rgba(5, 46, 22, 0.75), rgba(5, 46, 22, 0.75)), url('https://images.unsplash.com/photo-1590059379661-d007f9754f73?q=80&w=2000&auto=format&fit=crop');
             background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); padding: 60px 20px;
         }
-        /* FIX: Responsive typography for Hero */
         .hero-box h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 8vw, 50px); margin-bottom: 20px; line-height: 1.2; }
-        .hero-box p { font-size: clamp(14px, 4vw, 18px); max-width: 800px; margin: auto; }
+        .hero-box p { font-size: clamp(14px, 4vw, 18px); max-width: 800px; margin: 0 auto 25px; }
+
+        /* CALCULATOR BUTTON STYLES */
+        .hero-btn-wrap { display: flex; justify-content: center; width: 100%; }
+        .cta-gold-large { 
+            background: var(--gold); color: white !important; border-radius: 8px; 
+            font-weight: 800; text-decoration: none; padding: 15px 35px; 
+            font-size: 18px; text-transform: uppercase; display: inline-block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); transition: 0.3s;
+        }
+        .cta-gold-large:hover { transform: translateY(-3px); background: #b09105; }
 
         .section-padding { padding: 60px 20px; max-width: 1200px; margin: auto; text-align: center; width: 100%; }
         
-        /* FIX: Grid adjustment */
         .eligibility-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 40px; }
         .eligibility-card { padding: 30px; border-radius: 15px; background: var(--gray-light); width: 100%; }
         .eligibility-card i { font-size: 30px; color: var(--brand-green); margin-bottom: 15px; }
 
         .process-bg { background: var(--brand-green); color: white; padding: 60px 20px; width: 100%; }
         
-        /* FIX: Flex wrapping for steps */
         .step-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 40px; width: 100%; }
         .step-box { flex: 1; min-width: 140px; max-width: 250px; text-align: center; }
         .step-num { width: 50px; height: 50px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 20px; }
 
         .content-area { background: var(--cream); padding: 60px 20px; width: 100%; }
-        /* FIX: Guidance box width */
         .guidance-box { max-width: 900px; margin: auto; background: var(--white); padding: clamp(25px, 5vw, 50px); border-radius: 20px; width: 100%; }
 
         footer { background: #020617; color: #94a3b8; padding: 60px 20px 20px; width: 100%; }
@@ -100,7 +101,6 @@
 
         .bottom-line { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
 
-        /* Tablet/Mobile Font adjustments */
         @media (max-width: 768px) {
             .site-name { font-size: 18px; }
             .section-padding { padding: 40px 15px; }
@@ -118,7 +118,6 @@
             </a>
             
             <div class="nav-right">
-                <a href="calculators.html" class="cta-gold">Calculators</a>
                 <button class="menu-toggle" aria-label="Open Menu" onclick="openMenu()"><i class="fas fa-bars"></i></button>
             </div>
         </nav>
@@ -147,6 +146,9 @@
         <div class="hero-box">
             <h1>Global Excellence in Zakat Guidance</h1>
             <p>Empowering the Ummah with Shariah-compliant financial tools and authentic knowledge.</p>
+            <div class="hero-btn-wrap">
+                <a href="calculators.html" class="cta-gold-large">Open Zakat Calculators</a>
+            </div>
         </div>
     </section>
 
@@ -227,7 +229,6 @@
         function openMenu() { document.getElementById("navMenu").classList.add("active"); }
         function closeMenu() { document.getElementById("navMenu").classList.remove("active"); }
         
-        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             const menu = document.getElementById('navMenu');
             const toggle = document.querySelector('.menu-toggle');
