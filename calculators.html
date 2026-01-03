@@ -114,11 +114,11 @@
     </footer>
 
     <script>
-        // Safe JS execution + input validation
+        // Initial safe rates to ensure calculators load immediately
         const G_FACTOR = 31.1034768; 
         const T_FACTOR = 11.6638;
-        let rates = { gold: 0, tola: 0, btc: 0, eth: 0, sol: 0, bnb: 0, cash: 1 };
-        let lastRates = { gold: 0, tola: 0, btc: 0, eth: 0, sol: 0, bnb: 0, cash: 1 };
+        let rates = { gold: 60, tola: 720, btc: 30000, eth: 2000, sol: 20, bnb: 300, cash: 1 };
+        let lastRates = {...rates};
 
         function connectBinance() {
             try {
@@ -210,6 +210,7 @@
                     <div class="result" id="res-${c.id}">$0.00</div>
                 </div>
             `).join('');
+            renderTicker();
             connectBinance();
         }
 
