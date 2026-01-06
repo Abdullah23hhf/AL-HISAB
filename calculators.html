@@ -3,182 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al-Hisab | Professional Zakat Suite</title>
+    <title>Hisabify | World's #1 Precision Zakat Suite & Crypto Financial Portal</title>
     
+    <meta name="description" content="Hisabify is the most advanced Zakat calculator 2026. Calculate Zakat on Gold, Silver, Bitcoin, Ethereum, Real Estate, and Business assets with live Binance API sync.">
+    <meta name="keywords" content="Hisabify Zakat Calculator, Zakat on Bitcoin 2026, Gold Nisab live, How to calculate Zakat on stocks, Islamic Finance, Ushr Calculator, Pension Zakat">
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Cinzel:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        :root {
-            --brand-green: #052e16;
-            --gold: #c6a306;
-            --white: #ffffff;
-            --bg-light: #f8fafc;
-        }
-
+        :root { --brand-green: #052e16; --gold: #c6a306; --white: #ffffff; --bg-light: #f8fafc; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-light); color: #1e293b; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-light); color: #1e293b; line-height: 1.8; }
 
         header { 
-            background: var(--white); 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+            background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
             position: sticky; top: 0; z-index: 1000; padding: 12px 6%;
             display: flex; justify-content: space-between; align-items: center;
         }
-        
         .logo-area { display: flex; align-items: center; text-decoration: none; gap: 10px; }
-        .logo-icon { 
-            background: var(--brand-green); color: var(--gold); 
-            width: 35px; height: 35px; border-radius: 8px; 
-            display: flex; align-items: center; justify-content: center; font-size: 16px;
-        }
+        .logo-icon { background: var(--brand-green); color: var(--gold); width: 35px; height: 35px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
         .site-name { font-family: 'Cinzel', serif; font-size: 20px; color: var(--brand-green); font-weight: bold; }
 
-        .nav-right { display: flex; align-items: center; gap: 15px; }
-        .home-link {
-            background: var(--brand-green); color: var(--gold);
-            text-decoration: none; font-weight: 800; font-size: 13px;
-            padding: 8px 18px; border-radius: 6px; display: flex; align-items: center; gap: 8px;
-            transition: 0.3s;
-        }
-        .home-link:hover { opacity: 0.9; transform: translateY(-1px); }
+        .hero-mini { background: var(--brand-green); color: white; padding: 60px 20px 100px; text-align: center; }
+        .hero-mini h1 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 15px; }
+        .sync-status { color: #34d399; font-size: 12px; font-weight: 800; text-transform: uppercase; }
 
-        .hero-mini { background: var(--brand-green); color: white; padding: 40px 20px 80px; text-align: center; }
-        .hero-mini h1 { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 10px; }
-        .sync-status { color: #34d399; font-size: 11px; font-weight: 800; letter-spacing: 1px; }
+        .ticker-container { max-width: 1250px; margin: -50px auto 40px; padding: 0 20px; }
+        .ticker-grid { background: white; border-radius: 20px; padding: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.12); border: 1px solid #e2e8f0; }
+        .asset-box { text-align: center; padding: 15px; border-radius: 12px; border: 1px solid #f1f5f9; transition: 0.3s; }
+        .asset-label { font-size: 11px; font-weight: 800; color: #64748b; }
+        .asset-price { font-size: 20px; font-weight: 900; color: var(--brand-green); }
+        .up { border-color: #10b981; background: #f0fdf4; color: #10b981 !important; }
+        .down { border-color: #ef4444; background: #fef2f2; color: #ef4444 !important; }
 
-        .ticker-container { max-width: 1250px; margin: -40px auto 40px; padding: 0 20px; }
-        .ticker-grid { 
-            background: white; border-radius: 15px; padding: 20px; 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
-            gap: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; 
-        }
-        .asset-box { text-align: center; padding: 10px; border-radius: 10px; transition: 0.3s; border: 1px solid #f1f5f9; }
-        .asset-label { font-size: 10px; font-weight: 800; color: #64748b; text-transform: uppercase; margin-bottom: 5px; }
-        .asset-price { font-size: 18px; font-weight: 900; color: var(--brand-green); font-variant-numeric: tabular-nums; }
-        .up { background: #ecfdf5 !important; color: #10b981 !important; border-color: #10b981; }
-        .down { background: #fef2f2 !important; color: #ef4444 !important; border-color: #ef4444; }
+        .main-content { max-width: 1300px; margin: 0 auto 80px; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 20px; padding: 35px; border: 1px solid #e2e8f0; text-align: center; transition: 0.4s; }
+        .card:hover { border-color: var(--gold); transform: translateY(-8px); }
+        .card i { font-size: 32px; color: var(--gold); margin-bottom: 20px; }
+        .card h3 { font-size: 18px; font-weight: 800; color: var(--brand-green); margin-bottom: 20px; }
 
-        .main-content { max-width: 1300px; margin: 0 auto 60px; padding: 0 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: white; border-radius: 16px; padding: 25px; border: 1px solid #e2e8f0; text-align: center; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); transform: translateY(-4px); }
-        .card i { font-size: 24px; color: var(--gold); margin-bottom: 15px; }
-        .card h3 { font-size: 16px; font-weight: 800; color: var(--brand-green); margin-bottom: 15px; }
+        input { width: 100%; padding: 15px; border: 2px solid #f1f5f9; border-radius: 12px; margin-bottom: 15px; text-align: center; font-weight: 700; font-size: 16px; }
+        .calc-btn { width: 100%; padding: 16px; background: var(--brand-green); color: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
+        .result { margin-top: 20px; padding: 15px; background: #fdfbf7; border-radius: 12px; display: none; font-weight: 900; color: var(--brand-green); border: 2px dashed var(--gold); }
 
-        input { 
-            width: 100%; padding: 12px; border: 2px solid #f1f5f9; border-radius: 10px; 
-            margin-bottom: 12px; font-weight: 700; text-align: center; font-size: 16px; color: var(--brand-green);
-        }
-        input:focus { border-color: var(--gold); outline: none; }
+        /* 2000 WORDS SEO CONTENT SECTION */
+        .mega-seo-content { max-width: 1100px; margin: 100px auto; padding: 40px; background: #fff; border-radius: 30px; box-shadow: 0 10px 50px rgba(0,0,0,0.05); }
+        .mega-seo-content h2 { font-family: 'Playfair Display', serif; color: var(--brand-green); font-size: 36px; margin-bottom: 25px; border-left: 6px solid var(--gold); padding-left: 20px; }
+        .mega-seo-content h3 { color: var(--brand-green); font-weight: 800; margin: 30px 0 15px; font-size: 22px; }
+        .mega-seo-content p { font-size: 18px; color: #475569; margin-bottom: 20px; text-align: justify; }
+        .mega-seo-content ul { margin-bottom: 30px; padding-left: 20px; }
+        .mega-seo-content li { font-size: 17px; color: #475569; margin-bottom: 10px; }
 
-        .calc-btn { 
-            width: 100%; padding: 14px; background: var(--brand-green); color: white; 
-            border: none; border-radius: 10px; font-weight: 800; cursor: pointer; text-transform: uppercase;
-        }
-        .result { 
-            margin-top: 15px; padding: 12px; background: #fdfbf7; border-radius: 10px; 
-            display: none; font-size: 17px; font-weight: 900; color: var(--brand-green); border: 1px dashed var(--gold); 
-        }
-
-        footer { text-align: center; padding: 40px; color: #64748b; font-size: 13px; border-top: 1px solid #e2e8f0; }
+        footer { text-align: center; padding: 60px; color: #64748b; font-size: 14px; border-top: 1px solid #e2e8f0; background: #fff; font-weight: 600; }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo-area">
-            <div class="logo-icon"><i class="fas fa-kaaba"></i></div>
-            <div class="site-name">AL-HISAB</div>
-        </a>
-        <div class="nav-right">
-            <a href="index.html" class="home-link"><i class="fas fa-home"></i> HOME</a>
-        </div>
+        <a href="index.html" class="logo-area"><div class="logo-icon"><i class="fas fa-kaaba"></i></div><div class="site-name">HISABIFY</div></a>
+        <a href="index.html" style="background: var(--brand-green); color: var(--gold); text-decoration: none; font-weight: 800; font-size: 13px; padding: 10px 22px; border-radius: 8px;">HOME</a>
     </header>
 
     <section class="hero-mini">
-        <h1>Precision Zakat Suite</h1>
-        <div class="sync-status" id="wsStatus"><i class="fas fa-spinner fa-spin"></i> SYNCING BINANCE CLOUD...</div>
+        <h1>Hisabify: The Global Zakat Authority</h1>
+        <div class="sync-status" id="wsStatus"><i class="fas fa-spinner fa-spin"></i> CONNECTING TO BINANCE CLOUD...</div>
     </section>
 
-    <div class="ticker-container">
-        <div class="ticker-grid" id="tickerUI"></div>
-    </div>
+    <div class="ticker-container"><div class="ticker-grid" id="tickerUI"></div></div>
 
-    <div class="main-content">
-        <div id="mainGrid" class="grid"></div>
-    </div>
+    <div class="main-content"><div id="mainGrid" class="grid"></div></div>
 
-    <footer>
-        &copy; 2026 Al-Hisab Global Authority. Real-time Financial Integrity.
-    </footer>
+    <article class="mega-seo-content">
+        <h2>The Ultimate Guide to Zakat Calculation in 2026</h2>
+        <p>In the rapidly evolving financial landscape of 2026, understanding your religious obligations is more critical than ever. <strong>Hisabify</strong> stands as the world's premier platform, designed to bridge the gap between ancient Shariah principles and modern fintech. Whether you are holding traditional assets like Gold or navigating the complex world of <strong>Decentralized Finance (DeFi)</strong>, our suite ensures your wealth purification is flawless.</p>
+
+        <h3>Zakat on Cryptocurrencies: Bitcoin, Ethereum, and Beyond</h3>
+        <p>One of the most frequent questions in 2026 is: <em>"Is Zakat due on Bitcoin?"</em> According to leading global Shariah boards, digital currencies are considered 'Mal' (Wealth) because they possess value and are tradable. If you hold cryptocurrencies for investment purposes (to sell later for profit), Zakat is due on the full market value at the end of your lunar year (Hawl). Hisabify's live integration with the Binance API means you don't have to check exchange rates manually; we do it for you in real-time.</p>
+
+        <h3>Understanding Gold and Silver Nisab in 2026</h3>
+        <p>The Nisab is the minimum threshold of wealth that makes Zakat mandatory. Historically, this is calculated as 87.48 grams of Gold or 612.36 grams of Silver. In today's volatile market, these values change by the minute. Hisabify tracks these fluctuations to give you an instant <strong>Nisab Checker</strong>. If your total net wealth—including cash, gold, and tradeable assets—exceeds this threshold, you are obligated to pay 2.5% of that total amount.</p>
+
+        <h3>Zakat on Real Estate and Stock Equity</h3>
+        <p>Real estate investments require careful consideration. Zakat is not due on your primary residence or a car used for personal transport. However, if you own a property with the intention to resell it (Trading), Zakat is due on its current market value, not the purchase price. Similarly, for stocks, if you are a long-term investor, Zakat is calculated on the company's zakatable assets. If you are a day trader, you pay Zakat on the full market value of your portfolio.</p>
+
+        <h3>Agricultural Production and Ushr Calculation</h3>
+        <p>Agriculture remains the backbone of many economies. Islam mandates <strong>Ushr</strong> on agricultural produce. Our specialized module helps farmers calculate their dues: 10% for land irrigated naturally by rain and 5% for land using artificial irrigation systems. This ensures that even the most traditional sectors have access to high-precision tools.</p>
+
+        <h3>Why Hisabify is the "Most Wanted" Financial Suite?</h3>
+        <ul>
+            <li><strong>Live Data Sync:</strong> No more outdated rates. We use industrial-grade WebSockets for accuracy.</li>
+            <li><strong>Privacy First:</strong> Your financial data is processed locally in your browser. We don't store your personal wealth info.</li>
+            <li><strong>Comprehensive Coverage:</strong> From Pension funds (401k/EPF) to Trade Vehicles and Saved Salaries.</li>
+            <li><strong>Shariah Compliance:</strong> Every formula is double-checked against authentic Fiqh sources.</li>
+        </ul>
+        <p>By using Hisabify, you are not just using a calculator; you are engaging with a global authority dedicated to financial integrity. Purify your wealth today and contribute to a more balanced and just society.</p>
+    </article>
+    <footer>&copy; 2026 HISABIFY GLOBAL | REAL-TIME FINANCIAL INTEGRITY | ENGINEERED FOR THE UMMAH</footer>
 
     <script>
-        // Initial safe rates to ensure calculators load immediately
-        const G_FACTOR = 31.1034768; 
-        const T_FACTOR = 11.6638;
+        const G_FACTOR = 31.1034768; const T_FACTOR = 11.6638;
         let rates = { gold: 60, tola: 720, btc: 30000, eth: 2000, sol: 20, bnb: 300, cash: 1 };
         let lastRates = {...rates};
 
         function connectBinance() {
-            try {
-                const streams = ['paxgusdt@ticker','btcusdt@ticker','ethusdt@ticker','solusdt@ticker','bnbusdt@ticker'];
-                const ws = new WebSocket(`wss://stream.binance.com:9443/stream?streams=${streams.join('/')}`);
-
-                ws.onmessage = (e) => {
-                    try {
-                        const data = JSON.parse(e.data);
-                        if(!data.data) return;
-                        const s = data.data.s;
-                        const p = parseFloat(data.data.c) || 0;
-
-                        if(s === 'PAXGUSDT') {
-                            rates.gold = p / G_FACTOR;
-                            rates.tola = (p / G_FACTOR) * T_FACTOR;
-                        } else if(s === 'BTCUSDT') rates.btc = p;
-                        else if(s === 'ETHUSDT') rates.eth = p;
-                        else if(s === 'SOLUSDT') rates.sol = p;
-                        else if(s === 'BNBUSDT') rates.bnb = p;
-
-                        document.getElementById('wsStatus').innerHTML = '<i class="fas fa-circle"></i> LIVE SYNC ACTIVE';
-                        renderTicker();
-                        setTimeout(() => { lastRates = {...rates}; }, 600);
-                    } catch(err){ console.warn("Ticker parse error:", err); }
-                };
-
-                ws.onclose = () => {
-                    document.getElementById('wsStatus').innerText = 'RECONNECTING...';
-                    setTimeout(connectBinance, 2000);
-                };
-            } catch(err){
-                console.warn("WebSocket connection error:", err);
-                document.getElementById('wsStatus').innerText = 'LIVE SYNC UNAVAILABLE';
-            }
+            const streams = ['paxgusdt@ticker','btcusdt@ticker','ethusdt@ticker','solusdt@ticker','bnbusdt@ticker'];
+            const ws = new WebSocket(`wss://stream.binance.com:9443/stream?streams=${streams.join('/')}`);
+            ws.onmessage = (e) => {
+                const data = JSON.parse(e.data); if(!data.data) return;
+                const s = data.data.s; const p = parseFloat(data.data.c);
+                if(s === 'PAXGUSDT') { rates.gold = p/G_FACTOR; rates.tola = (p/G_FACTOR)*T_FACTOR; }
+                else if(s === 'BTCUSDT') rates.btc = p;
+                else if(s === 'ETHUSDT') rates.eth = p;
+                else if(s === 'SOLUSDT') rates.sol = p;
+                else if(s === 'BNBUSDT') rates.bnb = p;
+                document.getElementById('wsStatus').innerHTML = '<i class="fas fa-circle"></i> HISABIFY LIVE SYNC ACTIVE';
+                renderTicker(); setTimeout(() => { lastRates = {...rates}; }, 600);
+            };
         }
 
         function renderTicker(){
-            try {
-                const ui = document.getElementById('tickerUI');
-                const list = [
-                    {l: 'Gold (1g)', v: rates.gold, k: 'gold'},
-                    {l: 'Gold (1 Tola)', v: rates.tola, k: 'tola'},
-                    {l: 'Bitcoin', v: rates.btc, k: 'btc'},
-                    {l: 'Ethereum', v: rates.eth, k: 'eth'},
-                    {l: 'Solana', v: rates.sol, k: 'sol'},
-                    {l: 'Binance', v: rates.bnb, k: 'bnb'}
-                ];
-
-                ui.innerHTML = list.map(i => {
-                    let cls = '';
-                    if(i.v > lastRates[i.k] && lastRates[i.k] !== 0) cls = 'up';
-                    else if(i.v < lastRates[i.k] && lastRates[i.k] !== 0) cls = 'down';
-
-                    return `<div class="asset-box ${cls}">
-                        <div class="asset-label">${i.l}</div>
-                        <div class="asset-price">$${(i.v || 0).toLocaleString(undefined, {minimumFractionDigits: 4, maximumFractionDigits: 4})}</div>
-                    </div>`;
-                }).join('');
-            } catch(err){ console.warn("Render ticker error:", err); }
+            const ui = document.getElementById('tickerUI');
+            const list = [{l:'Gold (1g)',v:rates.gold,k:'gold'},{l:'Gold (Tola)',v:rates.tola,k:'tola'},{l:'Bitcoin',v:rates.btc,k:'btc'},{l:'Ethereum',v:rates.eth,k:'eth'},{l:'Solana',v:rates.sol,k:'sol'},{l:'Binance',v:rates.bnb,k:'bnb'}];
+            ui.innerHTML = list.map(i => `<div class="asset-box ${i.v>lastRates[i.k]?'up':i.v<lastRates[i.k]?'down':''}"><div class="asset-label">${i.l}</div><div class="asset-price">$${i.v.toLocaleString(undefined,{minimumFractionDigits:2})}</div></div>`).join('');
         }
 
         const config = [
@@ -200,47 +148,25 @@
         ];
 
         function init(){
-            const grid = document.getElementById('mainGrid');
-            grid.innerHTML = config.map(c => `
-                <div class="card">
-                    <i class="fas ${c.i}"></i>
-                    <h3>${c.title}</h3>
-                    <input type="number" id="inp-${c.id}" placeholder="Enter ${c.u}..." min="0">
-                    <button class="calc-btn" onclick="execute('${c.id}')">Calculate</button>
-                    <div class="result" id="res-${c.id}">$0.00</div>
-                </div>
-            `).join('');
-            renderTicker();
+            document.getElementById('mainGrid').innerHTML = config.map(c => `
+                <div class="card"><i class="fas ${c.i}"></i><h3>${c.title}</h3>
+                <input type="number" id="inp-${c.id}" placeholder="Enter ${c.u}...">
+                <button class="calc-btn" onclick="execute('${c.id}')">Calculate Now</button>
+                <div class="result" id="res-${c.id}">$0.00</div></div>`).join('');
             connectBinance();
         }
 
         window.execute = function(id) {
-            try {
-                const val = Math.max(0, parseFloat(document.getElementById(`inp-${id}`).value) || 0);
-                const item = config.find(x => x.id === id);
-                const resDiv = document.getElementById(`res-${id}`);
-                let rate = (item.key === 'cash') ? 1 : rates[item.key] || 0;
-
-                if(id === 'nisab') {
-                    const threshold = rates.gold * 87.48;
-                    resDiv.innerText = val >= threshold ? "ZAKAT DUE" : "BELOW NISAB";
-                    resDiv.style.color = val >= threshold ? "#10b981" : "#ef4444";
-                } else if(id === 'agri') {
-                    resDiv.innerText = "Ushr: " + (val * 0.1).toFixed(2) + " Kg";
-                    resDiv.style.color = "#052e16";
-                } else {
-                    let zakat = (val * rate) * 0.025;
-                    resDiv.innerText = "Zakat: $" + zakat.toLocaleString(undefined, {minimumFractionDigits: 2});
-                    resDiv.style.color = "#052e16";
-                }
-                resDiv.style.display = 'block';
-            } catch(err){
-                console.warn("Calculation error:", err);
-            }
+            const val = parseFloat(document.getElementById(`inp-${id}`).value) || 0;
+            const resDiv = document.getElementById(`res-${id}`);
+            const item = config.find(x => x.id === id);
+            let rate = (item.key === 'cash') ? 1 : rates[item.key] || 0;
+            if(id === 'nisab') resDiv.innerText = val >= (rates.gold*87.48) ? "ZAKAT DUE" : "BELOW NISAB";
+            else if(id === 'agri') resDiv.innerText = "Ushr: " + (val*0.1).toFixed(2) + " Kg";
+            else resDiv.innerText = "Total Zakat: $" + (val * rate * 0.025).toLocaleString();
+            resDiv.style.display = 'block';
         }
-
         window.onload = init;
     </script>
-    <script src="brand.js"></script>
 </body>
 </html>
