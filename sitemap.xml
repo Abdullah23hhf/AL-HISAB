@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/index.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/about.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/calculators.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/contact.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/knowledge-hub.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/fatawa.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/guidelines.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/faqs.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/how-it-works.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/nisab.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/references.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/disclaimer.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/privacy.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/terms.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/cookies.html</loc></url>
-  <url><loc>https://abdullah23hhf.github.io/HISABIFY/accessibility.html</loc></url>
+  <url><loc>https://hisabify.com/index.html</loc><priority>1.00</priority></url>
+  <url><loc>https://hisabify.com/calculators.html</loc><priority>0.90</priority></url>
+  <url><loc>https://hisabify.com/intelligence.html</loc><priority>0.90</priority></url>
+  <url><loc>https://hisabify.com/how-it-works.html</loc><priority>0.85</priority></url>
+
+  <url><loc>https://hisabify.com/about.html</loc><priority>0.80</priority></url>
+  <url><loc>https://hisabify.com/guidelines.html</loc><priority>0.80</priority></url>
+  <url><loc>https://hisabify.com/faqs.html</loc><priority>0.80</priority></url>
+  <url><loc>https://hisabify.com/fatawa.html</loc><priority>0.80</priority></url>
+  <url><loc>https://hisabify.com/nisab.html</loc><priority>0.85</priority></url>
+  <url><loc>https://hisabify.com/knowledge-hub.html</loc><priority>0.80</priority></url>
+  <url><loc>https://hisabify.com/references.html</loc><priority>0.70</priority></url>
+
+  <url><loc>https://hisabify.com/accessibility.html</loc><priority>0.60</priority></url>
+  <url><loc>https://hisabify.com/contact.html</loc><priority>0.75</priority></url>
+  <url><loc>https://hisabify.com/disclaimer.html</loc><priority>0.60</priority></url>
+  <url><loc>https://hisabify.com/privacy.html</loc><priority>0.60</priority></url>
+  <url><loc>https://hisabify.com/terms.html</loc><priority>0.60</priority></url>
+  <url><loc>https://hisabify.com/cookies.html</loc><priority>0.60</priority></url>
+
+  <url><loc>https://hisabify.com/sitemap.html</loc><priority>0.50</priority></url>
+  <url><loc>https://hisabify.com/sitemap.xml</loc><priority>0.40</priority></url>
+  <url><loc>https://hisabify.com/robots.txt</loc><priority>0.40</priority></url>
+  <url><loc>https://hisabify.com/brand.js</loc><priority>0.30</priority></url>
 </urlset>
