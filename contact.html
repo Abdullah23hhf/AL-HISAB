@@ -3,121 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Al-Hisab Global Support Hub</title>
+    <title>Contact Us | HISABIFY Global Support Hub 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root { --primary: #022c22; --accent: #d4af37; --white: #ffffff; --bg: #f8fafc; }
+        :root { --primary: #052e16; --accent: #c6a306; --white: #ffffff; --bg: #f8fafc; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: #1e293b; line-height: 1.6; }
 
         /* Navigation */
         header {
-            background: var(--white); padding: 30px 8%;
+            background: var(--white); padding: 20px 8%;
             display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 4px 30px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
         }
-        .logo h1 { font-family: 'Cinzel', serif; font-size: 32px; color: var(--primary); border-left: 5px solid var(--accent); padding-left: 20px; }
-        .home-btn { text-decoration: none; background: var(--primary); color: white !important; padding: 14px 40px; border-radius: 50px; font-weight: 800; text-transform: uppercase; transition: 0.3s; }
+        .logo h1 { font-family: 'Cinzel', serif; font-size: 28px; color: var(--primary); border-left: 5px solid var(--accent); padding-left: 15px; }
+        .home-btn { text-decoration: none; background: var(--primary); color: white !important; padding: 12px 35px; border-radius: 50px; font-weight: 800; text-transform: uppercase; transition: 0.3s; font-size: 14px; }
 
-        /* Hero Section - Extra Large */
+        /* Hero Section */
         .contact-hero {
-            background: var(--primary); padding: 200px 8% 300px; text-align: center; color: white;
-            background-image: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            background: var(--primary); padding: 120px 8% 250px; text-align: center; color: white;
+            background-image: radial-gradient(circle at 20% 30%, rgba(198, 163, 6, 0.1) 0%, transparent 50%);
         }
-        .contact-hero h2 { font-family: 'Cinzel', serif; font-size: 65px; color: var(--accent); margin-bottom: 25px; letter-spacing: 2px; }
-        .contact-hero p { opacity: 0.8; max-width: 800px; margin: 0 auto; font-size: 22px; font-weight: 300; }
+        .contact-hero h2 { font-family: 'Cinzel', serif; font-size: clamp(35px, 6vw, 60px); color: var(--accent); margin-bottom: 20px; letter-spacing: 2px; }
+        .contact-hero p { opacity: 0.8; max-width: 800px; margin: 0 auto; font-size: 18px; font-weight: 300; }
 
-        /* Main Action Cards */
-        .contact-wrapper { max-width: 1300px; margin: -180px auto 100px; padding: 0 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .contact-card { background: white; padding: 80px 50px; border-radius: 50px; box-shadow: 0 30px 70px rgba(0,0,0,0.07); text-align: center; transition: 0.4s; border: 1px solid rgba(0,0,0,0.05); }
-        .contact-card:hover { transform: translateY(-15px); border-color: var(--accent); }
-        .contact-card i { font-size: 70px; color: var(--accent); margin-bottom: 30px; }
-        .contact-card h3 { font-size: 32px; color: var(--primary); margin-bottom: 20px; font-weight: 800; }
-        .contact-card p { color: #64748b; margin-bottom: 40px; font-size: 18px; }
-
-        .btn-large { 
-            display: block; width: 100%; padding: 25px; border-radius: 20px; 
-            text-decoration: none; font-weight: 800; text-transform: uppercase; 
-            font-size: 18px; letter-spacing: 1px; transition: 0.3s; cursor: pointer; border: none;
+        /* Floating WhatsApp Button */
+        .wa-float {
+            position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
+            background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center;
+            font-size: 30px; box-shadow: 2px 2px 15px rgba(0,0,0,0.2); z-index: 2000;
+            display: flex; align-items: center; justify-content: center; text-decoration: none;
+            transition: 0.3s;
         }
-        .wa { background: #25d366; color: white; }
-        .em { background: var(--primary); color: white; }
-        .btn-large:hover { opacity: 0.95; transform: scale(1.02); }
+        .wa-float:hover { transform: scale(1.1); background-color: #128c7e; }
 
-        /* CONTENT SECTION */
-        .content-section { max-width: 1100px; margin: 100px auto; padding: 0 30px; text-align: center; }
-        .content-section h2 { font-family: 'Cinzel', serif; font-size: 40px; color: var(--primary); margin-bottom: 40px; }
-        .grid-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: left; }
-        .info-box { padding: 40px; background: #fff; border-radius: 30px; border-bottom: 5px solid var(--accent); }
-        .info-box h4 { font-size: 22px; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .info-box p { color: #64748b; font-size: 16px; line-height: 1.8; }
+        /* Main Email Card */
+        .contact-wrapper { max-width: 1000px; margin: -150px auto 50px; padding: 0 25px; }
+        .email-card { 
+            background: white; padding: 60px; border-radius: 40px; 
+            box-shadow: 0 30px 70px rgba(0,0,0,0.07); text-align: center; 
+            border: 1px solid rgba(0,0,0,0.05); 
+        }
+        .email-card i { font-size: 60px; color: var(--accent); margin-bottom: 25px; }
+        .email-card h3 { font-size: 28px; color: var(--primary); margin-bottom: 15px; font-weight: 800; }
+        .email-card p { color: #64748b; margin-bottom: 30px; font-size: 17px; }
+        
+        .em-btn { 
+            display: inline-block; background: var(--primary); color: white; 
+            padding: 20px 50px; border-radius: 15px; text-decoration: none; 
+            font-weight: 800; text-transform: uppercase; transition: 0.3s; 
+        }
+        .em-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(5,46,22,0.2); }
 
-        footer { background: var(--primary); color: white; padding: 100px 5%; text-align: center; margin-top: 100px; }
+        /* Extra Content Sections */
+        .content-section { max-width: 1200px; margin: 80px auto; padding: 0 30px; }
+        .section-title { font-family: 'Cinzel', serif; text-align: center; font-size: 32px; color: var(--primary); margin-bottom: 50px; }
+        
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .info-box { padding: 40px; background: #fff; border-radius: 25px; border-left: 6px solid var(--accent); box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+        .info-box h4 { font-size: 20px; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+        .info-box p { color: #475569; font-size: 15px; line-height: 1.7; }
 
-        @media (max-width: 900px) {
-            .contact-wrapper { grid-template-columns: 1fr; }
-            .contact-hero h2 { font-size: 45px; }
-            .contact-card { padding: 50px 30px; }
+        .mission-box { 
+            margin-top: 80px; padding: 60px; background: var(--primary); 
+            color: white; border-radius: 40px; text-align: center; 
+            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+        }
+
+        footer { background: #020617; color: #94a3b8; padding: 80px 5%; text-align: center; margin-top: 100px; }
+
+        @media (max-width: 768px) {
+            .contact-hero { padding: 100px 5% 200px; }
+            .email-card { padding: 40px 20px; }
+            .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 25px; }
         }
     </style>
 </head>
 <body>
 
+    <a href="https://wa.me/923476841038" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <header>
-        <div class="logo"><h1>AL-HISAB</h1></div>
-        <a href="index.html" class="home-btn">Home</a>
+        <div class="logo"><h1>HISABIFY</h1></div>
+        <a href="index.html" class="home-btn"><i class="fas fa-arrow-left"></i> Home</a>
     </header>
 
     <section class="contact-hero">
-        <h2>Let's Connect</h2>
-        <p>Expert guidance on Shariah-compliant Zakat calculation and Financial Integrity.</p>
+        <h2>Global Support Hub</h2>
+        <p>Connecting the Ummah with Precise Financial Clarity and Shariah Wisdom.</p>
     </section>
 
     <div class="contact-wrapper">
-        <div class="contact-card">
-            <i class="fab fa-whatsapp"></i>
-            <h3>WhatsApp Support</h3>
-            <p>Connect with our technical team instantly for quick resolutions and chat support.</p>
-            <button onclick="window.open('https://api.whatsapp.com/send?phone=923476841038','_blank')" class="btn-large wa">Start Chat Now</button>
-        </div>
-
-        <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <h3>Official Email</h3>
-            <p>Send your detailed questions for expert financial audit and Shariah inquiries.</p>
-            <button onclick="window.location.href='mailto:abdullahnosheen95@gmail.com'" class="btn-large em">Send Inquiry</button>
+        <div class="email-card">
+            <i class="fas fa-envelope-open-text"></i>
+            <h3>Direct Email Assistance</h3>
+            <p>For complex Zakat queries, business audit requests, or technical issues, our expert team is ready to assist you via our official channel.</p>
+            <a href="mailto:hisabify.online@gmail.com" class="em-btn">hisabify.online@gmail.com</a>
+            <p style="margin-top: 20px; font-size: 14px; opacity: 0.7;">Expected response time: 12-24 hours</p>
         </div>
     </div>
 
     <section class="content-section">
-        <h2>Why Al-Hisab Support?</h2>
-        <div class="grid-info">
+        <h2 class="section-title">Support Guidelines & Services</h2>
+        
+        <div class="info-grid">
             <div class="info-box">
-                <h4><i class="fas fa-shield-halved"></i> 100% Privacy</h4>
-                <p>Your financial details and messages are kept strictly confidential. We prioritize data security alongside Shariah compliance to ensure your peace of mind.</p>
+                <h4><i class="fas fa-calculator"></i> Calculation Help</h4>
+                <p>Confused about Gold purity or Livestock Nisab? Mention your specific asset details in the email, and our team will guide you through the manual verification process according to 2026 Shariah standards.</p>
             </div>
             <div class="info-box">
-                <h4><i class="fas fa-clock"></i> 24/7 Availability</h4>
-                <p>While our portal is fully automated, our dedicated support team is always available to guide you through any technical or calculation challenges you may face.</p>
+                <h4><i class="fas fa-user-shield"></i> Privacy Protocol</h4>
+                <p>We do not store your financial data. Any information shared during support chats or emails is used solely for the calculation at hand and is deleted immediately after resolution.</p>
             </div>
             <div class="info-box">
-                <h4><i class="fas fa-check-double"></i> Expert Audit</h4>
-                <p>Al-Hisab is more than just a calculator; it is a trusted system. Through our support hub, you can directly consult with experts regarding your specific assets.</p>
+                <h4><i class="fas fa-bug"></i> Technical Reporting</h4>
+                <p>If you find a bug in the 2026 Mega Calculator or the Intelligence Matrix, please send a screenshot to our email. We reward users who help us improve the system's accuracy.</p>
+            </div>
+            <div class="info-box">
+                <h4><i class="fas fa-mosque"></i> Fatwa Referencing</h4>
+                <p>While we provide mathematical tools, for deep religious rulings, we provide references from top Shariah boards. Contact us if you need specific fatwa links for your assets.</p>
             </div>
         </div>
         
-        <div style="margin-top: 80px; padding: 60px; background: var(--primary); color: white; border-radius: 40px;">
-            <h3 style="font-family: 'Cinzel'; font-size: 30px; color: var(--accent); margin-bottom: 20px;">The Al-Hisab Mission</h3>
-            <p style="font-size: 18px; opacity: 0.9; max-width: 900px; margin: 0 auto;">Our mission is to simplify Zakat payment for the Ummah through digital innovation. By combining real-time market rates with precise calculation logic, we save you time and effort. If you encounter any issues or have suggestions for new features, please reach out to us immediately.</p>
+        <div class="mission-box">
+            <h3 style="font-family: 'Cinzel'; font-size: 32px; color: var(--accent); margin-bottom: 25px;">The HISABIFY Mission 2026</h3>
+            <p style="font-size: 19px; opacity: 0.9; max-width: 900px; margin: 0 auto; line-height: 1.8;">
+                Our journey began with a simple goal: To ensure no Muslim has to struggle with the complexity of Zakat in the modern world. By integrating real-time market data with traditional Islamic jurisprudence, HISABIFY has become the most trusted portal for 2026. Your feedback drives our innovation.
+            </p>
+            <div style="margin-top: 40px; display: flex; justify-content: center; gap: 30px; font-size: 24px; color: var(--accent);">
+                <i class="fas fa-gem"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-heart"></i>
+            </div>
         </div>
     </section>
 
     <footer>
-        <div style="font-family: 'Cinzel'; font-size: 26px; color: var(--accent); margin-bottom: 20px;">AL-HISAB GLOBAL SUPPORT</div>
-        <p>&copy; 2026 Al-Hisab Digital Portal. All Rights Reserved. <br> Engineered for Accuracy & Shariah Integrity by Abdullah.</p>
+        <div style="font-family: 'Cinzel'; font-size: 26px; color: var(--accent); margin-bottom: 20px;">HISABIFY GLOBAL</div>
+        <p>&copy; 2026 HISABIFY Digital Portal. All Rights Reserved. <br> Built for the Global Ummah by Abdullah.</p>
     </footer>
+
 <script src="brand.js"></script>
 </body>
 </html>
