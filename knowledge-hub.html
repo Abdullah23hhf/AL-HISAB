@@ -11,10 +11,21 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: #1f2937; line-height: 1.7; scroll-behavior: smooth; }
 
-        header { background: var(--white); padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        /* --- STYLISH HEADER --- */
+        header { 
+            background: var(--white); 
+            padding: 15px 6%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 3px solid var(--gold);
+        }
         .logo { font-family: 'Cinzel', serif; font-size: 24px; color: var(--brand); text-decoration: none; font-weight: bold; border-left: 3px solid var(--gold); padding-left: 15px; }
         
-        /* STYLISH HOME BUTTON */
         .home-btn { 
             text-decoration: none; 
             background: var(--brand); 
@@ -37,7 +48,6 @@
             box-shadow: 0 6px 20px rgba(198, 163, 6, 0.3);
         }
 
-        /* Quick Nav */
         .quick-nav { background: var(--brand); padding: 10px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .quick-nav a { color: white; text-decoration: none; font-size: 13px; font-weight: 600; opacity: 0.8; transition: 0.3s; }
         .quick-nav a:hover { opacity: 1; color: var(--gold); }
@@ -46,17 +56,15 @@
         
         .hub-section { background: white; padding: 50px; border-radius: 30px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #e5e7eb; }
         h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--brand); margin-bottom: 25px; border-left: 5px solid var(--gold); padding-left: 20px; }
+        h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--brand); margin-top: 30px; margin-bottom: 15px; }
 
-        /* Comparison Table */
         .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .vs-card { background: #f9fafb; padding: 25px; border-radius: 15px; border: 1px solid #e5e7eb; }
         .vs-card h4 { color: var(--gold); margin-bottom: 10px; text-transform: uppercase; font-size: 14px; }
 
-        /* Mistakes List */
         .mistake-item { display: flex; gap: 15px; margin-bottom: 20px; background: #fff1f2; padding: 20px; border-radius: 15px; border-left: 5px solid #ef4444; }
         .mistake-item i { color: #ef4444; font-size: 20px; }
 
-        /* Reminder Box */
         .reminder-box { background: linear-gradient(135deg, #052e16 0%, #064e3b 100%); color: white; padding: 60px; border-radius: 30px; text-align: center; }
         .reminder-box h3 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 15px; }
         .reminder-form { display: flex; max-width: 600px; margin: 30px auto; gap: 10px; }
@@ -66,112 +74,317 @@
 
         .tag { background: #fef3c7; color: #92400e; padding: 4px 12px; border-radius: 50px; font-size: 12px; font-weight: 700; }
 
-        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 13px; }
+        /* --- STYLISH FOOTER BANNER --- */
+        .footer-banner {
+            background: var(--brand);
+            background-image: linear-gradient(rgba(5, 46, 22, 0.92), rgba(5, 46, 22, 0.92)), url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 5px solid var(--gold);
+            margin-top: 50px;
+        }
+        .footer-logo { font-family: 'Cinzel', serif; font-size: 32px; color: var(--gold); margin-bottom: 15px; display: block; font-weight: 900; }
+        .footer-text { max-width: 800px; margin: 0 auto 25px; opacity: 0.9; font-size: 15px; }
+        .footer-contact { margin-top: 20px; font-weight: 600; font-size: 16px; }
+        .footer-contact a { color: var(--gold); text-decoration: none; }
+        .engineered { margin-top: 30px; font-size: 12px; opacity: 0.7; text-transform: uppercase; letter-spacing: 2px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
 
         @media (max-width: 768px) { .vs-grid { grid-template-columns: 1fr; } .reminder-form { flex-direction: column; } }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo">AL-HISAB</a>
-        <nav>
-            <a href="index.html" class="home-btn"><i class="fas fa-house"></i> Home</a>
-        </nav>
-    </header>
+<header>
+    <a href="index.html" class="logo">HISABIFY</a>
+    <nav>
+        <a href="index.html" class="home-btn"><i class="fas fa-th-large"></i> DASHBOARD</a>
+    </nav>
+</header>
 
-    <div class="quick-nav">
-        <a href="#vs-tax">ZAKAT VS TAX</a>
-        <a href="#vs-sadaqah">ZAKAT VS SADAQAH</a>
-        <a href="#mistakes">COMMON MISTAKES</a>
-        <a href="#ramadan">RAMADAN GUIDE</a>
-        <a href="#reminder">DUE DATE REMINDER</a>
+<div class="quick-nav">
+    <a href="#vs-tax">ZAKAT VS TAX</a>
+    <a href="#vs-sadaqah">ZAKAT VS SADAQAH</a>
+    <a href="#mistakes">COMMON MISTAKES</a>
+    <a href="#ramadan">RAMADAN GUIDE</a>
+    <a href="#reminder">DUE DATE REMINDER</a>
+</div>
+
+<div class="container">
+
+    <section class="hub-section" id="vs-tax">
+        <h2>Zakat vs Secular Tax</h2>
+        <p style="margin-bottom: 25px;">Understanding the fundamental difference between State law and Divine law.</p>
+        <div class="vs-grid">
+            <div class="vs-card">
+                <h4>Zakat (Ibadah)</h4>
+                <p>Fixed 2.5% rate on surplus wealth. Specifically for 8 categories of people defined in the Quran. It purifies the soul and wealth.</p>
+            </div>
+            <div class="vs-card">
+                <h4>Tax (State Law)</h4>
+                <p>Variable rates on income or consumption. Used for infrastructure, defense, and public services. <strong>Tax cannot replace Zakat.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hub-section" id="vs-sadaqah">
+        <h2>Zakat vs Sadaqah</h2>
+        <p style="margin-bottom: 25px;">One is an obligation, the other is a voluntary virtuous act.</p>
+        <div class="vs-grid">
+            <div class="vs-card">
+                <span class="tag">Compulsory</span>
+                <h3 style="margin-top:10px;">Zakat</h3>
+                <p>Mandatory for every Sahab-e-Nisab Muslim. Has a fixed time (Lunar year) and fixed percentage.</p>
+            </div>
+            <div class="vs-card">
+                <span class="tag">Voluntary</span>
+                <h3 style="margin-top:10px;">Sadaqah</h3>
+                <p>Optional charity given any time. No limit or fixed percentage. Given purely for extra rewards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hub-section" id="mistakes">
+        <h2>Common Zakat Mistakes</h2>
+        <div class="mistake-item">
+            <i class="fas fa-times-circle"></i>
+            <div><strong>Thinking Tax is Zakat:</strong> Paying income tax does not fulfill your Zakat obligation.</div>
+        </div>
+        <div class="mistake-item">
+            <i class="fas fa-times-circle"></i>
+            <div><strong>Ignoring Jewelry:</strong> Many people forget to calculate Zakat on Gold jewelry that is in use.</div>
+        </div>
+        <div class="mistake-item" style="background: #f0fdf4; border-left-color: #22c55e;">
+            <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+            <div><strong>Correction:</strong> Always use live Gold/Silver rates for the day you are paying Zakat.</div>
+        </div>
+    </section>
+
+    <section class="hub-section" id="ramadan">
+        <h2>Ramadan Zakat Guide</h2>
+        <p>While Zakat can be paid any time of the year once the Hawl (lunar year) is complete, many prefer Ramadan for multiplied rewards.</p>
+        <ul style="margin-top:20px; margin-left:20px;">
+            <li>Calculate your total assets on the 1st of Ramadan.</li>
+            <li>Subtract immediate debts.</li>
+            <li>Distribute to eligible relatives first (Double reward).</li>
+        </ul>
+    </section>
+
+    <section class="reminder-box" id="reminder">
+        <h3>When is my Zakat due?</h3>
+        <p>Don't miss your purification date. Enter your email and Zakat anniversary date, and we will send you a professional reminder every year.</p>
+        <form class="reminder-form">
+            <input type="email" placeholder="Enter your email" required>
+            <input type="date" title="Select your Zakat Anniversary" required>
+            <button type="submit">Set Reminder</button>
+        </form>
+        <p style="font-size: 12px; opacity: 0.7; margin-top: 15px;"><i class="fas fa-shield-alt"></i> We value your privacy. Unsubscribe at any time.</p>
+    </section>
+
+    <article class="hub-section">
+        <h2>Zakat 2026: The Comprehensive Guide to Modern Wealth Purification</h2>
+        <p>As we navigate the fiscal year 2026, the application of Zakat in an increasingly digital economy requires a deep understanding of traditional principles applied to modern assets. Zakat is not merely a charity; it is a fundamental pillar of Islam that ensures the circulation of wealth within the community. At Hisabify, we aim to bridge the gap between classical Fiqh and contemporary financial structures.</p>
+        
+        <h3>Understanding the Nisab for 2026</h3>
+        <p>The Nisab is the minimum threshold of wealth a Muslim must possess for a full lunar year before Zakat becomes obligatory. In 2026, with fluctuating global market values, it is crucial to stay updated on the current price of Gold and Silver. Traditionally, the Nisab is set at 87.48 grams of gold or 612.36 grams of silver. While many contemporary scholars recommend using the silver threshold to maximize the benefit for the poor, others suggest the gold threshold for those living in high-cost economies. Using tools like Hisabify can help you track these values in real-time.</p>
+        
+        <h3>The Concept of Hawl (The Lunar Year)</h3>
+        <p>Zakat is due once your wealth stays above the Nisab for one complete Hijri year. This is known as the Hawl. Many Muslims in Pakistan and around the world choose the month of Ramadan to calculate and pay their Zakat due to the spiritual significance and multiplied rewards of this holy month. However, your Hawl starts the moment your wealth reaches the Nisab for the first time. If you reached the Nisab on the 10th of Shaban, your Zakat is technically due on the 10th of Shaban the following year.</p>
+
+        <h3>How to Calculate Zakat on Total Wealth</h3>
+        <p>To calculate your Zakat correctly, you must sum up all your "Zakat-able" assets. This includes cash in hand, bank balances (savings and current accounts), the market value of gold and silver, stocks, business inventory, and money owed to you that you are confident will be repaid. From this total, you subtract your immediate short-term debts and liabilities. The remaining amount, if it exceeds the Nisab, is subject to a 2.5% Zakat rate.</p>
+
+        <h3>The Spiritual Impact of Zakat</h3>
+        <p>Beyond the numbers, Zakat serves as a purification of the soul from greed and a purification of wealth from the rights of others. In the 2026 economic landscape, where wealth disparity continues to grow, the role of Zakat in social welfare is more critical than ever. When you use Hisabify to manage your contributions, you are participating in a divine system of equity designed to uplift the most vulnerable members of the Ummah.</p>
+        
+        <p>It is important to remember that Zakat must be given with the correct intention (Niyyah). Without the intention of fulfilling a religious obligation, the payment may be considered general charity (Sadaqah) but not Zakat. This distinction is vital for the validity of your worship.</p>
+        
+        <h3>Eligible Recipients of Zakat</h3>
+        <p>The Quran (9:60) specifies eight categories of people who are eligible to receive Zakat:</p>
+        <ul>
+            <li>The Poor (Al-Fuqara)</li>
+            <li>The Needy (Al-Masakin)</li>
+            <li>Zakat Administrators</li>
+            <li>Those whose hearts are to be reconciled</li>
+            <li>Those in bondage (slaves and captives)</li>
+            <li>The Debt-Ridden</li>
+            <li>In the cause of Allah</li>
+            <li>The Wayfarer (stranded travelers)</li>
+        </ul>
+        <p>Ensuring your Zakat reaches these specific categories is essential. Many people prefer giving to reputable organizations or directly to relatives who qualify, as giving to family members (who are not your direct dependents like parents or children) carries a double reward: the reward of charity and the reward of maintaining family ties.</p>
+    </article>
+
+    <article class="hub-section">
+        <h2>Detailed Zakat Guidelines for Gold, Silver, and Cash</h2>
+        <p>The most common forms of wealth subject to Zakat remain precious metals and liquid currency. However, the nuances of how these are valued in 2026 can lead to confusion. Hisabify provides this detailed breakdown to ensure your calculations are accurate and Shariah-compliant.</p>
+        
+        <h3>Zakat on Gold Jewelry: Is it Obligatory?</h3>
+        <p>There is a difference of opinion among the various schools of thought (Madhabs) regarding Zakat on jewelry intended for personal use. According to the Hanafi school, Zakat is due on all gold and silver jewelry, regardless of whether it is worn or kept in storage, provided it meets the weight requirements. In contrast, the Shafi'i, Maliki, and Hanbali schools generally hold that jewelry intended for frequent personal use is exempt from Zakat.</p>
+        
+        <p>For Muslims in Pakistan, who largely follow the Hanafi school, the prevailing view is that Zakat must be paid on all gold jewelry. This includes rings, necklaces, bangles, and even gold coins. When calculating, you should use the current market value of the gold content (e.g., 22k or 24k) rather than the purchase price or the price including "making charges."</p>
+
+        <h3>Valuing Silver in 2026</h3>
+        <p>While gold often takes the spotlight, silver is equally significant. Many household items, such as silver utensils or decorative pieces, might be subject to Zakat if they are made of pure silver. The Nisab for silver is considerably lower in value than gold, which means many more people qualify as "Sahib-e-Nisab" based on the silver standard. If you own both gold and silver, their values should be combined to see if the total meets the silver Nisab threshold.</p>
+
+        <h3>Cash and Bank Balances</h3>
+        <p>Every rupee, dollar, or riyal you own is subject to Zakat if it has been in your possession for a year and your total assets exceed the Nisab. This includes:</p>
+        <ul>
+            <li>Cash kept at home for emergencies.</li>
+            <li>Funds in savings accounts, even if they are for a specific purpose like Hajj or a wedding.</li>
+            <li>Balance in digital wallets (EasyPaisa, JazzCash, etc.).</li>
+            <li>Fixed deposits (only the principal amount is Zakat-able; interest/Riba must be disposed of entirely without the intention of reward).</li>
+        </ul>
+        
+        <h3>Calculating Zakat on Foreign Currency</h3>
+        <p>If you hold wealth in foreign currencies, you must convert the total amount into your local currency (PKR for those in Pakistan) using the exchange rate on the day you perform your Zakat calculation. The total value is then added to your other liquid assets. Hisabify simplifies this by allowing you to input various currencies and giving you a consolidated Zakat figure.</p>
+
+        <h3>Debts and Zakat</h3>
+        <p>One of the most frequent questions we receive at Hisabify is how to treat debts. If you owe money to someone, you can deduct the amount of that debt from your total assets before calculating Zakat. However, this only applies to "immediate" debts. Long-term debts, such as a 20-year mortgage or a long-term car loan, should only have the upcoming year's installments deducted, not the entire outstanding balance. Conversely, if people owe you money, you must include it in your Zakat calculation if you are certain they will pay you back. If the debt is "bad" or doubtful, you don't pay Zakat on it until you actually receive the funds.</p>
+    </article>
+
+    <article class="hub-section">
+        <h2>Modern Assets: Zakat on Crypto, NFTs, and Stocks</h2>
+        <p>The 2026 financial landscape is dominated by digital assets. Determining the Zakat status of Bitcoin, Ethereum, and non-fungible tokens (NFTs) is a priority for the modern Muslim investor. Hisabify is at the forefront of providing clarity on these complex instruments.</p>
+        
+        <h3>Is Cryptocurrency Subject to Zakat?</h3>
+        <p>The consensus among contemporary Shariah scholars is that cryptocurrencies are considered "Mal" (wealth) because they have value and can be traded. Therefore, they are subject to Zakat. If you hold crypto as an investment (waiting for the price to rise), you must pay 2.5% of the total market value of your portfolio on your Zakat anniversary date.</p>
+        
+        <p>For those involved in "staking" or "yield farming," the rewards earned are also Zakat-able once they are in your possession. You should calculate the value of your tokens in your local currency at the time of your Hawl.</p>
+
+        <h3>Zakat on Stocks and Shares</h3>
+        <p>Calculating Zakat on stocks depends on your intention. If you are a short-term trader (buying and selling frequently), Zakat is due on the full market value of your portfolio at the end of the year. If you are a long-term investor holding shares for dividends, you are technically only liable for the portion of the company's "Zakat-able assets" (like cash and inventory) that your shares represent. However, because this calculation can be extremely difficult for individual investors, many scholars recommend paying 2.5% of the total market value as a safe and conservative approach. Hisabify recommends consulting with a specialized Islamic finance advisor if you have significant corporate holdings.</p>
+
+        <h3>The Rise of NFTs and Digital Art</h3>
+        <p>NFTs (Non-Fungible Tokens) are treated similarly to physical collectibles or trade goods. If you purchased an NFT for the purpose of reselling it at a profit, it is considered business inventory, and Zakat is due on its current market value. If it is a personal collectible with no intention of resale, some scholars argue it is exempt, much like personal furniture or art. However, given the high liquidity of some NFT markets in 2026, the intention is the primary deciding factor.</p>
+
+        <h3>Digital Wealth Purification: The Practical Steps</h3>
+        <ol>
+            <li>Take a snapshot of all your digital wallets on your Zakat date.</li>
+            <li>Convert the value of each coin (BTC, ETH, etc.) into your base currency.</li>
+            <li>Include "stablecoins" (USDT, USDC) as they are equivalent to cash.</li>
+            <li>Add these totals to your traditional bank balances.</li>
+        </ol>
+        <p>At Hisabify, we emphasize that digital wealth is no different from physical wealth in the eyes of Allah. The obligation to give back remains the same, regardless of whether your assets are stored in a vault or on a blockchain.</p>
+    </article>
+
+    <article class="hub-section">
+        <h2>Common Zakat Mistakes in Pakistan: A 2026 Perspective</h2>
+        <p>Pakistan has a unique Zakat system involving both private and state-level collections. However, many individuals still make fundamental errors that could invalidate their Zakat. Recognizing these pitfalls is the first step toward a perfect calculation.</p>
+        
+        <h3>Mistake 1: Confusing Tax with Zakat</h3>
+        <p>This is perhaps the most common error. Income tax is a mandatory contribution to the state for infrastructure and services. Zakat is a mandatory act of worship for the sake of Allah. You cannot deduct your tax paid from your Zakat liability, nor can you consider your tax payment as a substitute for Zakat. They are two entirely separate obligations. While Hisabify helps you calculate Zakat, your tax consultant handles your FBR filings.</p>
+
+        <h3>Mistake 2: Only Paying Zakat in Ramadan</h3>
+        <p>While Ramadan is a blessed time, Zakat is due as soon as the Hawl is complete. If your wealth reached the Nisab in Safar, your Zakat is due in Safar. Delaying it until Ramadan without a valid reason is generally discouraged. If you wish to align your Zakat with Ramadan for convenience, you should pay for the months elapsed since your actual due date to ensure you are always ahead of your obligation.</p>
+
+        <h3>Mistake 3: Forgetting Personal Business Loans</h3>
+        <p>Many people in Pakistan lend money to friends or family members to help with business startups. If this is a "good loan" (Qard al-Hasan) and you expect to be repaid, you must account for this money in your Zakat. Even if you don't have the cash in hand, the wealth still belongs to you.</p>
+
+        <h3>Mistake 4: Not Accounting for Retirement Funds (Provident Fund/EOBI)</h3>
+        <p>For employees in Pakistan, the Provident Fund is a significant asset. The Zakat treatment depends on whether the contribution is voluntary or mandatory. Generally, Zakat is due on the amount you have access to or the amount that has been credited to your account. Hisabify suggests checking your latest statement before your Zakat anniversary.</p>
+
+        <h3>Mistake 5: Neglecting the Zakat on Real Estate</h3>
+        <p>There is no Zakat on the house you live in. However, if you own a "plot" or a house for the purpose of investment or resale, Zakat is due on its total market value every year. Many people in Pakistan hold real estate for years without paying Zakat, assuming it’s only due when they sell. This is a significant misconception in the Hanafi school of thought.</p>
+    </article>
+
+    <article class="hub-section">
+        <h2>Zakat vs. Tax: A Detailed Islamic and Legal View</h2>
+        <p>In 2026, the debate between religious obligation and civic duty remains relevant. Understanding why these two systems exist and how they interact is crucial for every Muslim citizen.</p>
+        
+        <h3>The Divine Nature of Zakat</h3>
+        <p>Zakat is one of the five pillars of Islam. Its rates (2.5%), its Nisab, and its recipients are divinely ordained and cannot be changed by any government. The purpose of Zakat is "Tazkiyah"—the purification of the giver's heart and the growth of the recipient's well-being. It is a spiritual contract between the individual and Allah.</p>
+
+        <h3>The Social Contract of Taxation</h3>
+        <p>Taxation is a modern necessity. It funds the roads we drive on, the schools our children attend, and the security forces that protect us. The state has the right to impose taxes to meet public needs. However, unlike Zakat, taxes can be adjusted based on the economic climate, and the funds can be used for any public benefit, not just for the eight categories mentioned in the Quran.</p>
+
+        <h3>The Interplay: Can I Deduct Tax?</h3>
+        <p>From a Shariah perspective, the money you pay in tax is no longer in your possession; therefore, you do not pay Zakat on the money used to pay taxes. You only pay Zakat on the wealth you *retain* after your expenses and liabilities (including taxes) are met. Hisabify helps you determine your net Zakat-able wealth after such deductions.</p>
+
+        <p>In Pakistan, the Zakat and Ushr Ordinance allows the state to deduct Zakat at source from certain types of bank accounts on the 1st of Ramadan. If the state deducts Zakat from your account, that specific portion of your obligation is fulfilled. However, you must still manually calculate and pay Zakat on your other assets (gold, cash at home, crypto, business stock) that the state does not see.</p>
+    </article>
+
+    <article class="hub-section">
+        <h2>Jewelry Zakat: Madhab-wise Detailed Analysis</h2>
+        <p>Jewelry is often the most significant asset for women in the Ummah. Understanding how different Islamic schools of thought treat jewelry is essential for an accurate Hisabify calculation.</p>
+        
+        <h3>The Hanafi Position</h3>
+        <p>The Hanafi school holds the most rigorous view: Zakat is mandatory on all gold and silver, regardless of its form. Whether it is a wedding ring you wear daily or bullion stored in a safe, if it's gold or silver and exceeds the Nisab, 2.5% is due. This is the most common practice in Pakistan, India, and Turkey.</p>
+
+        <h3>The Shafi'i, Maliki, and Hanbali Positions</h3>
+        <p>These three schools generally agree that "lawful" jewelry intended for personal use and worn regularly is exempt from Zakat. They view jewelry as a personal necessity rather than growing wealth. However, if the jewelry is kept as an investment, or if the amount is "excessive" beyond what is culturally normal, then Zakat becomes due.</p>
+
+        <h3>What Constitutes "Personal Use"?</h3>
+        <p>Scholars within these schools define personal use based on local customs ('Urf). If a woman owns jewelry that she wears on special occasions or weddings, it is considered personal. However, if she owns kilograms of gold that are never worn, even these schools would require Zakat to be paid. In 2026, many families use Hisabify to track these holdings and apply the most conservative opinion to ensure their worship is complete.</p>
+
+        <h3>Calculating the Value</h3>
+        <p>Regardless of the Madhab, when you pay Zakat on jewelry, you calculate based on the current market value of the gold. For example, if you have 100 grams of 21k gold, you find the current price per gram of 21k gold and multiply it. You do not include the cost of precious stones (diamonds, rubies) unless those stones were bought for the specific purpose of trade.</p>
+    </article>
+
+    <article class="hub-section">
+        <h2>Business and Inventory Zakat: For the Modern Entrepreneur</h2>
+        <p>Whether you run an e-commerce store on Shopify or a traditional warehouse in Karachi, your business assets are subject to Zakat. Business Zakat ensures that commerce serves the community as well as the owner.</p>
+        
+        <h3>What is Business Inventory?</h3>
+        <p>Inventory (Urud al-Tijarah) includes everything you have purchased with the intention of reselling for a profit. This includes:</p>
+        <ul>
+            <li>Raw materials in a factory.</li>
+            <li>Finished goods on the shelf.</li>
+            <li>Goods in transit that you have already paid for.</li>
+            <li>Work-in-progress items.</li>
+        </ul>
+
+        <h3>Valuing Your Stock</h3>
+        <p>A common question is: "Should I value my stock at the price I bought it or the price I sell it?" The correct Shariah position is to value the stock at its current **wholesale market value** on your Zakat date. This is the price it would cost you to replace that stock today. You do not use the retail price (which includes your future profit) nor the original cost (which might be outdated).</p>
+
+        <h3>Exempt Business Assets</h3>
+        <p>You do not pay Zakat on the "fixed assets" of your business. These include:</p>
+        <ul>
+            <li>The building or shop itself.</li>
+            <li>Machinery and tools.</li>
+            <li>Delivery vehicles and computers.</li>
+            <li>Office furniture and stationery.</li>
+        </ul>
+        <p>Zakat is only due on the "circulating wealth"—the cash, the receivables, and the inventory. Hisabify provides a dedicated module for business owners to separate these categories easily.</p>
+
+        <h3>Partnerships and Shares</h3>
+        <p>If you are in a business partnership, Zakat is paid by each partner on their respective share of the Zakat-able assets, unless the business pays Zakat collectively on behalf of all partners. In 2026, it is common for Shariah-compliant firms to handle Zakat at the corporate level before distributing profits.</p>
+    </article>
+
+    <article class="hub-section">
+        <h2>Digital Wealth Purification: Ethics and Practice</h2>
+        <p>As we move further into 2026, the concept of wealth is becoming increasingly abstract. However, the ethical requirements of Islam remain grounded in reality. Purifying digital wealth is about more than just a 2.5% deduction; it's about ensuring your income sources are Halal.</p>
+        
+        <h3>Purifying "Grey" Income</h3>
+        <p>If you have earned money through platforms that involve some level of Shariah-non-compliant activity (like interest-bearing accounts or questionable advertising), that income must be "purified." This is not Zakat; it is a total disposal of the Haram portion of the wealth. You must give this amount to charity without expecting any spiritual reward (Sawab), as it was never yours to begin with. Only after this purification can you calculate Zakat on the remaining Halal wealth.</p>
+
+        <h3>The Role of Hisabify in the Digital Age</h3>
+        <p>Hisabify is more than a calculator; it is a companion for the modern Muslim. By integrating real-time price feeds for gold, silver, and major cryptocurrencies, it removes the guesswork from your Zakat calculation. In 2026, accuracy is paramount. With the complexity of global finance, a mistake of even 0.1% can mean a significant amount of the poor's right remains in your pocket.</p>
+
+        <h3>Giving with Impact</h3>
+        <p>Once you have calculated your Zakat using Hisabify, the final step is distribution. In 2026, we encourage donors to look for "Empowerment Zakat"—giving larger amounts to individuals to help them start a small business or gain a skill, effectively moving them from being Zakat recipients to Zakat givers in the future. This sustainable approach is the essence of Islamic social finance.</p>
+        
+        <p>Whether you are a freelancer earning in USD, a traditional jeweler, or a crypto enthusiast, Zakat is the thread that connects your financial success to the well-being of the global Ummah. Let Hisabify guide you in this noble obligation.</p>
+    </article>
+
+</div>
+
+<footer class="footer-banner">
+    <span class="footer-logo">HISABIFY</span>
+    <p class="footer-text">
+        Hisabify is a dedicated platform providing accurate Shariah-compliant tools for modern wealth purification. 
+        We help the Ummah fulfill their religious obligations with precision and ease.
+    </p>
+    
+    <div class="footer-contact">
+        Contact Us: <a href="mailto:hisabify.online@gmail.com">hisabify.online@gmail.com</a>
     </div>
 
-    <div class="container">
-
-        <section class="hub-section" id="vs-tax">
-            <h2>Zakat vs Secular Tax</h2>
-            <p style="margin-bottom: 25px;">Understanding the fundamental difference between State law and Divine law.</p>
-            <div class="vs-grid">
-                <div class="vs-card">
-                    <h4>Zakat (Ibadah)</h4>
-                    <p>Fixed 2.5% rate on surplus wealth. Specifically for 8 categories of people defined in the Quran. It purifies the soul and wealth.</p>
-                </div>
-                <div class="vs-card">
-                    <h4>Tax (State Law)</h4>
-                    <p>Variable rates on income or consumption. Used for infrastructure, defense, and public services. <strong>Tax cannot replace Zakat.</strong></p>
-                </div>
-            </div>
-        </section>
-
-        <section class="hub-section" id="vs-sadaqah">
-            <h2>Zakat vs Sadaqah</h2>
-            <p style="margin-bottom: 25px;">One is an obligation, the other is a voluntary virtuous act.</p>
-            
-            <div class="vs-grid">
-                <div class="vs-card">
-                    <span class="tag">Compulsory</span>
-                    <h3 style="margin-top:10px;">Zakat</h3>
-                    <p>Mandatory for every Sahab-e-Nisab Muslim. Has a fixed time (Lunar year) and fixed percentage.</p>
-                </div>
-                <div class="vs-card">
-                    <span class="tag">Voluntary</span>
-                    <h3 style="margin-top:10px;">Sadaqah</h3>
-                    <p>Optional charity given any time. No limit or fixed percentage. Given purely for extra rewards.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="hub-section" id="mistakes">
-            <h2>Common Zakat Mistakes</h2>
-            <div class="mistake-item">
-                <i class="fas fa-times-circle"></i>
-                <div>
-                    <strong>Thinking Tax is Zakat:</strong> Paying income tax does not fulfill your Zakat obligation.
-                </div>
-            </div>
-            <div class="mistake-item">
-                <i class="fas fa-times-circle"></i>
-                <div>
-                    <strong>Ignoring Jewelry:</strong> Many people forget to calculate Zakat on Gold jewelry that is in use.
-                </div>
-            </div>
-            <div class="mistake-item" style="background: #f0fdf4; border-left-color: #22c55e;">
-                <i class="fas fa-check-circle" style="color: #22c55e;"></i>
-                <div>
-                    <strong>Correction:</strong> Always use live Gold/Silver rates for the day you are paying Zakat.
-                </div>
-            </div>
-        </section>
-
-        <section class="hub-section" id="ramadan">
-            <h2>Ramadan Zakat Guide</h2>
-            <p>While Zakat can be paid any time of the year once the Hawl (lunar year) is complete, many prefer Ramadan for multiplied rewards.</p>
-            <ul style="margin-top:20px; margin-left:20px;">
-                <li>Calculate your total assets on the 1st of Ramadan.</li>
-                <li>Subtract immediate debts.</li>
-                <li>Distribute to eligible relatives first (Double reward).</li>
-            </ul>
-        </section>
-
-        <section class="reminder-box" id="reminder">
-            <h3>When is my Zakat due?</h3>
-            <p>Don't miss your purification date. Enter your email and Zakat anniversary date, and we will send you a professional reminder every year.</p>
-            
-            <form class="reminder-form">
-                <input type="email" placeholder="Enter your email" required>
-                <input type="date" title="Select your Zakat Anniversary" required>
-                <button type="submit">Set Reminder</button>
-            </form>
-            <p style="font-size: 12px; opacity: 0.7; margin-top: 15px;"><i class="fas fa-shield-alt"></i> We value your privacy. Unsubscribe at any time.</p>
-        </section>
-
+    <div class="engineered">
+        Engineered by <strong>Abdullah</strong>
     </div>
+</footer>
 
-    <footer>
-        &copy; 2026 Al-Hisab Knowledge Hub. Purifying the Ummah's Wealth.
-    </footer>
 <script src="brand.js"></script>
+
 </body>
 </html>
