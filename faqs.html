@@ -1,219 +1,481 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge Base | Al-Hisab Support Hub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Base | Hisabify Support Hub</title>
+
+```
+<link href="[https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&display=swap](https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&display=swap)" rel="stylesheet">
+<link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+
+<style>
+    :root {
+        --primary: #022c22; 
+        --accent: #d4af37; 
+        --white: #ffffff; 
+        --bg: #f1f5f9;
+        --text-dark: #1e293b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-dark); line-height: 1.8; }
+
+    header {
+        background: var(--white); padding: 25px 8%;
+        display: flex; justify-content: space-between; align-items: center;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000;
+    }
+    .logo { text-decoration: none; border-left: 5px solid var(--accent); padding-left: 20px; }
+    .logo h1 { font-family: 'Cinzel', serif; font-size: 30px; color: var(--primary); margin: 0; letter-spacing: 1px; }
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    .home-btn { 
+        text-decoration: none; background: var(--primary); color: white !important; 
+        padding: 12px 35px; border-radius: 50px; font-weight: 800; font-size: 14px; 
+        text-transform: uppercase; display: flex; align-items: center; gap: 10px; transition: 0.3s;
+    }
+    .home-btn:hover { background: var(--accent); transform: scale(1.05); }
 
-    <style>
-        :root {
-            --primary: #022c22; 
-            --accent: #d4af37; 
-            --white: #ffffff; 
-            --bg: #f1f5f9;
-            --text-dark: #1e293b;
-        }
+    .faq-hero {
+        background: var(--primary); padding: 150px 8% 200px; text-align: center; color: white;
+        background-image: linear-gradient(rgba(2, 44, 34, 0.9), rgba(2, 44, 34, 0.9)), url('[https://www.transparenttextures.com/patterns/islamic-art.png](https://www.transparenttextures.com/patterns/islamic-art.png)');
+    }
+    .faq-hero h2 { font-family: 'Cinzel', serif; font-size: 55px; color: var(--accent); margin-bottom: 25px; }
+    .faq-hero p { opacity: 0.8; max-width: 850px; margin: 0 auto; font-size: 20px; font-weight: 300; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-dark); line-height: 1.8; }
+    .main-wrapper { max-width: 1200px; margin: -100px auto 100px; padding: 0 25px; }
 
-        /* Modern Header */
-        header {
-            background: var(--white); padding: 25px 8%;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03); position: sticky; top: 0; z-index: 1000;
-        }
-        .logo { text-decoration: none; border-left: 5px solid var(--accent); padding-left: 20px; }
-        .logo h1 { font-family: 'Cinzel', serif; font-size: 30px; color: var(--primary); margin: 0; letter-spacing: 1px; }
-        
-        .home-btn { 
-            text-decoration: none; background: var(--primary); color: white !important; 
-            padding: 12px 35px; border-radius: 50px; font-weight: 800; font-size: 14px; 
-            text-transform: uppercase; display: flex; align-items: center; gap: 10px; transition: 0.3s;
-        }
-        .home-btn:hover { background: var(--accent); transform: scale(1.05); }
+    .search-area { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); margin-bottom: 60px; text-align: center; }
+    .search-area h3 { margin-bottom: 20px; color: var(--primary); font-family: 'Cinzel'; }
+    .search-box { display: flex; max-width: 700px; margin: 0 auto; background: #f8fafc; border-radius: 15px; padding: 5px; border: 1px solid #e2e8f0; }
+    .search-box input { border: none; background: transparent; width: 100%; padding: 15px 25px; font-size: 17px; outline: none; }
+    
+    .faq-section-title { font-family: 'Cinzel'; font-size: 28px; color: var(--primary); margin: 60px 0 30px; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 10px; }
+    
+    .faq-item { background: white; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05); transition: 0.3s; }
+    .faq-item:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    
+    .faq-question { padding: 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 800; color: var(--primary); font-size: 19px; }
+    .faq-question i { color: var(--accent); font-size: 20px; transition: 0.4s; }
+    
+    .faq-answer { padding: 0 30px; max-height: 0; overflow: hidden; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); color: #475569; font-size: 17px; }
+    .faq-answer p { padding-bottom: 20px; }
+    .faq-answer ul, .faq-answer ol { padding-left: 20px; padding-bottom: 20px; }
+    .faq-answer li { margin-bottom: 10px; }
+    .faq-answer table { width: 100%; border-collapse: collapse; margin-bottom: 20px; border: 1px solid #e2e8f0; }
+    .faq-answer th, .faq-answer td { padding: 12px; border: 1px solid #e2e8f0; text-align: left; }
+    .faq-answer th { background: #f8fafc; color: var(--primary); }
 
-        /* Grand Hero Section */
-        .faq-hero {
-            background: var(--primary); padding: 150px 8% 200px; text-align: center; color: white;
-            background-image: linear-gradient(rgba(2, 44, 34, 0.9), rgba(2, 44, 34, 0.9)), url('https://www.transparenttextures.com/patterns/islamic-art.png');
-        }
-        .faq-hero h2 { font-family: 'Cinzel', serif; font-size: 55px; color: var(--accent); margin-bottom: 25px; }
-        .faq-hero p { opacity: 0.8; max-width: 850px; margin: 0 auto; font-size: 20px; font-weight: 300; }
+    .faq-item.active .faq-answer { max-height: 2000px; padding-top: 10px; padding-bottom: 30px; }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
 
-        /* Main Content Wrapper */
-        .main-wrapper { max-width: 1200px; margin: -100px auto 100px; padding: 0 25px; }
+    .knowledge-grid { display: grid; grid-template-columns: 1fr 350px; gap: 50px; }
+    .sidebar-card { background: var(--primary); color: white; padding: 40px; border-radius: 30px; height: fit-content; position: sticky; top: 120px; }
+    .sidebar-card h4 { font-family: 'Cinzel'; color: var(--accent); margin-bottom: 20px; font-size: 22px; }
+    .sidebar-card ul { list-style: none; }
+    .sidebar-card ul li { margin-bottom: 15px; display: flex; gap: 10px; font-size: 15px; opacity: 0.9; }
+    .sidebar-card ul li i { color: var(--accent); margin-top: 5px; }
 
-        /* Search Section */
-        .search-area { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); margin-bottom: 60px; text-align: center; }
-        .search-area h3 { margin-bottom: 20px; color: var(--primary); font-family: 'Cinzel'; }
-        .search-box { display: flex; max-width: 700px; margin: 0 auto; background: #f8fafc; border-radius: 15px; padding: 5px; border: 1px solid #e2e8f0; }
-        .search-box input { border: none; background: transparent; width: 100%; padding: 15px 25px; font-size: 17px; outline: none; }
-        
-        /* FAQ Style */
-        .faq-section-title { font-family: 'Cinzel'; font-size: 28px; color: var(--primary); margin: 60px 0 30px; border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 10px; }
-        
-        .faq-item { background: white; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.05); transition: 0.3s; }
-        .faq-item:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        
-        .faq-question { padding: 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 800; color: var(--primary); font-size: 19px; }
-        .faq-question i { color: var(--accent); font-size: 20px; transition: 0.4s; }
-        
-        .faq-answer { padding: 0 30px; max-height: 0; overflow: hidden; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); color: #475569; font-size: 17px; }
-        .faq-answer p { padding-bottom: 30px; }
+    footer { background: var(--primary); color: white; padding: 80px 5%; text-align: center; }
 
-        .faq-item.active .faq-answer { max-height: 600px; padding-top: 10px; }
-        .faq-item.active .faq-question i { transform: rotate(180deg); }
+    @media (max-width: 1000px) {
+        .knowledge-grid { grid-template-columns: 1fr; }
+        .faq-hero h2 { font-size: 35px; }
+        .sidebar-card { position: static; }
+    }
+</style>
 
-        /* Sidebar Info */
-        .knowledge-grid { display: grid; grid-template-columns: 1fr 350px; gap: 50px; }
-        .sidebar-card { background: var(--primary); color: white; padding: 40px; border-radius: 30px; height: fit-content; position: sticky; top: 120px; }
-        .sidebar-card h4 { font-family: 'Cinzel'; color: var(--accent); margin-bottom: 20px; font-size: 22px; }
-        .sidebar-card ul { list-style: none; }
-        .sidebar-card ul li { margin-bottom: 15px; display: flex; gap: 10px; font-size: 15px; opacity: 0.9; }
-        .sidebar-card ul li i { color: var(--accent); margin-top: 5px; }
+```
 
-        footer { background: var(--primary); color: white; padding: 80px 5%; text-align: center; }
-
-        @media (max-width: 1000px) {
-            .knowledge-grid { grid-template-columns: 1fr; }
-            .faq-hero h2 { font-size: 35px; }
-            .sidebar-card { position: static; }
-        }
-    </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo"><h1>AL-HISAB</h1></a>
-        <nav><a href="index.html" class="home-btn"><i class="fas fa-house"></i> Home</a></nav>
-    </header>
+```
+<header>
+    <a href="index.html" class="logo"><h1>HISABIFY</h1></a>
+    <nav><a href="index.html" class="home-btn"><i class="fas fa-house"></i> Home</a></nav>
+</header>
 
-    <section class="faq-hero">
-        <h2>Knowledge Base</h2>
-        <p>Understand the intricate principles of Zakat and how our digital engine ensures 100% Shariah-compliant precision for your wealth.</p>
-    </section>
+<section class="faq-hero">
+    <h2>Knowledge Base 2026</h2>
+    <p>Expert insights on Zakat Calculator 2026, Gold Nisab Today, and the evolving landscape of Shariah Compliant Finance in the digital age.</p>
+</section>
 
-    <div class="main-wrapper">
-        
-        <div class="search-area">
-            <h3>How can we help you today?</h3>
-            <div class="search-box">
-                <input type="text" placeholder="Search topics (e.g. Gold Nisab, Crypto Zakat...)">
-            </div>
-        </div>
-
-        <div class="knowledge-grid">
-            <div class="faq-content">
-                
-                <h3 class="faq-section-title">Core Principles</h3>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What is the precise definition of Nisab in 2026?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nisab represents the threshold of wealth that makes Zakat obligatory. It is calculated based on the market value of 87.48 grams of Gold or 612.36 grams of Silver. Al-Hisab uses real-time API data to fetch the exact current market rates, ensuring you never underpay or overpay your religious obligation.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        How is the "Lunar Year" (Hawl) requirement handled?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Zakat is only due on wealth that has been in your possession for one full Islamic (Lunar) year. If your wealth dips below the Nisab during the year but recovers, the year continues. Our calculator helps you log the "Zakat Date" to maintain consistency year after year.</p>
-                    </div>
-                </div>
-
-                <h3 class="faq-section-title">Modern Assets & Tech</h3>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Is Zakat applicable on Stock Market investments?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes. If stocks are bought for trade (capital gains), Zakat is paid on the full market value. If bought for dividends (long-term), Zakat is typically paid only on the 'Zakatable assets' of the company. Al-Hisab provides a simplified model to handle both scenarios based on standard scholarly guidelines.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Does Al-Hisab support Cryptocurrency Zakat?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely. Cryptocurrencies are treated as 'Amwal-e-Tijarat' (Trading Goods). Zakat is calculated at 2.5% of the portfolio's total value in your base currency at the time of your Zakat anniversary. We support major tokens including BTC, ETH, and Stablecoins.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Is my data secure and private?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Privacy is a core pillar of Al-Hisab. We utilize a "Client-Side" processing logic. This means your numbers are processed by your own browser. We do not store your financial data on our servers, ensuring your wealth remains a private matter between you and your Creator.</p>
-                    </div>
-                </div>
-
-                <h3 class="faq-section-title">Common Inquiries</h3>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Can I deduct my personal debts from Zakat?
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Scholars generally allow the deduction of "Short-term" debts (money you owe others that is due immediately) from your total zakatable wealth. However, long-term liabilities like future mortgage installments are usually not deducted from the current year's Zakat calculation.</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <aside class="sidebar-wrapper">
-                <div class="sidebar-card">
-                    <h4>Quick Guidelines</h4>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Calculate on total liquid assets.</li>
-                        <li><i class="fas fa-check-circle"></i> Include Gold, Silver & Cash.</li>
-                        <li><i class="fas fa-check-circle"></i> Include Business Inventory.</li>
-                        <li><i class="fas fa-check-circle"></i> Deduct immediate debts only.</li>
-                        <li><i class="fas fa-check-circle"></i> Pay 2.5% on the total.</li>
-                    </ul>
-                    <hr style="margin: 30px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
-                    <p style="font-size: 14px; opacity: 0.8;">Need specialized help? Visit our Contact Hub for direct support.</p>
-                </div>
-            </aside>
+<div class="main-wrapper">
+    
+    <div class="search-area">
+        <h3>How can we help you today?</h3>
+        <div class="search-box">
+            <input type="text" id="faqSearch" placeholder="Search topics (e.g. Gold Nisab Today, Crypto Zakat, Silver Price for Zakat...)">
         </div>
     </div>
 
-    <footer>
-        <div style="font-family: 'Cinzel'; font-size: 24px; color: var(--accent); margin-bottom: 20px;">AL-HISAB GLOBAL</div>
-        <p>&copy; 2026 Al-Hisab Knowledge Base. Engineered by Abdullah.<br>
-        Accurate Rates. Shariah Integrity. Absolute Privacy.</p>
-    </footer>
+    <div class="knowledge-grid">
+        <div class="faq-content">
+            
+            <h3 class="faq-section-title">1. Core Zakat Foundations</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is the precise definition of Nisab in 2026?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Nisab represents the threshold of wealth that makes Zakat obligatory. It is the minimum amount of wealth a Muslim must possess before they are liable to pay Zakat. In 2026, Hisabify continues to refine this calculation by integrating real-time market data.</p>
+                    <p>The Nisab is calculated based on the market value of two traditional commodities:</p>
+                    <ul>
+                        <li><strong>Gold Nisab:</strong> 87.48 grams (equivalent to 7.5 Tolas).</li>
+                        <li><strong>Silver Nisab:</strong> 612.36 grams (equivalent to 52.5 Tolas).</li>
+                    </ul>
+                    <p>Hisabify uses a Zakat Calculator 2026 engine that fetches the Gold Nisab Today and Silver Price for Zakat every 60 seconds. This ensures that your obligation is calculated with 100% Shariah-compliant precision, reflecting the actual economic conditions of the current year.</p>
+                </div>
+            </div>
 
-    <script>
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                
-                // Optional: Close other items when opening new one
-                document.querySelectorAll('.faq-item').forEach(other => {
-                    if (other !== item) other.classList.remove('active');
-                });
+            <div class="faq-item">
+                <div class="faq-question">
+                    How is the "Lunar Year" (Hawl) requirement handled?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Zakat is only due on wealth that has been in your possession for one full Islamic (Lunar) year. This period is known as the Hawl. The Lunar year is approximately 354 days long, which is shorter than the Solar year. To maintain Shariah integrity, Hisabify uses the Hijri calendar as the primary tracker.</p>
+                    <p>If your wealth dips below the Nisab during the year but recovers before the end of your Zakat anniversary, the year is still considered complete. However, if your wealth stays at zero or near-zero for a significant period, the "Lunar Year" timer resets once you again cross the Nisab threshold. Our platform allows you to set a "Zakat Anniversary Date" (e.g., 1st of Ramadan) to simplify this recurring obligation.</p>
+                </div>
+            </div>
 
-                item.classList.toggle('active');
+            <div class="faq-item">
+                <div class="faq-question">
+                    Why are there two different Nisab values (Gold vs Silver)?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The dual-standard of Nisab exists because the Prophet (PBUH) specified thresholds for both gold and silver. Historically, their values were relatively stable in relation to each other. In 2026, the gap between gold and silver values is significant.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Gold Standard</th>
+                                <th>Silver Standard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Weight</td>
+                                <td>87.48g</td>
+                                <td>612.36g</td>
+                            </tr>
+                            <tr>
+                                <td>Modern Use</td>
+                                <td>Wealthier individuals</td>
+                                <td>Broader accessibility</td>
+                            </tr>
+                            <tr>
+                                <td>Charity Impact</td>
+                                <td>Lower Zakat collected</td>
+                                <td>Higher Zakat for poor</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Many scholars recommend using the Silver Price for Zakat as the threshold because it results in a lower Nisab amount, allowing more people to contribute to the welfare of the Ummah. Hisabify allows you to toggle between both standards based on your preferred Madhab or personal scholarly advice.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What are the most common misconceptions about Zakat?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Common misconceptions can lead to either missing the obligation or over-calculating. Here are three critical ones we address:</p>
+                    <ol>
+                        <li><strong>"Zakat is only on savings":</strong> Incorrect. Zakat is due on all liquid and tradeable assets, including business inventory and certain investments.</li>
+                        <li><strong>"I only pay Zakat in Ramadan":</strong> While Ramadan is a blessed time, Zakat is due on your specific lunar anniversary. Hisabify helps you track your unique date.</li>
+                        <li><strong>"Personal items are zakatable":</strong> Your home, car, furniture, and tools of trade (laptop for a freelancer) are exempt from Zakat.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h3 class="faq-section-title">2. Gold & Silver (Advanced)</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I calculate Zakat for different Gold purities (24K, 22K, 18K)?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Zakat is due on the pure gold content of your jewelry. Since 24K is 99.9% pure, but 18K is only 75% pure, the calculation must adjust for the weight of the alloy. Hisabify handles this automatically in our Gold Nisab Today calculator.</p>
+                    <p>The formula used is: <strong>(Total Weight × Purity Percentage) × Current 24K Gold Price per Gram</strong>.</p>
+                    <p>For example, if you own 100g of 18K gold:</p>
+                    <ul>
+                        <li>18K = 75% gold.</li>
+                        <li>Pure gold weight = 100g * 0.75 = 75g.</li>
+                        <li>Zakat = 75g * Current Price * 2.5%.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is the difference between Jewelry, Bars, and Coins?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>From a Shariah perspective, gold bars and coins are strictly treated as wealth (Amwal) and are 100% zakatable. For jewelry used for personal adornment, there are varying scholarly opinions. Most contemporary scholars (and the Hanafi school) maintain that all gold, whether worn or stored, is zakatable if it meets the Nisab.</p>
+                    <p>Hisabify categorizes these to help you track your assets properly. We recommend including all gold to be safe and to maximize the benefit for recipients. Remember, the Silver Price for Zakat is often the safer threshold to follow for mixed asset portfolios.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How is the "Gold Nisab Today" determined?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The Gold Nisab Today is not a static number. It fluctuates with the global commodities market. Hisabify connects to international bullion markets to determine the spot price of gold. We then multiply this price by 87.48 grams to give you the exact threshold for that specific moment.</p>
+                    <p>Using our Zakat Calculator 2026, you don't need to manually search for prices. The system does the heavy lifting, ensuring your calculation remains accurate up to the minute you submit your records.</p>
+                </div>
+            </div>
+
+            <h3 class="faq-section-title">3. Digital Assets & Technology</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Does Hisabify support Crypto Zakat (BTC, ETH, Stablecoins)?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes. Cryptocurrency is recognized as a digital asset with value (Mal). For Crypto Zakat, the entire value of your portfolio is considered "Trade Goods" (Amwal-e-Tijarat). You must pay 2.5% of the total value of your holdings on your Zakat anniversary.</p>
+                    <p>Hisabify simplifies this by allowing you to input your coin counts for:</p>
+                    <ul>
+                        <li><strong>Bitcoin (BTC):</strong> Market price at the time of calculation.</li>
+                        <li><strong>Ethereum (ETH):</strong> Includes staked ETH (see below).</li>
+                        <li><strong>Stablecoins (USDT/USDC):</strong> Treated as cash equivalent.</li>
+                    </ul>
+                    <p>The calculation is: (Total Crypto Value in Base Currency) × 0.025.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I handle NFT Zakat for trade vs personal use?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>NFT Zakat depends on the intent of the holder. Digital assets follow the same logic as physical assets in Shariah Compliant Finance.</p>
+                    <ul>
+                        <li><strong>For Trade/Investment:</strong> If you bought an NFT to sell it later for a profit, it is a zakatable asset. You must estimate its current fair market value and pay 2.5%.</li>
+                        <li><strong>For Personal Enjoyment:</strong> If the NFT is used as a personal profile picture or digital art with no intent to trade, many scholars view it as exempt, similar to personal household items.</li>
+                    </ul>
+                    <p>Because NFT markets are volatile, Hisabify suggests using the last "floor price" as a conservative estimate for valuation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What about Staking Rewards and DeFi Yield?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Staking rewards are treated as new wealth. If you receive tokens as a reward for securing a network, these tokens are added to your total zakatable wealth. If the rewards are "locked" and inaccessible, Zakat is only due once they become accessible (liquid).</p>
+                    <p>In DeFi, liquidity provider (LP) tokens represent a share in a pool. You must calculate the value of the underlying assets in the pool and apply the 2.5% rate to your share. Hisabify’s Zakat Calculator 2026 provides a dedicated field for "Other Digital Assets" to cover these complex scenarios.</p>
+                </div>
+            </div>
+
+            <h3 class="faq-section-title">4. Income & Earnings</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I calculate Freelance Income Zakat?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Freelance Income Zakat is calculated on the savings remaining at the end of your Zakat year, not on your gross revenue. Since freelancers often have irregular income, the key is to look at your total liquid cash (Bank + Cash on hand + Pending Invoices) on your Zakat date.</p>
+                    <p>Example for a 2026 Freelancer:</p>
+                    <ul>
+                        <li>Total Cash in Bank: $5,000</li>
+                        <li>Pending (Safe) Invoices: $2,000</li>
+                        <li>Business Expenses due this week: $1,000</li>
+                        <li><strong>Zakatable Amount:</strong> $6,000</li>
+                    </ul>
+                    <p>Hisabify ensures you don't pay Zakat on money already spent on business overheads or taxes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Are Salaries and Bonuses zakatable?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Salaries are not zakatable the moment they are earned. Instead, they contribute to your overall wealth. At the end of your Lunar year, whatever remains of your salary in your bank account is added to your other assets (Gold, Silver, Stocks) to see if you meet the Gold Nisab Today.</p>
+                    <p>Bonuses are treated the same way. If you receive a large bonus just before your Zakat anniversary, it is included in that year's calculation, even if you haven't held it for a full year, as it merges with your existing Nisab-reaching wealth.</p>
+                </div>
+            </div>
+
+            <h3 class="faq-section-title">5. Business & Commercial Wealth</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How is Shop Inventory and Trade Goods valued?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Inventory must be valued at its <strong>current retail price</strong> (the price you would sell it for today), not the cost price. This is because Zakat is a tax on current wealth value. If you own a clothing store, you count all items on the shelves and in the warehouse at their selling price.</p>
+                    <p>Hisabify provides a specific "Business" module where you can list:</p>
+                    <ul>
+                        <li>Finished Goods (Retail Value)</li>
+                        <li>Work in Progress (Raw material value + labor cost)</li>
+                        <li>Raw Materials (Purchase price)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Which Factory assets are Non-Zakatable?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>In Shariah Compliant Finance, fixed assets used to generate income are exempt from Zakat. This includes:</p>
+                    <ul>
+                        <li>Factory Machinery & Tools</li>
+                        <li>Delivery Trucks & Vehicles</li>
+                        <li>Office Furniture & Computers</li>
+                        <li>The building/land where the business operates</li>
+                    </ul>
+                    <p>Zakat is only due on the <strong>output</strong> (the products) and the <strong>cash</strong> generated, not the "tools of the trade."</p>
+                </div>
+            </div>
+
+            <h3 class="faq-section-title">6. Stocks & Investments</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I differentiate between Trading vs Long-term Investing?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>The Zakat treatment for stocks depends on your "Niyyah" (Intention):</p>
+                    <p><strong>1. Trading (Day Trading/Swing Trading):</strong> If you buy stocks to sell them when the price rises, you pay 2.5% on the <strong>full market value</strong> of the shares on your Zakat date.</p>
+                    <p><strong>2. Long-term (Dividend Investing):</strong> If you buy shares to hold for years and earn dividends, you only pay Zakat on the "Zakatable Assets" of the company (cash, inventory, receivables). Since calculating this is hard for retail investors, many scholars recommend a "Proxy Rate" of 25% of the market value being zakatable, upon which you apply the 2.5% rate.</p>
+                    <p>Hisabify includes a specialized calculator for both methods to ensure your Shariah Compliant Finance portfolio is handled correctly.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What about Islamic vs Non-Islamic Stocks?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Zakat is due on all investments, but Shariah principles require that you only invest in "Halal" companies (those that avoid Riba, gambling, etc.). If you hold stocks that are not fully Shariah-compliant, you may need to perform "Purification" (cleansing the interest portion of the earnings) in addition to paying Zakat. Hisabify encourages users to seek Shariah screening services to ensure their wealth is pure.</p>
+                </div>
+            </div>
+
+            <h3 class="faq-section-title">7. Debts & Liabilities</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Which debts can be deducted from my Zakat total?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Not all debts are equal in Zakat calculations. As of 2026, the standard practice in Shariah Compliant Finance allows for the deduction of "Immediate Liabilities."</p>
+                    <p><strong>Deductible:</strong> Money borrowed from a friend, an overdue utility bill, or the upcoming month's installment on a business loan.</p>
+                    <p><strong>Non-Deductible:</strong> The remaining 20 years of a mortgage or future car loan payments that are not yet due. Deducting these would unfairly wipe out a person's Zakat obligation despite them having significant liquid wealth.</p>
+                    <p>Hisabify guides you through a step-by-step "Liability Filter" to ensure you only deduct what is Islamically permissible.</p>
+                </div>
+            </div>
+
+            <h3 class="faq-section-title">8. Global Context</h3>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How does Zakat practice differ in Pakistan vs the UK/USA?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>While the 2.5% principle is universal, local implementation varies. In <strong>Pakistan</strong>, Zakat is often deducted at source from bank accounts on the 1st of Ramadan (though this only applies to certain account types). In the <strong>UK and USA</strong>, Zakat is entirely self-regulated.</p>
+                    <p>Hisabify supports multi-currency inputs, allowing a user in London to calculate in GBP while a user in Karachi calculates in PKR. We also provide local Gold Nisab Today values for each region, accounting for local taxes and market premiums.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <aside class="sidebar-wrapper">
+            <div class="sidebar-card">
+                <h4>Zakat Checklist 2026</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Check Gold Nisab Today.</li>
+                    <li><i class="fas fa-check-circle"></i> Verify Silver Price for Zakat.</li>
+                    <li><i class="fas fa-check-circle"></i> Calculate all Cash & Bank Balances.</li>
+                    <li><i class="fas fa-check-circle"></i> Evaluate Crypto & NFT Portfolios.</li>
+                    <li><i class="fas fa-check-circle"></i> Value Business Trade Inventory.</li>
+                    <li><i class="fas fa-check-circle"></i> List Stocks & Mutual Funds.</li>
+                    <li><i class="fas fa-check-circle"></i> Subtract immediate (due) debts.</li>
+                    <li><i class="fas fa-check-circle"></i> Identify Zakat recipients (Asnaf).</li>
+                    <li><i class="fas fa-check-circle"></i> Confirm Lunar Year (Hawl) completion.</li>
+                    <li><i class="fas fa-check-circle"></i> Purify non-Shariah earnings.</li>
+                </ul>
+                <hr style="margin: 30px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="font-size: 14px; opacity: 0.8;">Hisabify is built to ensure your wealth is purified with absolute precision. Our Zakat Calculator 2026 is updated daily.</p>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<footer>
+    <div style="font-family: 'Cinzel'; font-size: 24px; color: var(--accent); margin-bottom: 20px;">HISABIFY GLOBAL</div>
+    <p>&copy; 2026 Hisabify Knowledge Base. Engineered for the Ummah.<br>
+    Real-time Gold Nisab. Shariah Integrity. Absolute Privacy. 100% Client-Side Encryption.</p>
+    <div style="margin-top: 20px; font-size: 12px; opacity: 0.6;">
+        Disclaimer: While Hisabify follows standard scholarly guidelines, we recommend consulting with your local Imam for complex personal situations.
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            
+            document.querySelectorAll('.faq-item').forEach(other => {
+                if (other !== item) other.classList.remove('active');
             });
+
+            item.classList.toggle('active');
         });
-    </script>
-<script src="brand.js"></script>
+    });
+
+    // Real-time Search Filter
+    const searchInput = document.getElementById('faqSearch');
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        const items = document.querySelectorAll('.faq-item');
+        const sections = document.querySelectorAll('.faq-section-title');
+
+        items.forEach(item => {
+            const text = item.innerText.toLowerCase();
+            if (text.includes(term)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+
+        // Hide section titles if no items visible
+        sections.forEach(section => {
+            let next = section.nextElementSibling;
+            let hasVisible = false;
+            while(next && !next.classList.contains('faq-section-title')) {
+                if(next.style.display !== 'none') hasVisible = true;
+                next = next.nextElementSibling;
+            }
+            section.style.display = hasVisible ? 'block' : 'none';
+        });
+    });
+</script>
+
+```
+
 </body>
 </html>
