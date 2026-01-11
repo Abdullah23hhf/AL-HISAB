@@ -1,188 +1,395 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zakat Knowledge Hub | Comprehensive Guides 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zakat Knowledge Hub | Comprehensive Guides 2026</title>
+
+```
+<link href="[https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&display=swap](https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&display=swap)" rel="stylesheet">
+<link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+
+<style>
+    :root { --primary: #022c22; --accent: #d4af37; --white: #ffffff; --bg: #f8fafc; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: #1e293b; line-height: 1.7; }
+
+    /* Header */
+    header {
+        background: var(--white); padding: 15px 6%;
+        display: flex; justify-content: space-between; align-items: center;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
+    }
+    .logo { text-decoration: none; border-left: 3px solid var(--accent); padding-left: 15px; }
+    .logo h1 { font-family: 'Cinzel', serif; font-size: 24px; color: var(--primary); margin: 0; }
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    /* STYLISH HOME BUTTON */
+    .home-btn { 
+        text-decoration: none; 
+        background: var(--primary); 
+        color: white !important; 
+        padding: 10px 25px; 
+        border-radius: 50px; 
+        font-weight: 800; 
+        font-size: 13px; 
+        text-transform: uppercase; 
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(2, 44, 34, 0.2);
+    }
+    .home-btn:hover { 
+        background: var(--accent); 
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+    }
+    .home-btn i { font-size: 14px; }
 
-    <style>
-        :root { --primary: #022c22; --accent: #d4af37; --white: #ffffff; --bg: #f8fafc; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: #1e293b; line-height: 1.7; }
+    /* Hero */
+    .guide-hero { background: var(--primary); color: white; padding: 80px 6%; text-align: center; }
+    .guide-hero h2 { font-family: 'Cinzel', serif; font-size: 36px; color: var(--accent); margin-bottom: 10px; }
 
-        /* Header */
-        header {
-            background: var(--white); padding: 15px 6%;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
-        }
-        .logo { text-decoration: none; border-left: 3px solid var(--accent); padding-left: 15px; }
-        .logo h1 { font-family: 'Cinzel', serif; font-size: 24px; color: var(--primary); margin: 0; }
-        
-        /* STYLISH HOME BUTTON */
-        .home-btn { 
-            text-decoration: none; 
-            background: var(--primary); 
-            color: white !important; 
-            padding: 10px 25px; 
-            border-radius: 50px; 
-            font-weight: 800; 
-            font-size: 13px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(2, 44, 34, 0.2);
-        }
-        .home-btn:hover { 
-            background: var(--accent); 
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
-        }
-        .home-btn i { font-size: 14px; }
+    /* Articles Container */
+    .articles-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+    
+    .article-box { background: white; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #eee; overflow: hidden; }
+    
+    .article-header { padding: 30px; display: flex; align-items: center; gap: 20px; cursor: pointer; transition: 0.3s; }
+    .article-header:hover { background: #fdfdfd; }
+    .article-icon { width: 60px; height: 60px; background: #f1f5f9; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--accent); }
+    .article-title-area h3 { color: var(--primary); font-size: 20px; font-family: 'Cinzel', serif; }
+    .article-title-area span { font-size: 12px; color: var(--accent); font-weight: 800; text-transform: uppercase; }
 
-        /* Hero */
-        .guide-hero { background: var(--primary); color: white; padding: 80px 6%; text-align: center; }
-        .guide-hero h2 { font-family: 'Cinzel', serif; font-size: 36px; color: var(--accent); margin-bottom: 10px; }
+    .article-content { max-height: 0; overflow: hidden; transition: 0.5s ease-out; padding: 0 30px; background: #fafafa; }
+    .article-content.open { max-height: 2000px; padding: 30px; border-top: 1px solid #eee; }
 
-        /* Articles Container */
-        .articles-container { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
-        
-        .article-box { background: white; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #eee; overflow: hidden; }
-        
-        .article-header { padding: 30px; display: flex; align-items: center; gap: 20px; cursor: pointer; transition: 0.3s; }
-        .article-header:hover { background: #fdfdfd; }
-        .article-icon { width: 60px; height: 60px; background: #f1f5f9; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--accent); }
-        .article-title-area h3 { color: var(--primary); font-size: 20px; font-family: 'Cinzel', serif; }
-        .article-title-area span { font-size: 12px; color: var(--accent); font-weight: 800; text-transform: uppercase; }
+    .article-content h4 { color: var(--primary); margin: 20px 0 10px; }
+    .article-content p { margin-bottom: 15px; color: #475569; }
 
-        .article-content { max-height: 0; overflow: hidden; transition: 0.5s ease-out; padding: 0 30px; background: #fafafa; }
-        .article-content.open { max-height: 2000px; padding: 30px; border-top: 1px solid #eee; }
+    .read-more-btn { background: none; border: 2px solid var(--accent); color: var(--accent); padding: 8px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; margin-top: 10px; font-size: 12px; transition: 0.3s; }
+    .read-more-btn:hover { background: var(--accent); color: white; }
 
-        .article-content h4 { color: var(--primary); margin: 20px 0 10px; }
-        .article-content p { margin-bottom: 15px; color: #475569; }
+    footer { background: var(--primary); color: white; padding: 40px; text-align: center; font-size: 13px; }
 
-        .read-more-btn { background: none; border: 2px solid var(--accent); color: var(--accent); padding: 8px 20px; border-radius: 50px; font-weight: 800; cursor: pointer; margin-top: 10px; font-size: 12px; transition: 0.3s; }
-        .read-more-btn:hover { background: var(--accent); color: white; }
+    @media (max-width: 768px) { .article-header { flex-direction: column; text-align: center; } }
+</style>
 
-        footer { background: var(--primary); color: white; padding: 40px; text-align: center; font-size: 13px; }
+```
 
-        @media (max-width: 768px) { .article-header { flex-direction: column; text-align: center; } }
-    </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo"><h1>AL-HISAB</h1></a>
-        <nav>
-            <a href="index.html" class="home-btn"><i class="fas fa-house"></i> Home</a>
-        </nav>
-    </header>
+```
+<header>
+    <a href="index.html" class="logo"><h1>HISABIFY</h1></a>
+    <nav>
+        <a href="index.html" class="home-btn"><i class="fas fa-house"></i> Home</a>
+    </nav>
+</header>
 
-    <section class="guide-hero">
-        <h2>Zakat Knowledge Hub</h2>
-        <p>Expert articles and research on wealth purification for the modern world.</p>
-    </section>
+<section class="guide-hero">
+    <h2>Zakat Knowledge Hub</h2>
+    <p>Expert articles and research on wealth purification for the modern world.</p>
+</section>
 
-    <div class="articles-container">
+<div class="articles-container">
 
-        <div class="article-box">
-            <div class="article-header" onclick="toggleArticle(this)">
-                <div class="article-icon"><i class="fas fa-coins"></i></div>
-                <div class="article-title-area">
-                    <span>Expert Guide</span>
-                    <h3>Zakat on Gold & Silver Jewelry (2026 Update)</h3>
-                    <button class="read-more-btn">Read Full Article</button>
-                </div>
-            </div>
-            <div class="article-content">
-                <h4>Understanding Nisab for Precious Metals</h4>
-                <p>Zakat is obligatory on gold and silver once they reach a specific weight (Nisab) and have been in your possession for one lunar year. In 2026, with fluctuating market prices, it's vital to use live rates.</p>
-                <p><strong>Gold Nisab:</strong> 87.48 grams (approx. 7.5 Tolas).<br><strong>Silver Nisab:</strong> 612.36 grams (approx. 52.5 Tolas).</p>
-                <h4>What about Jewelry?</h4>
-                <p>According to the Hanafi school, all gold and silver jewelry (worn or stored) is subject to Zakat if it exceeds the Nisab. Other schools of thought vary, but for total purification, many scholars recommend paying on all holdings.</p>
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-coins"></i></div>
+            <div class="article-title-area">
+                <span>Expert Guide</span>
+                <h3>Zakat on Gold & Silver Jewelry (2026 Update)</h3>
+                <button class="read-more-btn">Read Full Article</button>
             </div>
         </div>
-
-        <div class="article-box">
-            <div class="article-header" onclick="toggleArticle(this)">
-                <div class="article-icon"><i class="fab fa-bitcoin"></i></div>
-                <div class="article-title-area">
-                    <span>Modern Finance</span>
-                    <h3>The Shariah Perspective on Cryptocurrency</h3>
-                    <button class="read-more-btn">Read Full Article</button>
-                </div>
-            </div>
-            <div class="article-content">
-                <h4>Is Crypto Subject to Zakat?</h4>
-                <p>Most contemporary Shariah councils have ruled that digital assets like Bitcoin, Ethereum, and Stablecoins are considered "Maal" (wealth) and are subject to Zakat at a rate of 2.5%.</p>
-                <h4>How to Calculate?</h4>
-                <p>You must calculate the Zakat based on the market value of your coins on your "Zakat Anniversary" date. If you are a long-term holder, you pay 2.5% on the total portfolio value if it meets the Nisab of silver.</p>
-            </div>
+        <div class="article-content">
+            <h4>Understanding Nisab for Precious Metals</h4>
+            <p>Zakat is obligatory on gold and silver once they reach a specific weight (Nisab) and have been in your possession for one lunar year. In 2026, with fluctuating market prices, it's vital to use live rates.</p>
+            <p><strong>Gold Nisab:</strong> 87.48 grams (approx. 7.5 Tolas).<br><strong>Silver Nisab:</strong> 612.36 grams (approx. 52.5 Tolas).</p>
+            <h4>What about Jewelry?</h4>
+            <p>According to the Hanafi school, all gold and silver jewelry (worn or stored) is subject to Zakat if it exceeds the Nisab. Other schools of thought vary, but for total purification, many scholars recommend paying on all holdings.</p>
         </div>
-
-        <div class="article-box">
-            <div class="article-header" onclick="toggleArticle(this)">
-                <div class="article-icon"><i class="fas fa-chart-line"></i></div>
-                <div class="article-title-area">
-                    <span>Investments</span>
-                    <h3>Zakat on Stocks and Business Assets</h3>
-                    <button class="read-more-btn">Read Full Article</button>
-                </div>
-            </div>
-            <div class="article-content">
-                <h4>Trading vs. Long-term Investment</h4>
-                <p>If you trade stocks frequently, Zakat is due on the full market value of the shares. If you are a long-term investor, Zakat is only due on the "Zakat-able assets" of the company (cash, receivables, and inventory).</p>
-                <h4>Business Inventory</h4>
-                <p>For business owners, Zakat is calculated on the cost price of the goods intended for sale. Raw materials and finished goods both count towards your Zakat-able total.</p>
-            </div>
-        </div>
-
-        <div class="article-box">
-            <div class="article-header" onclick="toggleArticle(this)">
-                <div class="article-icon"><i class="fas fa-hotel"></i></div>
-                <div class="article-title-area">
-                    <span>Property</span>
-                    <h3>Calculating Zakat on Real Estate & Land</h3>
-                    <button class="read-more-btn">Read Full Article</button>
-                </div>
-            </div>
-            <div class="article-content">
-                <h4>Personal Property vs. Investment</h4>
-                <p>Your primary residence (the house you live in) is exempt from Zakat. However, property bought with the intention to resell (Flip) is subject to 2.5% Zakat on its current market value.</p>
-                <h4>Rental Income</h4>
-                <p>If you own a property for rental income, Zakat is not due on the value of the building itself, but it IS due on the rental income you have saved at the end of your Zakat year.</p>
-            </div>
-        </div>
-
     </div>
 
-    <footer>&copy; 2026 Al-Hisab Portal | Authority in Wealth Purification</footer>
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fab fa-bitcoin"></i></div>
+            <div class="article-title-area">
+                <span>Modern Finance</span>
+                <h3>The Shariah Perspective on Cryptocurrency</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>Is Crypto Subject to Zakat?</h4>
+            <p>Most contemporary Shariah councils have ruled that digital assets like Bitcoin, Ethereum, and Stablecoins are considered "Maal" (wealth) and are subject to Zakat at a rate of 2.5%.</p>
+            <h4>How to Calculate?</h4>
+            <p>You must calculate the Zakat based on the market value of your coins on your "Zakat Anniversary" date. If you are a long-term holder, you pay 2.5% on the total portfolio value if it meets the Nisab of silver.</p>
+        </div>
+    </div>
 
-    <script>
-        function toggleArticle(element) {
-            const content = element.nextElementSibling;
-            const allContent = document.querySelectorAll('.article-content');
-            
-            allContent.forEach(item => {
-                if(item !== content) item.classList.remove('open');
-            });
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="article-title-area">
+                <span>Investments</span>
+                <h3>Zakat on Stocks and Business Assets</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>Trading vs. Long-term Investment</h4>
+            <p>If you trade stocks frequently, Zakat is due on the full market value of the shares. If you are a long-term investor, Zakat is only due on the "Zakat-able assets" of the company (cash, receivables, and inventory).</p>
+            <h4>Business Inventory</h4>
+            <p>For business owners, Zakat is calculated on the cost price of the goods intended for sale. Raw materials and finished goods both count towards your Zakat-able total.</p>
+        </div>
+    </div>
 
-            content.classList.toggle('open');
-            
-            const btn = element.querySelector('.read-more-btn');
-            if(content.classList.contains('open')) {
-                btn.innerText = "Close Article";
-            } else {
-                btn.innerText = "Read Full Article";
-            }
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-hotel"></i></div>
+            <div class="article-title-area">
+                <span>Property</span>
+                <h3>Calculating Zakat on Real Estate & Land</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>Personal Property vs. Investment</h4>
+            <p>Your primary residence (the house you live in) is exempt from Zakat. However, property bought with the intention to resell (Flip) is subject to 2.5% Zakat on its current market value.</p>
+            <h4>Rental Income</h4>
+            <p>If you own a property for rental income, Zakat is not due on the value of the building itself, but it IS due on the rental income you have saved at the end of your Zakat year.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-gem"></i></div>
+            <div class="article-title-area">
+                <span>Women's Rulings</span>
+                <h3>Jewelry, Diamonds, and Precious Stones</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>Are Diamonds Zakat-able?</h4>
+            <p>In Islamic jurisprudence, Zakat is primarily obligatory on "inflationary" or "growth" wealth. Diamonds, pearls, and other precious stones that are not gold or silver are generally exempt from Zakat if they are for personal use.</p>
+            <h4>When Stones Become Subject to Zakat</h4>
+            <p>If you are a jeweler or trade in precious stones as a business, they become "Trade Goods" (Amwal al-Tijarah). In this case, you must pay 2.5% on their current market value as part of your business inventory.</p>
+            <h4>Gold Alloys and Purity</h4>
+            <p>When calculating Zakat on jewelry, you only pay on the gold content. For example, 18k or 21k gold contains non-gold alloys. You should calculate the actual weight of pure gold within the piece to determine the Zakat amount accurately.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-briefcase"></i></div>
+            <div class="article-title-area">
+                <span>Employment</span>
+                <h3>Zakat on Salary, Bonuses, and Provident Funds</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>Is Salary Subject to Zakat?</h4>
+            <p>Zakat is not paid on your monthly salary at the moment you receive it. Instead, Zakat is due on whatever remains of your salary (savings) on your Zakat anniversary date, provided your total wealth meets the Nisab.</p>
+            <h4>Provident Funds and Pensions</h4>
+            <p>For Provident Funds, the ruling depends on whether the contribution is voluntary or mandatory. Generally, Zakat is due on the amount that is accessible to you. Many scholars suggest paying Zakat once you actually receive the lump sum for the previous years, while others recommend paying annually on the accessible portion.</p>
+            <h4>Bonuses and Gratuity</h4>
+            <p>End-of-service benefits and bonuses are treated as new wealth. If they are in your possession on your Zakat date, they are added to your total liquid assets and taxed at 2.5%.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-building-columns"></i></div>
+            <div class="article-title-area">
+                <span>Public Policy</span>
+                <h3>Zakat vs. Government Tax: Can One Replace the Other?</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>The Fundamental Difference</h4>
+            <p>Zakat is a religious obligation (Ibadah) and one of the five pillars of Islam, whereas taxes are a secular obligation to the state. Therefore, income tax or wealth tax paid to a government cannot be counted as Zakat.</p>
+            <h4>Can Tax be Deducted from Zakat?</h4>
+            <p>You cannot subtract your tax amount from your Zakat liability. However, when calculating your Zakat-able wealth, any tax debts that are currently due and unpaid can be deducted from your total cash balance as a liability.</p>
+            <h4>Double Taxation Concerns</h4>
+            <p>While it may feel like a double burden, the purposes differ: Zakat is specifically for the eight categories mentioned in the Quran, while taxes fund general infrastructure, defense, and administration.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="article-title-area">
+                <span>Common Errors</span>
+                <h3>Zakat Mistakes in Pakistan & South Asia</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>1. Neglecting the Zakat Anniversary</h4>
+            <p>Many people in Pakistan wait specifically for Ramadan to pay Zakat. While the rewards are multiplied, your Zakat is actually due exactly one lunar year after your wealth first hit the Nisab. Delaying it past this date is a sin.</p>
+            <h4>2. Mixing Personal and Business Assets</h4>
+            <p>Business owners often fail to separate their personal savings from their business inventory. Zakat must be calculated on both. Remember: Equipment, machinery, and office furniture are exempt; only the "trading stock" and "cash" are Zakat-able.</p>
+            <h4>3. Miscalculating Gold in "Tolas"</h4>
+            <p>Since the market often uses Tolas, ensure you use the correct conversion (1 Tola = 11.66 grams). A slight error in weight can lead to underpaying your divine obligation.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-robot"></i></div>
+            <div class="article-title-area">
+                <span>Web3 Wealth</span>
+                <h3>NFTs and Digital Collectibles: Zakat Rulings</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>Are NFTs Zakat-able?</h4>
+            <p>The ruling on Non-Fungible Tokens (NFTs) depends on the intent of the holder. If an NFT is purchased for digital art appreciation (similar to a personal painting), it may be exempt. However, 99% of NFT activity in 2026 is speculative or for resale.</p>
+            <h4>Valuation Challenges</h4>
+            <p>If held for resale, you must pay 2.5% on the "Floor Price" or the current market value of the NFT on your Zakat date. If the NFT has lost value and cannot be sold, its Zakat-able value may be zero, but professional appraisal is recommended for high-value assets.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-hand-holding-heart"></i></div>
+            <div class="article-title-area">
+                <span>Distribution</span>
+                <h3>Eligible Recipients: Who Can Receive Your Zakat?</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>The Eight Categories (Asnaf)</h4>
+            <p>As per Surah At-Tawbah (Verse 60), Zakat must be given to: 1. The Poor (Al-Fuqara), 2. The Needy (Al-Masakin), 3. Zakat Administrators, 4. Those whose hearts are to be reconciled, 5. To free captives/slaves, 6. Those in debt, 7. In the cause of Allah, and 8. The wayfarer (travelers).</p>
+            <h4>Immediate Family Rules</h4>
+            <p>You cannot give Zakat to your "Usul" (parents, grandparents) or your "Furu" (children, grandchildren). You also cannot give Zakat to your spouse. However, giving Zakat to siblings, cousins, or other relatives who are eligible is highly encouraged as it carries double reward.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div class="article-title-area">
+                <span>Debt Management</span>
+                <h3>How Debts Affect Your Zakat Calculation</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>Deductible Debts</h4>
+            <p>Short-term debts and immediate liabilities (utility bills, rent due, immediate loan installments) can be deducted from your total Zakat-able assets. This lowers your net wealth before applying the 2.5% rate.</p>
+            <h4>Long-term Loans (Mortgages/Car Loans)</h4>
+            <p>For long-term loans, you cannot deduct the entire outstanding balance. Only the upcoming 12 months' worth of installments are generally deductible according to contemporary fatwas, as deducting the whole mortgage would often wipe out a person's entire Zakat liability unfairly.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-seedling"></i></div>
+            <div class="article-title-area">
+                <span>Agriculture</span>
+                <h3>Ushr: Zakat on Agricultural Produce</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>What is Ushr?</h4>
+            <p>Ushr is the Zakat on the "Earth's produce." Unlike the 2.5% on wealth, Ushr is paid at the time of harvest. There is no one-year possession (Hawl) requirement for agricultural crops.</p>
+            <h4>The Percentage Rates</h4>
+            <p>If the land is irrigated naturally by rain or river water, the rate is 10%. If the land is irrigated through artificial means (tube wells, tractors, water purchases) involving cost and labor, the rate is 5%.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-calculator"></i></div>
+            <div class="article-title-area">
+                <span>Step-by-Step</span>
+                <h3>The Ultimate Zakat Checklist for 2026</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>1. Identify Your Zakat Date</h4>
+            <p>Pick a date on the Hijri calendar (e.g., 1st Ramadan or 10th Muharram) and stick to it every year. Calculate your wealth on this specific day annually.</p>
+            <h4>2. List All Liquid Assets</h4>
+            <p>Include cash at home, bank balances, gold/silver, value of stocks, crypto, and money owed to you that you are confident will be repaid.</p>
+            <h4>3. List Your Business Assets</h4>
+            <p>Include the market value of your trading stock (inventory). Do not include the value of your shop, warehouse, or delivery vehicles.</p>
+            <h4>4. Subtract Liabilities</h4>
+            <p>Subtract your immediate debts, unpaid bills, and the coming year's loan installments. If the remainder is above the Nisab, multiply by 0.025 to find your Zakat.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-balance-scale"></i></div>
+            <div class="article-title-area">
+                <span>Islamic Law</span>
+                <h3>Zakat on Joint Ventures and Partnerships</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>Who Pays? The Entity or the Partner?</h4>
+            <p>In modern corporate structures, Zakat is usually the responsibility of the individual shareholder. Each partner must calculate Zakat on their percentage of ownership in the company's liquid and trading assets.</p>
+            <h4>Company-Paid Zakat</h4>
+            <p>If a company pays Zakat on behalf of its shareholders (as seen in some Islamic banks or cooperatives), the individual does not need to pay again on those specific shares. However, the individual must ensure the company's calculation matches Shariah standards.</p>
+        </div>
+    </div>
+
+    <div class="article-box">
+        <div class="article-header" onclick="toggleArticle(this)">
+            <div class="article-icon"><i class="fas fa-piggy-bank"></i></div>
+            <div class="article-title-area">
+                <span>Child Savings</span>
+                <h3>Zakat on Minor's Wealth and Trust Funds</h3>
+                <button class="read-more-btn">Read Full Article</button>
+            </div>
+        </div>
+        <div class="article-content">
+            <h4>Does a Child Owe Zakat?</h4>
+            <p>According to the majority of jurists (Maliki, Shafi'i, and Hanbali), Zakat is due on the wealth of minors and the insane because Zakat is a right of the poor against the wealth itself. The guardian is responsible for paying it from the child's funds.</p>
+            <h4>The Hanafi Perspective</h4>
+            <p>In the Hanafi school, Zakat is only obligatory on those who have reached the age of puberty (Bulugh). Therefore, a child's savings are not subject to Zakat until they reach adulthood, at which point the lunar year cycle begins for them.</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>&copy; 2026 Hisabify Portal | Authority in Wealth Purification</footer>
+
+<script>
+    function toggleArticle(element) {
+        const content = element.nextElementSibling;
+        const allContent = document.querySelectorAll('.article-content');
+        
+        allContent.forEach(item => {
+            if(item !== content) item.classList.remove('open');
+        });
+
+        content.classList.toggle('open');
+        
+        const btn = element.querySelector('.read-more-btn');
+        if(content.classList.contains('open')) {
+            btn.innerText = "Close Article";
+        } else {
+            btn.innerText = "Read Full Article";
         }
-    </script>
-    <script src="brand.js"></script>
+    }
+</script>
+
+```
+
 </body>
 </html>
