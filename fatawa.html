@@ -3,56 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatwa Bank | 45+ Comprehensive Zakat Rulings - Al-Hisab</title>
+    <title>Fatwa Bank | 45+ Comprehensive Zakat Rulings - Hisabify</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root { --brand: #052e16; --gold: #c6a306; --white: #ffffff; --bg: #f8fafc; --text: #334155; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
 
-        header { background: var(--white); padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-family: 'Cinzel', serif; font-size: 26px; color: var(--brand); text-decoration: none; font-weight: 800; letter-spacing: 1px; }
-        .back-home { text-decoration: none; color: var(--brand); font-weight: 700; border: 2px solid var(--brand); padding: 10px 25px; border-radius: 50px; transition: 0.3s; font-size: 14px; }
+        header { background: var(--white); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-family: 'Cinzel', serif; font-size: clamp(20px, 4vw, 26px); color: var(--brand); text-decoration: none; font-weight: 800; letter-spacing: 1px; }
+        .back-home { text-decoration: none; color: var(--brand); font-weight: 700; border: 2px solid var(--brand); padding: 8px 20px; border-radius: 50px; transition: 0.3s; font-size: 13px; display: flex; align-items: center; gap: 8px; }
         .back-home:hover { background: var(--brand); color: white; }
 
-        .hero { background: linear-gradient(135deg, #052e16 0%, #064e3b 100%); color: white; padding: 100px 5% 120px; text-align: center; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero p { font-size: 18px; opacity: 0.9; max-width: 700px; margin: auto; }
+        .hero { background: linear-gradient(135deg, #052e16 0%, #064e3b 100%); color: white; padding: 60px 5% 100px; text-align: center; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 7vw, 52px); margin-bottom: 20px; letter-spacing: -1px; }
+        .hero p { font-size: clamp(14px, 3vw, 18px); opacity: 0.9; max-width: 700px; margin: auto; padding: 0 10px; }
 
-        .search-container { max-width: 850px; margin: -50px auto 60px; background: white; padding: 15px; border-radius: 100px; display: flex; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); border: 1px solid #e2e8f0; }
-        .search-container input { flex: 1; border: none; padding: 10px 30px; outline: none; font-size: 18px; border-radius: 100px; }
-        .search-container button { background: var(--gold); color: white; border: none; padding: 15px 45px; border-radius: 100px; cursor: pointer; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .search-container { max-width: 850px; width: 90%; margin: -40px auto 60px; background: white; padding: 10px; border-radius: 100px; display: flex; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); border: 1px solid #e2e8f0; }
+        .search-container input { flex: 1; border: none; padding: 10px 20px; outline: none; font-size: 16px; border-radius: 100px; width: 100%; }
+        .search-container button { background: var(--gold); color: white; border: none; padding: 12px 30px; border-radius: 100px; cursor: pointer; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
 
-        .container { max-width: 1300px; margin: 0 auto 80px; padding: 0 30px; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; }
-        
-        .card { background: white; border-radius: 24px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: var(--gold); }
-        .card::before { content: ""; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: var(--brand); }
-        
-        .category { display: inline-block; background: #f0fdf4; color: #166534; padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
-        .card h3 { font-family: 'Playfair Display', serif; color: var(--brand); font-size: 24px; margin-bottom: 15px; line-height: 1.3; }
-        .card p { color: #475569; font-size: 15px; margin-bottom: 25px; line-height: 1.8; text-align: justify; }
-        
-        .footer-card { border-top: 1px solid #f1f5f9; padding-top: 20px; font-size: 13px; color: #94a3b8; display: flex; justify-content: space-between; align-items: center; }
+        .container { max-width: 1300px; margin: 0 auto 80px; padding: 0 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; transition: all 0.4s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); border-color: var(--gold); }
+        .card::before { content: ""; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: var(--brand); }
+        .category { display: inline-block; background: #f0fdf4; color: #166534; padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; align-self: flex-start; }
+        .card h3 { font-family: 'Playfair Display', serif; color: var(--brand); font-size: clamp(20px, 4vw, 24px); margin-bottom: 12px; line-height: 1.3; }
+        .card p { color: #475569; font-size: 14px; margin-bottom: 20px; flex-grow: 1; text-align: justify; }
+        .footer-card { border-top: 1px solid #f1f5f9; padding-top: 15px; font-size: 12px; color: #94a3b8; display: flex; justify-content: space-between; align-items: center; }
         .footer-card span { font-weight: 600; color: var(--gold); }
 
-        #noData { display: none; text-align: center; font-size: 22px; color: var(--brand); grid-column: 1/-1; padding: 100px; }
+        #noData { display: none; text-align: center; font-size: 20px; color: var(--brand); grid-column: 1/-1; padding: 80px 20px; }
 
-        footer { background: #020617; color: #94a3b8; padding: 80px 5% 40px; text-align: center; }
-        .disclaimer { max-width: 900px; margin: 0 auto 40px; font-size: 13px; line-height: 1.6; border: 1px solid #1e293b; padding: 25px; border-radius: 15px; }
+        footer { background: #020617; color: #94a3b8; padding: 60px 5% 40px; text-align: center; }
+        .disclaimer { max-width: 900px; margin: 0 auto 30px; font-size: 12px; line-height: 1.6; border: 1px solid #1e293b; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.02); }
+
+        @media (max-width: 600px) {
+            header { padding: 12px 4%; }
+            .search-container { border-radius: 15px; flex-direction: column; gap: 10px; padding: 8px; margin-top: -30px; }
+            .search-container button { border-radius: 10px; width: 100%; }
+            .hero { padding: 50px 4% 80px; }
+            .back-home span { display: none; }
+            .card { padding: 20px; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">AL-HISAB</a>
-        <a href="index.html" class="back-home"><i class="fas fa-home"></i> BACK TO HOME</a>
+        <a href="index.html" class="logo">HISABIFY</a>
+        <a href="index.html" class="back-home"><i class="fas fa-home"></i> <span>HOME</span></a>
     </header>
 
     <section class="hero">
         <h1>Institutional Fatwa Database</h1>
-        <p>Comprehensive Shariah analysis of 50+ modern financial instruments, assets, and liabilities for the 2026 global economy.</p>
+        <p>Comprehensive Shariah analysis of 45+ modern financial instruments, assets, and liabilities for the 2026 global economy.</p>
     </section>
 
     <div class="search-container">
@@ -63,139 +69,138 @@
     <div class="container" id="grid">
         <div class="card" data-key="crypto bitcoin ethereum btc eth digital">
             <span class="category">Digital Assets</span>
-            <h3>Bitcoin & Crypto-Currency Staking</h3>
-            <p>Cryptocurrencies held for investment are subject to 2.5% Zakat on their market value. If you are staking coins, Zakat is due on both the principal amount and the rewards earned, provided they are Shariah-compliant utility or exchange tokens.</p>
+            <h3>Bitcoin & Crypto Staking</h3>
+            <p>Cryptocurrencies held for investment are subject to 2.5% Zakat on their market value. If you are staking coins, Zakat is due on both the principal and rewards earned.</p>
             <div class="footer-card">Ref: <span>AAOIFI Standard 35</span></div>
         </div>
 
         <div class="card" data-key="nft digital art web3">
             <span class="category">Web3</span>
             <h3>Zakat on NFTs and Digital Art</h3>
-            <p>If NFTs are purchased for resale (flipping), they are treated as trading goods. 2.5% Zakat is due on the current floor price or estimated market value in ETH/SOL at the time of your Zakat anniversary.</p>
+            <p>If NFTs are purchased for resale, they are trading goods. 2.5% Zakat is due on the current floor price or estimated market value at the time of your Zakat anniversary.</p>
             <div class="footer-card">Ref: <span>Contemporary Fiqh</span></div>
         </div>
 
         <div class="card" data-key="gold jewelry ornaments 24k 22k">
             <span class="category">Bullion</span>
             <h3>Gold Jewelry and Ornaments</h3>
-            <p>Zakat is obligatory on all gold jewelry if it reaches the Nisab (87.48g). This applies to worn jewelry, broken items, and stored coins. The calculation is based on the current market rate of gold on your specific Zakat date.</p>
+            <p>Zakat is obligatory on all gold jewelry if it reaches the Nisab (87.48g). Calculation is based on the current market rate on your specific Zakat date.</p>
             <div class="footer-card">Ref: <span>Hanafi Jurisprudence</span></div>
         </div>
 
         <div class="card" data-key="silver coins utensils jewelry">
             <span class="category">Bullion</span>
             <h3>Silver Nisab and Assets</h3>
-            <p>The Silver Nisab is 612.36 grams. If your total wealth (Cash + Gold + Silver + Business Stock) exceeds the value of this much silver, you are liable for Zakat at a rate of 2.5%.</p>
+            <p>The Silver Nisab is 612.36 grams. If your total wealth exceeds the value of this much silver, you are liable for Zakat at a rate of 2.5%.</p>
             <div class="footer-card">Ref: <span>Mishkat al-Masabih</span></div>
         </div>
 
         <div class="card" data-key="committee bc monthly saving group">
             <span class="category">Social Finance</span>
             <h3>Zakat on Committees (BC)</h3>
-            <p>If you have paid into a committee but haven't received it yet, that money is your asset; pay Zakat on the total paid. If you have already received the committee, it is a debt; subtract the remaining installments from your total wealth.</p>
+            <p>Money paid into a committee but not received yet is an asset; pay Zakat on it. If already received, subtract remaining installments as debt.</p>
             <div class="footer-card">Ref: <span>Local Darul Ifta</span></div>
         </div>
 
         <div class="card" data-key="insurance life health policy premium">
             <span class="category">Insurance</span>
             <h3>Life Insurance Policies</h3>
-            <p>For conventional life insurance, Zakat is only due on the total premiums paid by you (the principal), not the interest or bonuses promised. For Takaful, Zakat is due on the surrender value of the policy.</p>
+            <p>For conventional life insurance, Zakat is only due on the total premiums paid (principal). For Takaful, it is due on the surrender value.</p>
             <div class="footer-card">Ref: <span>Islamic Finance Council</span></div>
         </div>
 
         <div class="card" data-key="plot land property house real estate">
             <span class="category">Real Estate</span>
             <h3>Plots bought for Investment</h3>
-            <p>If a plot or property is purchased with the 'Niyyah' (intention) of selling it for profit, it is a trading asset. You must pay 2.5% Zakat on its current market value every year, regardless of whether it is sold or not.</p>
+            <p>If property is purchased with the intention of selling for profit, pay 2.5% Zakat on its current market value every year.</p>
             <div class="footer-card">Ref: <span>Fatawa Alamgiri</span></div>
         </div>
 
         <div class="card" data-key="rent income property apartment">
             <span class="category">Real Estate</span>
             <h3>Zakat on Rental Income</h3>
-            <p>There is no Zakat on the value of a building or apartment that is rented out. Zakat is only due on the accumulated rent money if it remains in your possession until your Zakat anniversary.</p>
+            <p>No Zakat on the property value itself. Zakat is only due on accumulated rent money if it remains in your possession on your Zakat date.</p>
             <div class="footer-card">Ref: <span>Mufti Taqi Usmani</span></div>
         </div>
 
         <div class="card" data-key="stock shop inventory warehouse business">
             <span class="category">Commercial</span>
             <h3>Shop Inventory & Dead Stock</h3>
-            <p>Zakat is calculated on the current retail value of all stock-in-trade. Even 'dead stock' (slow-moving items) must be valued at what they would sell for today. Furniture, laptops, and machinery used in the shop are exempt.</p>
+            <p>Zakat is calculated on the current retail value of all stock-in-trade. Furniture and machinery used in the shop are exempt.</p>
             <div class="footer-card">Ref: <span>Kitab al-Zakat</span></div>
         </div>
 
         <div class="card" data-key="partnership investment musharakah mudarabah">
             <span class="category">Commercial</span>
-            <h3>Business Partnerships (Joint Venture)</h3>
-            <p>In a partnership, Zakat is not paid on the total business value. Each partner pays Zakat on their share of the liquid assets (Cash + Stock + Receivables) after deducting the business's short-term debts.</p>
+            <h3>Business Partnerships</h3>
+            <p>Each partner pays Zakat on their share of liquid assets (Cash + Stock + Receivables) after deducting short-term debts.</p>
             <div class="footer-card">Ref: <span>Majmua Fatawa</span></div>
         </div>
 
         <div class="card" data-key="debt loan credit mortgage liabilities">
             <span class="category">Liabilities</span>
             <h3>Deducting Personal Loans</h3>
-            <p>Money you owe to others can be subtracted from your wealth. For long-term loans (mortgages/car), only deduct the installments due for the next 12 months, not the entire future balance.</p>
+            <p>Money you owe can be subtracted. For long-term loans, only deduct the installments due for the next 12 months.</p>
             <div class="footer-card">Ref: <span>Islamic Fiqh Academy</span></div>
         </div>
 
         <div class="card" data-key="loan given receivable money back">
             <span class="category">Assets</span>
-            <h3>Money you have Lent to Others</h3>
-            <p>If you lent money to someone who is likely to pay back, you must pay Zakat on that amount every year. If the person is likely to default, you only pay Zakat once you actually receive the money back.</p>
+            <h3>Money Lent to Others</h3>
+            <p>If repayment is expected, pay Zakat annually. If the person is likely to default, pay only once you actually receive the money.</p>
             <div class="footer-card">Ref: <span>Hidayah</span></div>
         </div>
 
         <div class="card" data-key="agri crops wheat rice fruit ushr">
             <span class="category">Agriculture</span>
             <h3>Ushr on Seasonal Crops</h3>
-            <p>Ushr (10%) is due on crops watered by rain. If you use tube-wells or purchased water, the rate is 5%. Unlike Zakat on wealth, Ushr is due at every harvest, not once a year.</p>
+            <p>Ushr (10%) is due on rain-watered crops. For tube-well watered crops, it is 5%. Due at every harvest.</p>
             <div class="footer-card">Ref: <span>Sahih Muslim</span></div>
         </div>
 
         <div class="card" data-key="cows goat sheep livestock animals">
             <span class="category">Livestock</span>
             <h3>Zakat on Farm Animals</h3>
-            <p>Zakat is due on grazing animals (Saimah) if they reach Nisab (e.g., 40 goats or 30 cows). If animals are kept for trade (buying/selling meat), 2.5% of their total value is due instead.</p>
+            <p>Due on grazing animals if they reach Nisab (e.g. 40 goats). If kept for trade, 2.5% of total value is due.</p>
             <div class="footer-card">Ref: <span>Kitab al-Amwal</span></div>
         </div>
 
         <div class="card" data-key="salary wage bonus saving">
             <span class="category">Income</span>
             <h3>Zakat on Monthly Salary</h3>
-            <p>There is no Zakat on the salary as you receive it. However, any portion of the salary that you save and hold until your Zakat date must be included in your total wealth calculation.</p>
+            <p>No Zakat on salary as it is received. Only the portion you save and hold until your Zakat date is included in wealth.</p>
             <div class="footer-card">Ref: <span>Fatawa Shami</span></div>
         </div>
 
         <div class="card" data-key="pension fund provident pf gratuity">
             <span class="category">Retirement</span>
-            <h3>Provident Fund (PF) Calculations</h3>
-            <p>Zakat is not due on the employer's contribution until you receive it. For your own voluntary contributions, many scholars suggest paying 2.5% annually as you have ownership of that portion.</p>
+            <h3>Provident Fund (PF)</h3>
+            <p>Zakat is due on your own voluntary contributions annually. Employer's portion is taxed only upon receipt.</p>
             <div class="footer-card">Ref: <span>Contemporary Scholars</span></div>
         </div>
 
         <div class="card" data-key="inheritance wirasat death wealth">
             <span class="category">Wirasat</span>
             <h3>Zakat on Inherited Wealth</h3>
-            <p>Once the inheritance is legally yours and in your possession, the one-year lunar cycle (Hawl) starts. You will pay Zakat on it on your next Zakat anniversary.</p>
+            <p>Once the inheritance is in your possession, the lunar cycle (Hawl) starts. Pay on your next Zakat anniversary.</p>
             <div class="footer-card">Ref: <span>Quran 4:11</span></div>
         </div>
 
         <div class="card" data-key="charity sadaqah donation">
             <span class="category">Philanthropy</span>
-            <h3>Zakat vs Sadaqah-e-Jariyah</h3>
-            <p>Zakat is a mandatory 2.5% pillar, whereas Sadaqah is voluntary. Zakat can only be given to specific categories (Asnaf) mentioned in the Quran, while Sadaqah can be given to anyone or any cause.</p>
+            <h3>Zakat vs Sadaqah</h3>
+            <p>Zakat is mandatory (2.5%) for specific categories. Sadaqah is voluntary and can be given to any person or cause.</p>
             <div class="footer-card">Ref: <span>Surah At-Tawbah</span></div>
         </div>
+    </div>
 
-        </div>
-
-    <div id="noData">No ruling found for this keyword. Try 'Gold' or 'Loan'.</div>
+    <div id="noData">No ruling found for this keyword.</div>
 
     <footer>
         <div class="disclaimer">
-            <strong>OFFICIAL DISCLAIMER:</strong> Al-Hisab provides these fatawa for general educational guidance. Shariah rulings can change based on individual circumstances and geographical location. We strongly recommend presenting your specific financial statement to a local Shariah Board or Mufti for a final verdict.
+            <strong>OFFICIAL DISCLAIMER:</strong> Hisabify provides these fatawa for educational guidance. We recommend consulting a local Mufti for specific financial verdicts.
         </div>
-        <p>&copy; 2026 Al-Hisab International. Digital Shariah Authority.</p>
+        <p>&copy; 2026 Hisabify International. Digital Shariah Authority.</p>
     </footer>
 
     <script>
@@ -209,7 +214,7 @@
             for (let i = 0; i < cards.length; i++) {
                 let keys = cards[i].getAttribute('data-key');
                 if (keys.includes(val)) {
-                    cards[i].style.display = "block";
+                    cards[i].style.display = "flex";
                     visible++;
                 } else {
                     cards[i].style.display = "none";
@@ -225,6 +230,5 @@
             }
         }
     </script>
-    <script src="brand.js"></script>
 </body>
-</html>
+</html> 
