@@ -1,189 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholars & References | Al-Hisab Research Database</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root { --brand: #052e16; --gold: #c6a306; --white: #ffffff; --bg: #f8fafc; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #334155; line-height: 1.6; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scholars & References | Hisabify Research Database</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root { --brand: #052e16; --gold: #c6a306; --white: #ffffff; --bg: #f8fafc; }
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+   body { font-family: 'Inter', sans-serif; background: var(--bg); color: #334155; line-height: 1.6; overflow-x: hidden; }
+<!-- end list -->
+header { 
+    background: var(--white); 
+    padding: 10px 5%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000;
+    width: 100%;
+    min-height: 70px;
+    flex-wrap: nowrap;
+}
 
-        header { background: var(--white); padding: 15px 6%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
-        .logo { font-family: 'Cinzel', serif; font-size: 24px; color: var(--brand); text-decoration: none; font-weight: bold; }
-        .back-btn { text-decoration: none; color: var(--brand); font-weight: 700; border: 2px solid var(--brand); padding: 8px 25px; border-radius: 50px; font-size: 13px; transition: 0.3s; }
-        .back-btn:hover { background: var(--brand); color: white; }
+.nav-left { 
+    display: flex; 
+    align-items: center; 
+    gap: clamp(10px, 3vw, 30px);
+    flex: 1;
+}
+.home-link { 
+    text-decoration: none; 
+    color: var(--brand); 
+    font-weight: 700; 
+    font-size: 14px; 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+    transition: 0.3s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.home-link:hover { color: var(--gold); }
 
-        .hero-ref { background: linear-gradient(rgba(5,46,22,0.92), rgba(5,46,22,0.92)), url('https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=2000'); background-size: cover; color: white; padding: 100px 5%; text-align: center; }
-        .hero-ref h1 { font-family: 'Playfair Display', serif; font-size: 48px; margin-bottom: 15px; }
+.logo { 
+    font-family: 'Cinzel', serif; 
+    font-size: clamp(18px, 4vw, 24px); 
+    color: var(--brand); 
+    text-decoration: none; 
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    white-space: nowrap;
+}
+.back-btn { 
+    text-decoration: none; 
+    color: var(--brand); 
+    font-weight: 700; 
+    border: 2px solid var(--brand); 
+    padding: 8px 16px; 
+    border-radius: 50px; 
+    font-size: 12px; 
+    transition: 0.3s; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+.back-btn:hover { background: var(--brand); color: white; }
 
-        .container { max-width: 1200px; margin: -60px auto 80px; padding: 0 20px; }
+@media (max-width: 768px) {
+    header { padding: 10px 15px; }
+    .nav-left { flex: 0; }
+    .logo { flex: 1; text-align: center; margin: 0 10px; }
+}
 
-        .ref-section { background: white; padding: 60px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
-        .ref-section h2 { font-family: 'Playfair Display', serif; color: var(--brand); margin-bottom: 40px; text-align: center; font-size: 36px; border-bottom: 3px solid var(--gold); display: inline-block; width: 100%; padding-bottom: 10px; }
+@media (max-width: 480px) {
+    .home-link span { display: none; }
+    .back-btn span { display: none; }
+    .back-btn { padding: 8px 12px; }
+    .logo { font-size: 18px; }
+}
 
-        .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
-        .book-item { display: flex; align-items: flex-start; gap: 20px; padding: 25px; border: 1px solid #f1f5f9; border-radius: 20px; transition: 0.4s; background: #fff; }
-        .book-item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: var(--gold); }
-        .book-item i { color: var(--gold); font-size: 24px; background: #fdfce8; padding: 15px; border-radius: 15px; }
-        
-        .book-info h4 { font-size: 18px; color: var(--brand); margin-bottom: 8px; font-family: 'Playfair Display', serif; }
-        .book-info p { font-size: 13px; color: #64748b; font-style: italic; line-height: 1.5; }
+.hero-ref { background: linear-gradient(rgba(5,46,22,0.92), rgba(5,46,22,0.92)), url('[https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=2000](https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=2000)'); background-size: cover; background-position: center; color: white; padding: clamp(60px, 10vh, 100px) 5%; text-align: center; }
+.hero-ref h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 7vw, 48px); margin-bottom: 15px; }
+.hero-ref p { font-size: clamp(14px, 3vw, 18px); opacity: 0.9; max-width: 800px; margin: auto; }
 
-        .tag-box { margin-top: 10px; }
-        .tag { font-size: 10px; background: #f1f5f9; padding: 3px 10px; border-radius: 10px; color: var(--brand); font-weight: 700; text-transform: uppercase; }
+.container { max-width: 1200px; margin: -50px auto 80px; padding: 0 20px; }
 
-        footer { text-align: center; padding: 60px; background: #020617; color: #94a3b8; font-size: 14px; margin-top: 50px; }
-    </style>
+.ref-section { background: white; padding: clamp(30px, 5vw, 60px); border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+.ref-section h2 { font-family: 'Playfair Display', serif; color: var(--brand); margin-bottom: 40px; text-align: center; font-size: clamp(24px, 5vw, 36px); border-bottom: 3px solid var(--gold); display: block; padding-bottom: 15px; }
+
+.book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 350px), 1fr)); gap: 20px; }
+.book-item { display: flex; align-items: flex-start; gap: 15px; padding: 25px; border: 1px solid #f1f5f9; border-radius: 20px; transition: 0.4s; background: #fff; height: 100%; }
+.book-item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: var(--gold); }
+.book-item i { color: var(--gold); font-size: 20px; background: #fdfce8; padding: 12px; border-radius: 12px; flex-shrink: 0; }
+
+.book-info h4 { font-size: 18px; color: var(--brand); margin-bottom: 8px; font-family: 'Playfair Display', serif; line-height: 1.2; }
+.book-info p { font-size: 13px; color: #64748b; font-style: italic; line-height: 1.5; margin-bottom: 10px; }
+
+.tag-box { margin-top: auto; }
+.tag { font-size: 10px; background: #f1f5f9; padding: 4px 10px; border-radius: 10px; color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+
+footer { text-align: center; padding: 60px 5%; background: #020617; color: #94a3b8; font-size: 14px; margin-top: 50px; }
+
+.content-block { margin-top: 60px; color: #1e293b; }
+.content-block h2 { color: var(--brand); font-family: 'Playfair Display', serif; margin: 40px 0 20px; border-bottom: 2px solid var(--gold); padding-bottom: 10px; }
+.content-block h3 { color: var(--brand); margin: 30px 0 15px; font-family: 'Playfair Display', serif; }
+.content-block h4 { color: var(--gold); margin: 20px 0 10px; font-weight: 700; }
+.content-block p { margin-bottom: 20px; font-size: 16px; line-height: 1.8; text-align: justify; }
+.content-block ul, .content-block ol { margin: 20px 0 20px 40px; }
+.content-block li { margin-bottom: 10px; }
+.quran-box { background: #f0fdf4; border-left: 5px solid var(--brand); padding: 25px; margin: 30px 0; font-style: italic; border-radius: 0 15px 15px 0; }
+.quran-box b { display: block; margin-top: 10px; color: var(--brand); font-style: normal; }
+.info-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; border-radius: 12px; overflow-x: auto; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.info-table th { background: var(--brand); color: white; padding: 15px; text-align: left; white-space: nowrap; }
+.info-table td { padding: 15px; border-bottom: 1px solid #e2e8f0; vertical-align: top; font-size: 14px; }
+.info-table tr:last-child td { border-bottom: none; }
+.case-study { background: #fffbeb; border: 1px solid #fde68a; padding: 25px; border-radius: 15px; margin: 30px 0; }
+.case-study h5 { color: #92400e; font-size: 18px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; }
+@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+.anchor-nav { background: #f1f5f9; padding: 20px; border-radius: 15px; margin-bottom: 40px; }
+.anchor-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.anchor-nav a { font-size: 12px; color: var(--brand); text-decoration: none; background: white; padding: 5px 15px; border-radius: 20px; border: 1px solid #cbd5e1; }
+
+@media (max-width: 600px) {
+    .book-item { padding: 20px; }
+    .hero-ref { padding-bottom: 80px; }
+}
+
+</style>
 </head>
 <body>
-
-    <header>
-        <a href="index.html" class="logo">AL-HISAB</a>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> RETURN HOME</a>
-    </header>
-
-    <section class="hero-ref">
-        <h1>Scholars & Shariah References</h1>
-        <p>A comprehensive database of 40+ classical and modern sources used for Al-Hisab algorithms.</p>
-    </section>
-
-    <div class="container">
-        <div class="ref-section">
-            <h2>The Institutional Library</h2>
-            <div class="book-grid">
-                
-                <div class="book-item">
-                    <i class="fas fa-scroll"></i>
-                    <div class="book-info">
-                        <h4>Sahih al-Bukhari</h4>
-                        <p>The primary source for Hadith regarding Zakat on gold, silver, and livestock.</p>
-                        <div class="tag-box"><span class="tag">Classical Source</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-scroll"></i>
-                    <div class="book-info">
-                        <h4>Sahih Muslim</h4>
-                        <p>Detailed rulings on Ushr (Agricultural tax) and wealth purification thresholds.</p>
-                        <div class="tag-box"><span class="tag">Classical Source</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-book"></i>
-                    <div class="book-info">
-                        <h4>Al-Mughni (Ibn Qudamah)</h4>
-                        <p>Comprehensive Hanbali jurisprudence on debt deduction and business assets.</p>
-                        <div class="tag-box"><span class="tag">Hanbali Fiqh</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-book"></i>
-                    <div class="book-info">
-                        <h4>Fatawa Hindiyya</h4>
-                        <p>The Mughal-era codification of Hanafi Zakat laws for commercial trade.</p>
-                        <div class="tag-box"><span class="tag">Hanafi Fiqh</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-university"></i>
-                    <div class="book-info">
-                        <h4>AAOIFI Standard No. 35</h4>
-                        <p>International Shariah standard for Zakat calculation in modern banks.</p>
-                        <div class="tag-box"><span class="tag">Global Standard</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-landmark"></i>
-                    <div class="book-info">
-                        <h4>Islamic Fiqh Academy (OIC)</h4>
-                        <p>Resolutions on Cryptocurrency, Digital Assets, and Stock Markets.</p>
-                        <div class="tag-box"><span class="tag">Modern Fatwa</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-pen-fancy"></i>
-                    <div class="book-info">
-                        <h4>Fiqh al-Zakat (Al-Qaradawi)</h4>
-                        <p>Modern encyclopedia covering Zakat on salaries and professional income.</p>
-                        <div class="tag-box"><span class="tag">Modern Research</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-book-quran"></i>
-                    <div class="book-info">
-                        <h4>Badai' al-Sanai'</h4>
-                        <p>Imam al-Kasani's logical framework for Zakatable wealth (Nama).</p>
-                        <div class="tag-box"><span class="tag">Classical Logic</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-file-invoice-dollar"></i>
-                    <div class="book-info">
-                        <h4>Mufti Taqi Usmani's Fatawa</h4>
-                        <p>Specific rulings on Mutual Funds, Insurance, and Real Estate Flipping.</p>
-                        <div class="tag-box"><span class="tag">Contemporary</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-microchip"></i>
-                    <div class="book-info">
-                        <h4>Digital Assets Shariah Report</h4>
-                        <p>Analysis of Ethereum Staking and Liquidity Pools Zakatability.</p>
-                        <div class="tag-box"><span class="tag">Tech Fatwa</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-leaf"></i>
-                    <div class="book-info">
-                        <h4>Kitab al-Kharaj (Abu Yusuf)</h4>
-                        <p>Classical reference for land tax and state-level Zakat administration.</p>
-                        <div class="tag-box"><span class="tag">Governance</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item">
-                    <i class="fas fa-chart-line"></i>
-                    <div class="book-info">
-                        <h4>Dow Jones Islamic Index Rules</h4>
-                        <p>Screening criteria for Shariah-compliant equity investments.</p>
-                        <div class="tag-box"><span class="tag">Market Standard</span></div>
-                    </div>
-                </div>
-
-                <div class="book-item"><div class="book-info"><h4>Al-Hidayah (Imam Marghinani)</h4><p>Rulings on Nisab of Silver and Mixed Metals.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Fatawa Shami (Ibn Abidin)</h4><p>Detailed analysis of personal liabilities and debts.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Al-Risalah (Imam Shafi'i)</h4><p>Foundational logic for Zakat on trade and agriculture.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Muwatta Imam Malik</h4><p>The practice of the people of Madinah regarding Zakat.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Majmu' al-Fatawa (Ibn Taymiyyah)</h4><p>Rulings on Zakatable assets in unstable economies.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Zakat on Pension Funds (SC Malaysia)</h4><p>Modern Shariah resolutions on retirement savings.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>International Shariah Board (IDB)</h4><p>Policies on Zakat for Waqf and Charity Trusts.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Accounting for Zakat (AAOIFI FAS 9)</h4><p>Financial accounting standards for Zakat calculation.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Bidayat al-Mujtahid</h4><p>Comparative Fiqh on differences in Nisab thresholds.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Al-Umm (Imam Shafi'i)</h4><p>Original source for Shafi'i Zakat jurisprudence.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Fatawa Darul Uloom Deoband</h4><p>Practical Fatwa database for South Asian Muslims.</p></div></div>
-                <div class="book-item"><div class="book-info"><h4>Azhar University Research Journal</h4><p>Analysis of Zakat on Intellectual Property and Patents.</p></div></div>
-
+<header>
+<div class="nav-left">
+<a href="index.html" class="home-link"><i class="fas fa-home"></i> <span>HOME</span></a>
+<a href="index.html" class="logo">HISABIFY</a>
+</div>
+<a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span>RETURN HOME</span></a>
+</header>
+<section class="hero-ref">
+<h1>Scholars & Shariah References</h1>
+<p>A comprehensive database of 40+ classical and modern sources used for Hisabify algorithms.</p>
+</section>
+<div class="container">
+<div class="ref-section">
+<h2>The Institutional Library</h2>
+<div class="book-grid">
+        <div class="book-item">
+            <i class="fas fa-scroll"></i>
+            <div class="book-info">
+                <h4>Sahih al-Bukhari</h4>
+                <p>The primary source for Hadith regarding Zakat on gold, silver, and livestock.</p>
+                <div class="tag-box"><span class="tag">Classical Source</span></div>
             </div>
         </div>
+
+        <div class="book-item">
+            <i class="fas fa-scroll"></i>
+            <div class="book-info">
+                <h4>Sahih Muslim</h4>
+                <p>Detailed rulings on Ushr (Agricultural tax) and wealth purification thresholds.</p>
+                <div class="tag-box"><span class="tag">Classical Source</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-book"></i>
+            <div class="book-info">
+                <h4>Al-Mughni (Ibn Qudamah)</h4>
+                <p>Comprehensive Hanbali jurisprudence on debt deduction and business assets.</p>
+                <div class="tag-box"><span class="tag">Hanbali Fiqh</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-book"></i>
+            <div class="book-info">
+                <h4>Fatawa Hindiyya</h4>
+                <p>The Mughal-era codification of Hanafi Zakat laws for commercial trade.</p>
+                <div class="tag-box"><span class="tag">Hanafi Fiqh</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-university"></i>
+            <div class="book-info">
+                <h4>AAOIFI Standard No. 35</h4>
+                <p>International Shariah standard for Zakat calculation in modern banks.</p>
+                <div class="tag-box"><span class="tag">Global Standard</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-landmark"></i>
+            <div class="book-info">
+                <h4>Islamic Fiqh Academy (OIC)</h4>
+                <p>Resolutions on Cryptocurrency, Digital Assets, and Stock Markets.</p>
+                <div class="tag-box"><span class="tag">Modern Fatwa</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-pen-fancy"></i>
+            <div class="book-info">
+                <h4>Fiqh al-Zakat (Al-Qaradawi)</h4>
+                <p>Modern encyclopedia covering Zakat on salaries and professional income.</p>
+                <div class="tag-box"><span class="tag">Modern Research</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-book-quran"></i>
+            <div class="book-info">
+                <h4>Badai' al-Sanai'</h4>
+                <p>Imam al-Kasani's logical framework for Zakatable wealth (Nama).</p>
+                <div class="tag-box"><span class="tag">Classical Logic</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <div class="book-info">
+                <h4>Mufti Taqi Usmani's Fatawa</h4>
+                <p>Specific rulings on Mutual Funds, Insurance, and Real Estate Flipping.</p>
+                <div class="tag-box"><span class="tag">Contemporary</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-microchip"></i>
+            <div class="book-info">
+                <h4>Digital Assets Shariah Report</h4>
+                <p>Analysis of Ethereum Staking and Liquidity Pools Zakatability.</p>
+                <div class="tag-box"><span class="tag">Tech Fatwa</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-leaf"></i>
+            <div class="book-info">
+                <h4>Kitab al-Kharaj (Abu Yusuf)</h4>
+                <p>Classical reference for land tax and state-level Zakat administration.</p>
+                <div class="tag-box"><span class="tag">Governance</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-chart-line"></i>
+            <div class="book-info">
+                <h4>Dow Jones Islamic Index Rules</h4>
+                <p>Screening criteria for Shariah-compliant equity investments.</p>
+                <div class="tag-box"><span class="tag">Market Standard</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-book-open"></i>
+            <div class="book-info">
+                <h4>Al-Hidayah (Imam Marghinani)</h4>
+                <p>Rulings on Nisab of Silver and Mixed Metals.</p>
+                <div class="tag-box"><span class="tag">Hanafi Fiqh</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-feather"></i>
+            <div class="book-info">
+                <h4>Fatawa Shami (Ibn Abidin)</h4>
+                <p>Detailed analysis of personal liabilities and debts.</p>
+                <div class="tag-box"><span class="tag">Classical Fatwa</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-balance-scale"></i>
+            <div class="book-info">
+                <h4>Al-Umm (Imam Shafi'i)</h4>
+                <p>Original source for Shafi'i Zakat jurisprudence.</p>
+                <div class="tag-box"><span class="tag">Shafi'i Fiqh</span></div>
+            </div>
+        </div>
+
+        <div class="book-item">
+            <i class="fas fa-mosque"></i>
+            <div class="book-info">
+                <h4>Fatawa Darul Uloom Deoband</h4>
+                <p>Practical Fatwa database for South Asian Muslims.</p>
+                <div class="tag-box"><span class="tag">Contemporary</span></div>
+            </div>
+        </div>
+
     </div>
 
-    <footer>
-        <p>Al-Hisab Research Portal - Verified Shariah References for 2026.</p>
-        <p style="margin-top: 10px; opacity: 0.6;">Designed for Academic and Shariah Transparency.</p>
-    </footer>
-<script src="brand.js"></script>
+    <div class="content-block">
+        <h2>Zakat in Islam: The Complete Guide to Purification of Wealth</h2>
+        <p>Zakat is the third pillar of Islam, an obligatory act of worship that involves the distribution of a specified portion of one’s wealth to deserving recipients. It is not merely a charitable gesture but a fundamental financial obligation designed to ensure social justice, alleviate poverty, and purify the soul of the giver from greed. In the modern financial landscape, understanding <b>how to calculate Zakat</b> has become increasingly complex due to digital assets, global stock markets, and varying currencies. This guide provides a Shariah-based framework for every Muslim to fulfill this pillar accurately.</p>
+
+        <div class="quran-box">
+            "And establish prayer and give Zakat and bow with those who bow [in worship and obedience]."
+            <b>— Surah Al-Baqarah (2:43)</b>
+        </div>
+
+        <h3>The Concept of Nisab and the Lunar Year (Hawl)</h3>
+        <p>Before using a <b>Zakat calculator</b>, one must understand the two primary conditions for Zakat: Nisab and Hawl. <b>Nisab value</b> is the minimum threshold of wealth that a Muslim must possess before Zakat becomes mandatory. If your net assets fall below this value, you are not required to pay Zakat. The <b>Hawl</b> is the requirement that this wealth must be held for one full Islamic (lunar) year.</p>
+
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>Nisab Type</th>
+                    <th>Weight Requirement</th>
+                    <th>Approximate Value (2026 Basis)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gold Nisab</td>
+                    <td>87.48 Grams (approx. 7.5 Tolas)</td>
+                    <td>Varies by market price (~$5,500 - $6,500)</td>
+                </tr>
+                <tr>
+                    <td>Silver Nisab</td>
+                    <td>612.36 Grams (approx. 52.5 Tolas)</td>
+                    <td>Varies by market price (~$450 - $550)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Zakat on Gold and Silver Jewelry</h3>
+        <p>The <b>Zakat rules in Islam</b> regarding jewelry depend on whether the items are for personal use or investment. According to the Hanafi school of thought, Zakat is due on all gold and silver regardless of their purpose, provided they meet the Nisab. Other schools, such as the Shafi'i, Maliki, and Hanbali, generally exempt jewelry intended for regular personal use, provided it is not excessive. However, to be safe and ensure full purification of wealth, many contemporary scholars recommend paying Zakat on all gold and silver items.</p>
+
+        <h4>Practical Calculation of Gold Zakat</h4>
+        <ul>
+            <li>Identify the purity of the gold (e.g., 24k, 22k, 18k).</li>
+            <li>Determine the current market price per gram for that specific purity.</li>
+            <li>Multiply the total weight by the price.</li>
+            <li>Apply the 2.5% Zakat rate to the total value.</li>
+        </ul>
+
+        <h3>Zakat on Cash, Savings, and Professional Salaries</h3>
+        <p><b>Zakat on cash and savings</b> is calculated on the total amount of money held in bank accounts, cash at home, and money lent to others (where repayment is expected). For salaried professionals, Zakat is not due on the monthly income as it is received, but rather on whatever remains of those savings at the end of the lunar year, provided the total wealth exceeds the Nisab.</p>
+
+        <div class="case-study">
+            <h5>Case Study: The Salaried Professional</h5>
+            <p>Ahmed earns $5,000 per month. Throughout the year, he spends on rent, food, and bills. At the end of his Zakat year, he has $8,000 in his savings account and $2,000 in cash. Since $10,000 is above the Silver Nisab threshold, Ahmed must pay 2.5% of $10,000, which is $250.</p>
+        </div>
+
+        <h3>Zakat on Cryptocurrency and Digital Assets</h3>
+        <p>The emergence of blockchain technology has led to the question of <b>Zakat on cryptocurrency</b>. Modern Shariah councils have ruled that cryptocurrencies like Bitcoin and Ethereum are considered "Mal" (wealth) and are subject to Zakat. If you hold crypto for investment purposes, you must calculate the total market value of your portfolio on your Zakat date and pay 2.5%.</p>
+        
+        <p>For NFTs (Non-Fungible Tokens), the ruling depends on intent. If the NFT is held for trade (flipping), it is subject to Zakat based on its market value. If it is held as a personal collectible with no intention to trade, Zakat may not be applicable, similar to personal household items.</p>
+
+        <h3>Business Assets and Inventory Calculation</h3>
+        <p>Business owners must pay Zakat on their "Trading Goods" (inventory intended for sale). Fixed assets such as office furniture, machinery, and company vehicles used for operations are exempt from Zakat. The calculation for a business is: <b>(Cash + Finished Goods + Raw Materials + Trade Receivables) - (Immediate Trade Payables) = Zakatable Amount.</b></p>
+
+        <div class="quran-box">
+            "Take, [O, Muhammad], from their wealth a charity by which you purify them and cause them increase..."
+            <b>— Surah At-Tawbah (9:103)</b>
+        </div>
+
+        <h3>Zakat vs. Sadaqah vs. Zakat al-Fitr</h3>
+        <p>It is crucial to distinguish between different forms of <b>Islamic charity</b>. While the terms are often used interchangeably in casual conversation, they have distinct legal meanings in Fiqh.</p>
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Obligation</th>
+                    <th>Timing</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Zakat (Al-Mal)</td>
+                    <td>Fard (Mandatory)</td>
+                    <td>Once a lunar year</td>
+                    <td>2.5% of qualifying assets</td>
+                </tr>
+                <tr>
+                    <td>Zakat al-Fitr</td>
+                    <td>Wajib (Mandatory)</td>
+                    <td>Before Eid al-Fitr prayer</td>
+                    <td>Fixed amount per family member</td>
+                </tr>
+                <tr>
+                    <td>Sadaqah</td>
+                    <td>Nafl (Voluntary)</td>
+                    <td>Anytime</td>
+                    <td>Any amount</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Common Mistakes in Zakat Calculation</h3>
+        <p>Many Muslims inadvertently miscalculate their Zakat due to a lack of detailed knowledge. Common errors include:</p>
+        <ul>
+            <li><b>Not including trade receivables:</b> Money owed to you by customers for business sales is zakatable.</li>
+            <li><b>Deducting long-term debts:</b> Only the immediate upcoming installments of a long-term loan (like a mortgage) should be deducted, not the entire principal balance.</li>
+            <li><b>Ignoring "hidden" gold:</b> Small items like gold coins or small jewelry pieces are often forgotten.</li>
+            <li><b>Incorrect timing:</b> Calculating Zakat on a random date rather than a consistent lunar date each year.</li>
+        </ul>
+
+        <h3>Modern Financial Cases and Stock Markets</h3>
+        <p>Investing in the stock market requires a two-step approach for Zakat. If the intention is "Capital Gains" (buying and selling stocks for profit), Zakat is paid on the full market value of the shares at 2.5%. If the intention is "Dividend Income" (holding for long-term growth), Zakat is only paid on the zakatable assets of the company (cash, inventory, receivables). Since calculating the internal assets of a company is difficult for retail investors, many scholars recommend a proxy of 25% of the market value as the zakatable base for long-term holders.</p>
+
+        <div class="quran-box">
+            "The Messenger of Allah (peace be upon him) said: 'Whoever is given wealth by Allah and does not pay Zakat on it, on the Day of Resurrection his wealth will appear to him as a bald-headed poisonous snake...'"
+            <b>— Sahih al-Bukhari 1403</b>
+        </div>
+
+        <h3>Zakat on Real Estate</h3>
+        <p>The home you live in is exempt from Zakat. However, real estate held for different purposes has different rules:</p>
+        <ol>
+            <li><b>Property held for Sale:</b> If you are a property flipper or developer, Zakat is due on the full current market value of the property.</li>
+            <li><b>Rental Property:</b> No Zakat is due on the value of the building itself. Zakat is only due on the net rental income saved at the end of the year.</li>
+            <li><b>Land held for Future Use:</b> If you haven't decided whether to build a home or sell the land, some scholars suggest no Zakat is due until the intention is finalized.</li>
+        </ol>
+
+        <h3>How to Calculate Zakat on Pension and Retirement Funds</h3>
+        <p>Retirement funds such as 401k or pension schemes are subject to Zakat. The calculation depends on the accessibility of the funds. If you can withdraw the money (even with a penalty), Zakat is due on the accessible amount. If the fund is completely locked until retirement, some scholars rule that Zakat is only due once the funds are received, while others suggest paying on the current value annually to avoid a massive burden later.</p>
+
+        <h3>The Ethics of Zakat Distribution</h3>
+        <p>Zakat must be given to one of the eight categories mentioned in the Quran (Surah At-Tawbah, verse 60). These include the poor (Al-Fuqara), the needy (Al-Masakin), those employed to collect Zakat, those whose hearts are to be reconciled, for freeing captives, those in debt, in the cause of Allah, and the wayfarer. It is preferred to distribute Zakat locally unless there is a more pressing need elsewhere in the Ummah.</p>
+
+        <h3>Zakat on Livestock and Agriculture (Ushr)</h3>
+        <p>For those in rural or agricultural sectors, Zakat is calculated differently. Agriculture is subject to "Ushr," which is 10% of the produce if the land is watered by rain and 5% if it is irrigated by artificial means. Livestock (sheep, goats, cattle, camels) have specific thresholds (Nisab) and specific numbers of animals to be given as Zakat, provided they are pastured animals (Saimah) and not used for labor.</p>
+
+        <h3>Differences Across Schools of Thought (Madhahib)</h3>
+        <p>While the core of Zakat is agreed upon, minor differences exist:</p>
+        <ul>
+            <li><b>Hanafi:</b> Zakat is due on the wealth of minors and the insane if managed by a guardian. Gold jewelry is always zakatable.</li>
+            <li><b>Shafi'i:</b> Focuses heavily on the type of wealth; personal jewelry is generally exempt if within reasonable limits.</li>
+            <li><b>Maliki:</b> Similar to Shafi'i but with specific nuances regarding agricultural products.</li>
+        </ul>
+
+        <h3>Purification of Wealth (Tazkiyah)</h3>
+        <p>Ultimately, Zakat is a spiritual journey. It reminds the believer that wealth is a trust (Amanah) from Allah. By giving, the believer acknowledges that everything belongs to the Creator. The word "Zakat" itself means both "purification" and "growth." By removing the portion that belongs to the poor, the remainder of the wealth is blessed and protected.</p>
+
+        <h3>Conclusion and Call to Action</h3>
+        <p>Ensuring your Zakat is calculated correctly is a matter of religious integrity. With the 2026 financial environment becoming increasingly digital and interconnected, using tools like a <b>Zakat calculator</b> and staying informed on <b>Nisab values</b> is essential. Whether you hold gold, stocks, or cryptocurrency, take the time to audit your finances today and fulfill your obligation to the poor and to Allah.</p>
+
+        <div class="case-study">
+            <h5>Example: The Digital Portfolio</h5>
+            <p>Fatima has $2,000 in her bank account, 20 grams of gold ($1,400), and 0.05 Bitcoin ($3,000). Her total assets are $6,400. She owes $500 in credit card debt. Her net zakatable wealth is $5,900. Since this exceeds the Silver Nisab, she pays 2.5%, which equals $147.50.</p>
+        </div>
+
+        <h3>Global Zakat Impact</h3>
+        <p>Zakat has the power to transform the global economy. If every eligible Muslim gave their Zakat accurately, researchers estimate that extreme poverty could be eliminated within a few years. It acts as a natural redistribution mechanism that prevents the concentration of wealth in the hands of a few. By choosing to calculate your Zakat accurately using Shariah-compliant methods, you are contributing to a system that has supported millions for over 1,400 years.</p>
+
+        <p>For more detailed rulings on specific assets like private equity, venture capital, or insurance payouts, please refer to the scholarly works listed in our Institutional Library above. Our database is updated for the year 2026 to reflect current market fluctuations and modern Fiqh resolutions.</p>
+    </div>
+
+    <div class="content-block" id="global-zakat-practices">
+        <div class="anchor-nav">
+            <ul>
+                <li><a href="#regional-zakat">Regional Practices</a></li>
+                <li><a href="#salaried-zakat">Salaried Rulings</a></li>
+                <li><a href="#freelancer-zakat">Freelancers & Remote Work</a></li>
+                <li><a href="#investment-zakat">Stocks & Staking</a></li>
+                <li><a href="#women-zakat">Women & Jewelry</a></li>
+            </ul>
+        </div>
+
+        <h2 id="regional-zakat">Country-Wise Zakat Practices: A Global Comparison</h2>
+        <p>While the theological basis for Zakat remains identical across the globe, the implementation, collection mechanisms, and cultural nuances vary significantly between regions. In some countries, Zakat is integrated into the state fiscal system, while in others, it is purely a private matter managed through NGOs and local Masajid.</p>
+
+        <div class="grid-2">
+            <div>
+                <h4>Middle East & Gulf (GCC)</h4>
+                <p>In countries like Saudi Arabia, Kuwait, and the UAE, Zakat is often managed by state-sponsored organizations like the "Zakat, Tax and Customs Authority" (ZATCA). Companies and businesses are often legally required to submit Zakat as part of their annual tax filing. For individuals, the presence of numerous charitable foundations makes distribution highly efficient. The "Zakat calculator online" tools provided by these governments are synchronized with the latest local currency gold prices.</p>
+            </div>
+            <div>
+                <h4>South Asia (Pakistan, India, Bangladesh)</h4>
+                <p>In Pakistan, Zakat is deducted at source from bank savings accounts on the first of Ramadan. In India, where Muslims are a minority, Zakat is managed by community-run Zakat centers and Bait-ul-Mals. A common cultural practice in this region is the emphasis on the "Silver Nisab" to maximize the amount given to the poor, especially during economic inflation.</p>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <h4>Europe & North America</h4>
+                <p>Muslims in the West face unique challenges, such as reconciling Zakat with high personal debt (student loans, mortgages) and high costs of living. Organizations like the National Zakat Foundation (NZF) in the UK and Canada provide localized <b>Zakat rules</b> to help non-resident Muslims understand how to calculate Zakat while paying Western taxes. In these regions, many Muslims prefer to send their Zakat to their home countries where the need may be more dire.</p>
+            </div>
+            <div>
+                <h4>Africa (West & East)</h4>
+                <p>In regions with large Muslim populations like Nigeria and Sudan, Zakat often plays a vital role in providing micro-finance to small farmers and local artisans. The collection is often decentralized, relying on local community leadership to identify those eligible for assistance according to the eight Quranic categories.</p>
+            </div>
+        </div>
+
+        <h2 id="salaried-zakat">Zakat for Salaried Individuals: Monthly Income & Year-End Rulings</h2>
+        <p>A frequent question for professionals in 2026 is: "Do I pay Zakat on my monthly salary as I earn it?" The short answer is no. Zakat is not an income tax; it is a wealth tax. However, the management of savings from that salary requires careful planning.</p>
+        
+        <h4>The Progressive Savings Approach</h4>
+        <p>If you receive a salary, you only pay Zakat on the portion of your salary that you save and hold for one lunar year. Most scholars recommend setting a fixed "Zakat Anniversary" (e.g., the 1st of Ramadan). On this day, you look at your bank balance. If it exceeds the Nisab, you pay 2.5% of the <b>entire balance</b>, regardless of when each individual dollar was earned during the year. This simplifies the process significantly compared to tracking every penny for 12 months.</p>
+        
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Action Taken</th>
+                    <th>Zakat obligation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Salary spent immediately on bills/rent</td>
+                    <td>Monthly consumption</td>
+                    <td>$0 (No savings, no Zakat)</td>
+                </tr>
+                <tr>
+                    <td>Savings held below Silver Nisab</td>
+                    <td>Emergency fund building</td>
+                    <td>$0 (Threshold not met)</td>
+                </tr>
+                <tr>
+                    <td>Stable savings above Nisab for 1 year</td>
+                    <td>Wealth accumulation</td>
+                    <td>2.5% of total balance on anniversary</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="freelancer-zakat">Zakat for Freelancers and Online Earners (Gig Economy)</h2>
+        <p>The rise of remote work and digital nomadism has introduced new complexities to <b>how Muslims calculate Zakat</b>. Freelancers often have irregular income, varying exchange rates, and business expenses that overlap with personal life.</p>
+        
+        <h4>Business Tools and Digital Infrastructure</h4>
+        <p>For a freelancer, tools of the trade (Laptops, Cameras, Software Licenses, Workspace furniture) are <b>not</b> subject to Zakat. These are classified as "Amwal al-Qunyah" (Personal assets for use). However, any "Work in Progress" for which you have billed but not yet received payment (Trade Receivables) should be included in your Zakat calculation if you are certain the client will pay.</p>
+
+        <h4>Foreign Currency Holdings</h4>
+        <p>Many freelancers hold balances in PayPal, Wise, or foreign bank accounts in USD, EUR, or GBP. When calculating Zakat, you must convert these balances into your local currency or the currency of your Nisab on the day you perform your calculation. Fluctuations in the exchange rate during the year are ignored; only the value on your <b>Zakat anniversary</b> matters.</p>
+
+        <h2 id="investment-zakat">Zakat on Stocks, Mutual Funds, and Crypto Staking</h2>
+        <p>Modern investment vehicles require a nuanced understanding of Shariah. The <b>Islamic finance basics</b> dictate that Zakat is due on the productive portion of your investments.</p>
+
+        <h4>1. Publicly Traded Stocks (Equities)</h4>
+        <ul>
+            <li><b>Trading Intent:</b> If you buy stocks to sell them when the price rises (Day trading or short-term swing trading), pay 2.5% on the full market value.</li>
+            <li><b>Investment Intent:</b> If you hold stocks for years for dividends, you only pay Zakat on the company's "Liquid Assets." Since this is hard to find, a common modern fatwa is to pay 2.5% on either the <b>market value</b> (cautious approach) or roughly <b>25-30% of the market value</b> (representing the liquid portion of the company).</li>
+        </ul>
+
+        <h4>2. Cryptocurrency Staking and DeFi</h4>
+        <p>If you stake your crypto (e.g., Ethereum or Solana) to earn rewards, Zakat is due on both the <b>principal amount</b> and the <b>accumulated rewards</b>. For Liquidity Pools (LP), you must value your "LP Tokens" at their current market price on your Zakat date. NFTs held as "digital art" for long-term collection follow the same rule as personal art (often exempt), but NFTs held as "investments" must be valued and taxed at 2.5%.</p>
+
+        <div class="quran-box">
+            "Believe in Allah and His Messenger and spend out of that in which He has made you successors. For those who have believed among you and spent, there will be a great reward."
+            <b>— Surah Al-Hadid (57:7)</b>
+        </div>
+
+        <h2 id="women-zakat">Women-Specific Zakat Rulings: Jewelry and Dowry</h2>
+        <p>Women have specific financial considerations in Islamic law, particularly concerning the <b>Mahr (Dowry)</b> and gold jewelry. <b>Zakat on gold and silver</b> remains one of the most discussed topics in female circles.</p>
+
+        <h4>Zakat on the Mahr (Dowry)</h4>
+        <p>A woman's dowry is her exclusive property. However, Zakat is only due on it once she has <b>physical possession</b> of it. If the Mahr is "deferred" (to be paid later by the husband), the woman does not owe Zakat on it until she actually receives the cash or assets. Once received, the 1-year Hawl period begins.</p>
+
+        <h4>Personal Jewelry vs. Wealth</h4>
+        <p>In the Shafi'i and Hanbali schools, jewelry that is worn regularly for adornment is exempt. In the Hanafi school, all gold is zakatable. Many modern women follow the practice of weighing all their gold once a year and paying 2.5% to ensure they are fulfilling the obligation regardless of school differences, especially if the jewelry is kept in a safe and rarely worn.</p>
+
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>Asset Category</th>
+                    <th>Hanafi View</th>
+                    <th>Other Schools</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Everyday Gold Jewelry</td>
+                    <td>Zakatable (2.5%)</td>
+                    <td>Exempt (if not excessive)</td>
+                </tr>
+                <tr>
+                    <td>Stored Investment Gold</td>
+                    <td>Zakatable (2.5%)</td>
+                    <td>Zakatable (2.5%)</td>
+                </tr>
+                <tr>
+                    <td>Gold Diamonds/Gemstones</td>
+                    <td>Exempt (Only gold weight)</td>
+                    <td>Exempt</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="calculation-mistakes">Step-by-Step Zakat Calculation Guide (Real-World Examples)</h2>
+        <p>To avoid the <b>Zakat calculation mistakes</b> people make globally, follow this structured process. Using a <b>Zakat calculator online</b> is helpful, but doing it manually once a year ensures you understand your financial purification.</p>
+
+        <h4>Step 1: Determine Your Zakat Date</h4>
+        <p>Pick a date on the Hijri calendar. Stick to it every year. Ramadan is popular, but any date works. If you are a <b>non-resident Muslim</b>, ensure you use the date relevant to your primary residence or the date you have historically used.</p>
+
+        <h4>Step 2: List All Zakatable Assets</h4>
+        <ul>
+            <li>Cash in all bank accounts + Cash at home</li>
+            <li>Value of Gold and Silver</li>
+            <li>Market value of stocks and crypto</li>
+            <li>Value of business inventory</li>
+            <li>Money lent to others (where repayment is guaranteed)</li>
+        </ul>
+
+        <h4>Step 3: Subtract Immediate Liabilities</h4>
+        <ul>
+            <li>Utility bills due this month</li>
+            <li>Next mortgage or car payment (only the immediate month)</li>
+            <li>Money you owe to others (short-term debts)</li>
+            <li>Unpaid employee salaries (for business owners)</li>
+        </ul>
+
+        <h4>Step 4: Compare with Nisab</h4>
+        <p>If (Assets - Liabilities) > Nisab, then multiply the net amount by 0.025 (2.5%). If using the solar calendar (365 days) instead of the lunar calendar (354 days), some scholars suggest using <b>2.577%</b> to account for the extra 11 days.</p>
+
+        <h2 id="digital-challenges">Digital Era Zakat Challenges and Solutions</h2>
+        <p>In 2026, the concept of "wealth" is changing. From virtual real estate in the metaverse to loyalty points and air miles, Muslims are asking new questions. <b>How Muslims calculate Zakat</b> today requires applying classical principles to digital realities.</p>
+
+        <h4>Air Miles and Loyalty Points</h4>
+        <p>Most contemporary scholars agree that air miles and loyalty points have no Zakat value until they are redeemed for something tangible, as they are not "fully owned" and cannot be traded freely for currency in most cases.</p>
+
+        <h4>Zakat on Crowdfunding and Social Finance</h4>
+        <p>If you have contributed to a crowdfunding campaign (like GoFundMe or LaunchGood) but the project has not started, that money is no longer yours; therefore, no Zakat is due on it. However, if you are the one running the campaign and holding the funds for a project, you must ensure the Zakat status of those funds is clearly communicated to the donors, as Zakat funds cannot usually be used for administrative overhead unless specified.</p>
+
+        <div class="case-study">
+            <h5>Global Calculation Example</h5>
+            <p><b>Scenario:</b> A Muslim professional in Germany (2026).</p>
+            <ul>
+                <li>Bank Balance: €5,000</li>
+                <li>Crypto (BTC): €2,000</li>
+                <li>Gold Coins: €3,500</li>
+                <li>Total Assets: €10,500</li>
+                <li>Rent/Bills Due: €1,200</li>
+                <li>Net Wealth: €9,300</li>
+            </ul>
+            <p><b>Zakat Calculation:</b> €9,300 x 2.5% = <b>€232.50</b></p>
+        </div>
+
+        <h3>Common Mistakes to Avoid Globally</h3>
+        <ol>
+            <li><b>Thinking Zakat is only for the rich:</b> If you have enough to survive and your surplus meets the Nisab (often just a few hundred dollars), you are "rich" in the eyes of Zakat law.</li>
+            <li><b>Not updating gold prices:</b> Using last year's gold price can lead to underpaying. Always check the <b>Nisab value</b> on the day of payment.</li>
+            <li><b>Mistaking tax for Zakat:</b> Paying income tax to a government does not fulfill your Zakat obligation. Zakat is a specific religious duty for the eight categories of recipients.</li>
+        </ol>
+
+        <p>By following these guidelines and referencing the <b>Scholars & Shariah References</b> provided in our institutional library, you can ensure your wealth is purified and your religious obligations are met with precision. Hisabify remains committed to providing the most accurate, tech-forward, and Shariah-compliant tools for the global Ummah in 2026 and beyond.</p>
+    </div>
+</div>
+
+</div>
+<footer>
+<p>Hisabify Research Portal - Verified Shariah References for 2026.</p>
+<p style="margin-top: 10px; opacity: 0.6;">Designed for Academic and Shariah Transparency.</p>
+</footer>
 </body>
 </html>
