@@ -13,9 +13,8 @@
     <title>HISABIFY | Official Global Zakat Portal 2026 - All-in-One Calculator</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="canonical" href="https://hiseabify.online/" />
-
     <meta name="description" content="The most comprehensive Zakat portal for 2026. Calculate Zakat on Gold, Silver, Cash, Stocks, Business, Crypto, Agriculture (Ushr), and Livestock. Shariah-compliant guidance.">
-    <meta name="keywords" content="Zakat Calculator 2026, Gold Niab 2026, Silver Nisab Rate Pakistan, Zakat on Business Assets, How to calculate Ushr, Zakat on Crypto, Islamic Wealth Purification, Hisabify Official">
+    <meta name="keywords" content="Zakat Calculator 2026, Gold Nisab 2026, Silver Nisab Rate Pakistan, Zakat on Business Assets, How to calculate Ushr, Zakat on Crypto, Islamic Wealth Purification, Hisabify Official">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,6 +24,7 @@
             --brand-green: #052e16;
             --mid-green: #14532d;
             --gold: #c6a306;
+            --light-gold: #d4af37;
             --cream: #fdfbf7;
             --white: #ffffff;
             --text-dark: #111827;
@@ -36,58 +36,368 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--white); color: var(--text-dark); line-height: 1.8; }
 
         header { background: var(--white); box-shadow: 0 4px 20px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; width: 100%; }
+        
+        /* Main Navigation */
         nav { max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; width: 100%; }
         .logo-area { display: flex; align-items: center; text-decoration: none; gap: 10px; }
         .logo-icon { background: var(--brand-green); color: var(--gold); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
         .site-name { font-family: 'Cinzel', serif; font-size: 20px; color: var(--brand-green); font-weight: 700; letter-spacing: 1px; }
         .menu-toggle { font-size: 22px; color: var(--brand-green); cursor: pointer; background: none; border: none; }
 
+        /* Header Button Navigation */
+        .header-nav { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
+            flex-wrap: wrap;
+        }
+        .header-nav-btn { 
+            font-family: 'Playfair Display', serif; 
+            background: var(--cream); 
+            color: var(--brand-green); 
+            border: 1px solid var(--gold); 
+            padding: 8px 16px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(198, 163, 6, 0.15);
+        }
+        .header-nav-btn:hover { 
+            background: var(--gold); 
+            color: var(--white); 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(198, 163, 6, 0.3);
+        }
+
+        /* Mobile Header - Ab buttons nazar aayenge */
+        @media (max-width: 1024px) {
+            .header-nav { 
+                display: flex; 
+                overflow-x: auto; 
+                white-space: nowrap;
+                padding: 10px 0;
+                gap: 10px;
+                scrollbar-width: none; 
+            }
+            .header-nav::-webkit-scrollbar {
+                display: none; 
+            }
+            .header-nav-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+        }
+
+
         .side-menu {
             position: fixed; top: 0; right: -300px; width: 300px; height: 100%;
             background: var(--brand-green); z-index: 2000; transition: 0.4s;
-            padding: 30px; display: flex; flex-direction: column; gap: 5px;
+            padding: 30px 0; display: flex; flex-direction: column;
             box-shadow: -5px 0 15px rgba(0,0,0,0.3); overflow-y: auto;
         }
         .side-menu.active { right: 0; }
-        .side-menu a { color: white; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .side-menu a:hover { color: var(--gold); background: rgba(255,255,255,0.05); }
-        .close-btn { color: white; font-size: 30px; align-self: flex-end; cursor: pointer; margin-bottom: 20px; }
+        .side-menu a { 
+            color: white; 
+            text-decoration: none; 
+            font-size: 13px; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            padding: 15px 30px; 
+            border-bottom: 1px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+        .side-menu a:hover { 
+            color: var(--gold); 
+            background: rgba(198, 163, 6, 0.1);
+            padding-left: 40px;
+        }
+        .close-btn { 
+            color: white; 
+            font-size: 30px; 
+            align-self: flex-end; 
+            cursor: pointer; 
+            margin: 0 30px 20px 0; 
+            transition: color 0.3s ease;
+        }
+        .close-btn:hover { color: var(--gold); }
 
         .hero { 
-            min-height: 80vh; background: linear-gradient(rgba(5, 46, 22, 0.8), rgba(5, 46, 22, 0.8)), url('https://images.unsplash.com/photo-1590059379661-d007f9754f73?q=80&w=2000&auto=format&fit=crop');
+            min-height: 80vh; background: linear-gradient(rgba(5, 46, 22, 0.85), rgba(5, 46, 22, 0.85)), url('https://images.unsplash.com/photo-1590059379661-d007f9754f73?q=80&w=2000&auto=format&fit=crop');
             background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); padding: 80px 20px;
+            position: relative;
         }
-        .hero-box h1 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 8vw, 70px); font-weight: 900; margin-bottom: 25px; }
-        .hero-box p { font-size: 20px; max-width: 900px; margin: 0 auto 35px; opacity: 0.9; }
-        .cta-gold-large { background: var(--gold); color: white !important; border-radius: 50px; font-weight: 800; text-decoration: none; padding: 20px 50px; font-size: 20px; text-transform: uppercase; display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(198, 163, 6, 0.1), transparent);
+            pointer-events: none;
+        }
+        .hero-box { position: relative; z-index: 1; }
+        .hero-box h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(35px, 8vw, 70px); 
+            font-weight: 900; 
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-box p { font-size: 20px; max-width: 900px; margin: 0 auto 35px; opacity: 0.95; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+        .cta-gold-large { 
+            background: linear-gradient(135deg, var(--gold) 0%, var(--light-gold) 100%);
+            color: white !important; 
+            border-radius: 50px; 
+            font-weight: 800; 
+            text-decoration: none; 
+            padding: 20px 50px; 
+            font-size: 20px; 
+            text-transform: uppercase; 
+            display: inline-block; 
+            box-shadow: 0 10px 30px rgba(198, 163, 6, 0.4);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .cta-gold-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(198, 163, 6, 0.6);
+        }
 
-        .content-wrap { max-width: 1200px; margin: auto; padding: 100px 20px; }
-        .mega-section { margin-bottom: 120px; }
-        .mega-section h2 { font-family: 'Playfair Display', serif; font-size: 45px; color: var(--brand-green); margin-bottom: 30px; border-bottom: 3px solid var(--gold); display: inline-block; }
-        .mega-section h3 { font-size: 28px; color: var(--mid-green); margin: 40px 0 20px; }
-        .mega-section p { font-size: 18px; color: #374151; margin-bottom: 20px; text-align: justify; }
+        .content-wrap { max-width: 1200px; margin: auto; padding: 80px 20px; }
+        
+        .premium-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin: 60px 0;
+            border: 3px solid var(--gold);
+            box-shadow: 0 20px 60px rgba(198, 163, 6, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(198, 163, 6, 0.1), transparent);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+        .premium-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--brand-green);
+            margin-bottom: 30px;
+            border-bottom: 4px solid var(--gold);
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        .premium-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--mid-green);
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .premium-card h3 i {
+            color: var(--gold);
+            font-size: 36px;
+        }
+        .premium-card p {
+            font-size: 18px;
+            color: #374151;
+            margin-bottom: 20px;
+            text-align: justify;
+            line-height: 1.9;
+        }
 
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px 0; }
-        .info-card { padding: 40px; background: var(--gray-light); border-radius: 20px; border-top: 5px solid var(--gold); }
-        .info-card i { font-size: 40px; color: var(--brand-green); margin-bottom: 20px; }
+        .luxury-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        .luxury-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            padding: 40px;
+            border-radius: 25px;
+            border: 2px solid var(--gold);
+            border-top: 6px solid var(--gold);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .luxury-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--light-gold), var(--gold));
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        .luxury-card:hover::after {
+            transform: translateX(0);
+        }
+        .luxury-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(198, 163, 6, 0.25);
+        }
+        .luxury-card i {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .luxury-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--brand-green);
+            margin-bottom: 15px;
+        }
 
-        .nisab-table { width: 100%; border-collapse: collapse; margin: 40px 0; background: white; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
-        .nisab-table th, .nisab-table td { padding: 20px; border: 1px solid #eee; text-align: left; }
-        .nisab-table th { background: var(--brand-green); color: white; }
+        .royal-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 40px 0;
+            background: white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+        }
+        .royal-table th, .royal-table td {
+            padding: 25px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .royal-table th {
+            background: linear-gradient(135deg, var(--brand-green) 0%, var(--mid-green) 100%);
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .royal-table tbody tr {
+            transition: all 0.3s ease;
+        }
+        .royal-table tbody tr:hover {
+            background: linear-gradient(90deg, rgba(198, 163, 6, 0.05), transparent);
+            transform: scale(1.01);
+        }
 
-        footer { background: #020617; color: #94a3b8; padding: 100px 20px 30px; margin-top: 100px; }
+        .golden-quote {
+            background: linear-gradient(135deg, var(--brand-green) 0%, var(--mid-green) 100%);
+            color: var(--gold);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 50px 0;
+            border: 3px solid var(--gold);
+            box-shadow: 0 15px 40px rgba(198, 163, 6, 0.2);
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-style: italic;
+            text-align: center;
+        }
+        .golden-quote::before {
+            content: '"';
+            font-size: 80px;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .calculation-box {
+            background: linear-gradient(145deg, #f0fdf4 0%, #ecfdf5 100%);
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(198, 163, 6, 0.15);
+        }
+        .calculation-box h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--brand-green);
+            font-size: 26px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .calculation-box h4 i {
+            color: var(--gold);
+        }
+        .calculation-step {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 5px solid var(--gold);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .info-highlight {
+            background: linear-gradient(135deg, rgba(198, 163, 6, 0.1) 0%, rgba(198, 163, 6, 0.05) 100%);
+            border-left: 5px solid var(--gold);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 80px 0;
+            border: none;
+        }
+
+        footer { 
+            background: #020617; 
+            color: #94a3b8; 
+            padding: 100px 20px 30px; 
+            margin-top: 100px; 
+            width: 100%;
+            display: block;
+            clear: both;
+            box-sizing: border-box;
+        }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; max-width: 1400px; margin: auto; }
         .footer-grid h4 { color: white; font-size: 18px; margin-bottom: 20px; border-left: 3px solid var(--gold); padding-left: 10px; }
         .footer-grid p, .footer-grid a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; }
         .footer-grid a:hover { color: var(--gold); }
         .bottom-line { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
-
-        /* Contact Section Styling */
         .contact-item { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; color: #94a3b8; text-decoration: none; transition: 0.3s; }
         .contact-item:hover { color: var(--gold); }
         .contact-item i { font-size: 20px; color: var(--gold); }
         .wa-small-logo { color: #25d366 !important; }
+
+        @media (max-width: 768px) {
+            .luxury-grid { grid-template-columns: 1fr; }
+            .premium-card { padding: 30px 20px; }
+            .premium-card h2 { font-size: 32px; }
+            .premium-card h3 { font-size: 24px; }
+            .header-nav { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -96,8 +406,19 @@
         <nav>
             <a href="index.html" class="logo-area">
                 <div class="logo-icon"><i class="fas fa-kaaba"></i></div>
-                <div class="site-name">- HISABIFY</div>
+                <div class="site-name">HISABIFY</div>
             </a>
+            
+            <!-- Header Navigation Buttons -->
+            <div class="header-nav">
+                <a href="fatawa.html" class="header-nav-btn">Fatwa Bank</a>
+                <a href="nisab.html" class="header-nav-btn">Nisab Tracker</a>
+                <a href="references.html" class="header-nav-btn">Scholars & Refs</a>
+                <a href="knowledge-hub.html" class="header-nav-btn">Knowledge Hub</a>
+                <a href="disclaimer.html" class="header-nav-btn">Disclaimer</a>
+                <a href="faqs.html" class="header-nav-btn">FAQs</a>
+            </div>
+            
             <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars-staggered"></i></button>
         </nav>
     </header>
@@ -107,14 +428,8 @@
         <a href="how-it-works.html" style="color: var(--gold);">How It Works / Guide</a>
         <a href="about.html">About Us</a>
         <a href="guidelines.html">Guidelines</a>
-        <a href="faqs.html">FAQs</a>
-        <a href="fatawa.html">Fatwa Bank</a>
-        <a href="nisab.html">Nisab Tracker</a>
-        <a href="knowledge-hub.html">Knowledge Hub</a>
-        <a href="references.html">Scholars & Refs</a>
         <a href="accessibility.html">Accessibility</a>
         <a href="contact.html">Contact Us</a>
-        <a href="disclaimer.html">Disclaimer</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms & Conditions</a>
         <a href="cookies.html">Cookie Policy</a>
@@ -130,722 +445,832 @@
     </section>
 
     <div class="content-wrap">
-      <div class="mega-section" id="zakat-advanced-topics">
-    <div class="header-banner">
-        <h1 class="display-1">Advanced Zakat Insights 2026</h1>
-        <p class="lead-text">Expand your understanding of Zakat, beyond the basics—global rules, contemporary assets, and practical tips.</p>
-    </div>
-
-    <div class="info-card">
-        <h2><i class="fas fa-globe"></i> 1. Global Zakat Practices</h2>
-        <p>Zakat rules vary slightly based on local currency, gold/silver rates, and regional guidelines. Understanding these nuances ensures accurate calculation and fulfillment of obligation.</p>
-        <ul>
-            <li><strong>Middle East:</strong> Nisab is calculated mostly in gold; digital payments for Zakat are widely accepted.</li>
-            <li><strong>South Asia:</strong> Silver Nisab often recommended for cash savings and local currencies.</li>
-            <li><strong>Europe & North America:</strong> Currency fluctuation and digital assets require frequent updates of Zakat calculation.</li>
-            <li><strong>Digital Age:</strong> Cryptocurrency, NFTs, and online savings platforms are becoming mainstream for Zakat calculation.</li>
-        </ul>
-    </div>
-
-    <div class="info-card">
-        <h2><i class="fas fa-calculator"></i> 2. Advanced Zakat Calculations</h2>
-        <p>For sophisticated portfolios including crypto, international stocks, or rental income from multiple properties:</p>
-        <ol>
-            <li>Convert all assets to a single reference currency (USD, EUR, or local currency).</li>
-            <li>Separate zakatable vs non-zakatable assets (primary residence, personal-use items).</li>
-            <li>Deduct immediate liabilities and calculate 2.5% on net assets.</li>
-            <li>Reassess every lunar year for accurate calculation.</li>
-        </ol>
-        <div class="example-box">
-            <h4>Scenario: Multi-Asset Portfolio</h4>
-            <p>Ahmed holds $10,000 in savings, 0.5 BTC (~$15,000), and rental income of $5,000 for the year. Immediate debts: $2,000. Zakat calculation:</p>
-            <ul>
-                <li>Total Assets: $30,000</li>
-                <li>Deduct Debts: $2,000 → Net: $28,000</li>
-                <li>Zakat (2.5%): $700</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="info-card">
-        <h2><i class="fas fa-shield-alt"></i> 3. Zakat Compliance & Ethical Giving</h2>
-        <p>Paying Zakat responsibly means:</p>
-        <ul>
-            <li>Distributing only to eligible recipients defined in Quran (Asnaf): The poor, needy, administrators, new Muslims, debtors, in the cause of Allah, travelers, and charitable endowments.</li>
-            <li>Maintaining transparency in calculations for accountability.</li>
-            <li>Avoiding using Zakat for non-essential or personal projects.</li>
-            <li>Leveraging certified Zakat platforms for online payments.</li>
-        </ul>
-    </div>
-
-    <div class="info-card">
-        <h2><i class="fas fa-balance-scale"></i> 4. Zakat for Contemporary Assets</h2>
-        <p>Modern wealth includes assets not traditionally accounted for:</p>
-        <ul>
-            <li><strong>Cryptocurrency:</strong> Bitcoin, Ethereum, and other altcoins at market value.</li>
-            <li><strong>Stocks & ETFs:</strong> Zakat on trading shares based on current market value; long-term investments require assessment of zakatable portion.</li>
-            <li><strong>Digital Business Assets:</strong> Online store inventories, e-commerce receivables.</li>
-            <li><strong>Rental & Real Estate:</strong> Zakat on net rental income, commercial property intended for resale.</li>
-        </ul>
-    </div>
-
-    <div class="info-card">
-        <h2><i class="fas fa-lightbulb"></i> 5. Daily Zakat Awareness Tips</h2>
-        <ul>
-            <li>Track daily expenses to easily separate zakatable and non-zakatable funds.</li>
-            <li>Monitor currency conversions for overseas assets.</li>
-            <li>Keep a yearly calendar of your Zakat due date.</li>
-            <li>Share your knowledge: Educating family and friends ensures community awareness.</li>
-            <li>Maintain a digital ledger for historical Zakat records.</li>
-        </ul>
-    </div>
-
-    <div class="info-card final-cta">
-        <h3>Enhance Your Zakat Knowledge</h3>
-        <p>Follow this guide along with our interactive Zakat calculator for precise calculations across all asset types in 2026. Stay updated on global Nisab and modern financial trends.</p>
-        <button class="btn-calculate">Explore Zakat Tools</button>
-    </div>
-</div>
-
-<style>
-    .mega-section { padding: 40px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    .info-card { background: #f7f8fa; border-left: 5px solid #2980b9; padding: 30px; margin-bottom: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-    .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; }
-    .data-table th, .data-table td { border: 1px solid #ddd; padding: 15px; text-align: left; }
-    .data-table th { background-color: #2980b9; color: white; }
-    .example-box { background: #eaf4fb; padding: 20px; border-radius: 8px; border: 1px dashed #3498db; margin-top: 20px; }
-    .btn-calculate { background: #27ae60; color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1rem; margin-top: 20px; }
-    h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-bottom: 25px; }
-    i { margin-right: 10px; color: #3498db; }
-</style>
-      <div class="mega-section">
-        <!-- Islamic Wisdom & Practices Section -->
-<div class="info-card islamic-theme">
-    <h2><i class="fas fa-mosque"></i> 2.1 Daily Islamic Wealth Practices</h2>
-    
-    <div class="grid-2-col">
-        <div class="text-content">
-            <h3>Integrating Faith with Daily Earnings</h3>
-            <p>In addition to Zakat, Muslims are encouraged to practice <strong>Sadaqah</strong> (voluntary charity), support community projects, and ensure ethical investments. These practices help purify wealth and create a continuous cycle of barakah (blessing).</p>
-            <p>Prophet Muhammad (PBUH) said: <em>"The best of people are those who are most beneficial to others."</em> Applying this principle in wealth management increases social welfare while nurturing spiritual growth.</p>
-        </div>
-
-        <div class="info-card" style="background:#f9f9f0; border-left:5px solid #2e7d32;">
-            <h3>Practical Daily Tips</h3>
-            <ul>
-                <li><strong>Morning Intention:</strong> Dedicate your earnings for the pleasure of Allah (SWT).</li>
-                <li><strong>Track Spending:</strong> Avoid extravagance and ensure 10-20% of savings go to Sadaqah.</li>
-                <li><strong>Support Local Causes:</strong> Food banks, schools, and community welfare programs.</li>
-                <li><strong>Ethical Investments:</strong> Avoid businesses dealing in haram products.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="grid-3-col">
-        <div class="mini-card" style="background:#e8f5e9;">
-            <h4>Community Gardens</h4>
-            <p>Invest in small community gardens or agricultural projects, ensuring food for the needy while earning halal profit.</p>
-        </div>
-        <div class="mini-card" style="background:#fff3e0;">
-            <h4>Education Support</h4>
-            <p>Sponsor Quranic or general education for underprivileged children; knowledge is sadaqah that benefits for generations.</p>
-        </div>
-        <div class="mini-card" style="background:#f3e5f5;">
-            <h4>Clean Water Projects</h4>
-            <p>Funding wells or clean water access is one of the highest forms of charity in Islam (Sadaqah Jariyah).</p>
-        </div>
-    </div>
-
-    <div class="example-box" style="border:2px solid #2e7d32; background:#f1f8e9;">
-        <h4>Practical Scenario: Fatima, Freelancer 2026</h4>
-        <p><em>Fatima is a freelance graphic designer working remotely. She wants to ensure her wealth is barakah.</em><br>
-        <strong>Implementation:</strong> She allocates 2.5% for Zakat, sets up automatic monthly Sadaqah transfers, and invests in ethical Shariah-compliant digital startups. Her wealth grows responsibly while benefiting others in her community.</p>
-    </div>
-</div>
-        <div class="mega-section" id="introduction-deep-dive">
-    <div class="header-banner">
-        <h1 class="display-1">Comprehensive Guide to Zakat 2026</h1>
-        <p class="lead-text">An authoritative resource for Islamic Wealth Management, purification of assets, and social justice in the modern era.</p>
-    </div>
-
-    <div class="info-card">
-        <h2><i class="fas fa-heart"></i> 1.1 The Spiritual Essence of Zakat</h2>
-        <div class="grid-2-col">
-            <div class="text-content">
-                <h3>Purification of the Soul (Tazkiyah)</h3>
-                <p>In the context of <strong>Islamic wealth</strong>, Zakat is the primary vehicle for <em>Tazkiyah</em>—the purification of the self. By voluntarily parting with a portion of one's hard-earned wealth, a believer systematically uproots 'Shuh' (niggardliness) and greed from the heart. In 2026, as consumerism reaches new peaks, the practice of Zakat acts as a spiritual anchor, reminding the Ummah that our possessions are a temporary trust (Amanah) from Allah (SWT).</p>
-                <p>The Quranic mandate is clear: "Take, [O, Muhammad], from their wealth a charity by which you purify them and cause them increase..." (9:103). This "increase" is not just spiritual; it is a promise of Barakah in the remaining 97.5% of your assets.</p>
-            </div>
-            <div class="info-card" style="background: #fff; border: 1px solid #eee;">
-                <h3>Key Spiritual Benefits</h3>
-                <ul>
-                    <li><strong>Recognition of Divine Ownership:</strong> Acknowledging that humans are merely stewards of wealth.</li>
-                    <li><strong>Protection from Materialism:</strong> Breaking the cycle of hoarding that leads to spiritual stagnation.</li>
-                    <li><strong>Inner Peace:</strong> The psychological satisfaction of fulfilling a Pillar of Islam and helping a brother or sister in need.</li>
-                    <li><strong>Atonement:</strong> Serving as a means to seek forgiveness for minor transgressions in financial dealings.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="info-card">
-        <h3><i class="fas fa-chart-line"></i> 1.2 Socio-Economic Impact in 2026</h3>
-        <p>Zakat is the world's oldest and most sustainable social security system. Unlike secular taxation, which often funds administrative overheads, Zakat is a direct transfer of wealth from the affluent to the specific eight categories of recipients (As-Sunaf) defined in the Quran.</p>
         
-        <div class="grid-3-col">
-            <div class="mini-card">
-                <h4>Poverty Alleviation</h4>
-                <p>Zakat provides immediate liquidity to the <em>Fuqara</em> (the poor) and <em>Masakin</em> (the needy), stimulating local economies by increasing the purchasing power of the lowest income brackets.</p>
-            </div>
-            <div class="mini-card">
-                <h4>Circulation of Wealth</h4>
-                <p>Islamic economics discourages the hoarding of cash. By applying a 2.5% rate on idle wealth, Zakat encourages Muslims to invest their money in productive, Shariah-compliant ventures.</p>
-            </div>
-            <div class="mini-card">
-                <h4>Social Cohesion</h4>
-                <p>It eliminates the resentment that can grow between the rich and the poor, fostering a sense of brotherhood and communal responsibility across global borders.</p>
-            </div>
-        </div>
-
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Economic Function</th>
-                    <th>Secular System Comparison</th>
-                    <th>Zakat System Advantage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Targeting</td>
-                    <td>Often broad and bureaucratic</td>
-                    <td>Strictly defined 8 categories for maximum impact</td>
-                </tr>
-                <tr>
-                    <td>Motivation</td>
-                    <td>Legal compulsion / Fear of penalty</td>
-                    <td>Spiritual obligation / Seeking Divine Pleasure</td>
-                </tr>
-                <tr>
-                    <td>Wealth Distribution</td>
-                    <td>Trickle-down (often fails)</td>
-                    <td>Direct bottom-up empowerment</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="info-card">
-        <h3><i class="fas fa-history"></i> 1.3 Historical Background and Evolution</h3>
-        <p>Understanding the history of Zakat helps modern practitioners appreciate its resilience. From the time of the Prophet Muhammad (PBUH) to the sophisticated digital Zakat systems of 2026, the core principles have remained unchanged.</p>
-        
-        <div class="step-by-step">
-            <h4>The Prophetic Era</h4>
-            <p>Zakat was formalized in the 2nd year of Hijra. The Prophet (PBUH) appointed collectors (Amileen) to go to various tribes, calculate their livestock and produce, and distribute it locally among their poor.</p>
+        <!-- Introduction Section -->
+        <div class="premium-card">
+            <h2><i class="fas fa-mosque"></i> The Sacred Pillar of Zakat</h2>
+            <p>Zakat is the third pillar of Islam, a divine obligation that transcends mere charity. It is a comprehensive system of wealth redistribution designed by Allah (SWT) to purify both the soul and society. The word "Zakat" itself derives from the Arabic root meaning "to purify" and "to grow" - symbolizing that through giving, your wealth is cleansed and blessed with Barakah.</p>
             
-            <h4>The Caliphate of Abu Bakr (RA)</h4>
-            <p>The 'Ridda Wars' were fought partly against those who refused to pay Zakat, establishing the principle that Zakat is an inseparable part of the faith and a communal obligation that the state or central authority must facilitate.</p>
+            <div class="golden-quote">
+                "Take from their wealth ˹O Prophet˺ charity to purify and bless them, and pray for them—surely your prayer is a source of comfort for them. And Allah is All-Hearing, All-Knowing." - Quran 9:103
+            </div>
+
+            <p>In the year 2026, as global wealth accumulates in new forms - from cryptocurrency to digital stocks, from international real estate to freelance income - the timeless principles of Zakat remain as relevant as ever. HISABIFY stands as your trusted companion in navigating these modern financial waters while staying firmly rooted in authentic Islamic jurisprudence.</p>
+
+            <h3><i class="fas fa-heart"></i> Spiritual Dimensions of Zakat</h3>
+            <p>The spiritual essence of Zakat extends far beyond the mathematical calculation of 2.5%. It is a comprehensive spiritual exercise that:</p>
             
-            <h4>The Golden Age (Umar bin Abdul Aziz)</h4>
-            <p>During the era of the Umayyad Caliph Umar bin Abdul Aziz, the administration of Zakat was so effective that historical records suggest collectors in North Africa could not find a single person eligible to receive Zakat, as the entire population's basic needs had been met.</p>
-        </div>
-    </div>
-
-    <div class="info-card">
-        <h3><i class="fas fa-book"></i> 1.4 Essential Zakat Terminology</h3>
-        <p>To navigate the <strong>Zakat 2026</strong> requirements, one must master these fundamental terms:</p>
-        <ul class="checklist">
-            <li><strong>Nisab:</strong> The minimum amount of wealth a Muslim must possess before Zakat becomes obligatory.</li>
-            <li><strong>Hawl:</strong> The completion of one full lunar (Hijri) year of possessing the Nisab.</li>
-            <li><strong>Mal:</strong> Wealth or assets that are subject to Zakat.</li>
-            <li><strong>Sadaqah:</strong> Voluntary charity given above and beyond the obligatory Zakat.</li>
-            <li><strong>Ushr:</strong> The specific 5% or 10% Zakat due on agricultural harvests.</li>
-        </ul>
-    </div>
-
-    <div class="example-box">
-        <h4>Practical Scenario: The Global Professional</h4>
-        <p><em>Meet Ahmed, a software engineer in 2026.</em> He earns a high salary but lives in an expensive city. Ahmed wonders if Zakat is based on his income or his savings. 
-        <br><strong>The Lesson:</strong> Zakat is not an income tax. Ahmed only pays Zakat on what remains in his possession (savings, gold, investments) after his living expenses are met, provided that amount stays above the <strong>Nisab rate</strong> for one lunar year.</p>
-    </div>
-</div>
-    <div class="header-banner">
-        <h1 class="display-1">The Ultimate Global Zakat Guide 2026</h1>
-        <p class="lead-text">Purity of Wealth, Prosperity for the Ummah. An exhaustive guide to Islamic Wealth Management.</p>
-        <div class="seo-tags" style="display:none;">Keywords: Zakat 2026, Islamic wealth, Nisab rate, Zakat calculator, Crypto Zakat, Ushr, Zakat tips</div>
-    </div>
-
-    <div class="info-card intro-section">
-        <h2><i class="fas fa-mosque"></i> 1. The Essence of Zakat</h2>
-        <div class="grid-2-col">
-            <div class="text-content">
-                <h3>Spiritual Significance</h3>
-                <p>Zakat is not merely a tax; it is one of the five pillars of Islam. Derived from the root meaning "to purify" or "to grow," Zakat serves as a mechanism to cleanse one’s wealth and soul from greed and selfishness. By fulfilling this obligation, a believer acknowledges that all sustenance ultimately belongs to Allah (SWT).</p>
-                <ul>
-                    <li><strong>Purification:</strong> Cleansing the heart from the love of material possessions.</li>
-                    <li><strong>Growth:</strong> Increasing the barakah (blessing) in the remaining wealth.</li>
-                    <li><strong>Solidarity:</strong> Bridging the gap between the affluent and the impoverished.</li>
-                </ul>
+            <div class="luxury-grid">
+                <div class="luxury-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h4>Purifies the Heart</h4>
+                    <p>By voluntarily parting with wealth, you uproot greed, miserliness, and attachment to material possessions. This creates space for divine love and contentment in the heart.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Establishes Justice</h4>
+                    <p>Zakat is Allah's mechanism for social equity, ensuring that wealth circulates rather than concentrates in the hands of the few. It recognizes that the rich have obligations toward the poor.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-seedling"></i>
+                    <h4>Cultivates Blessing</h4>
+                    <p>The Prophet (PBUH) taught that charity does not decrease wealth. Through Zakat, the remaining 97.5% of your assets are blessed and protected from calamity.</p>
+                </div>
             </div>
-            <div class="impact-box">
-                <h3>Social & Economic Impact</h3>
-                <p>In 2026, as global economic shifts continue, Zakat remains the most sustainable form of social safety net. It ensures a continuous flow of capital into the economy, preventing hoarding and stimulating local markets by empowering the poor to meet their basic needs.</p>
-            </div>
+
+            <h3><i class="fas fa-history"></i> Historical Context</h3>
+            <p>Zakat was mandated in the 2nd year of Hijrah, shortly after the establishment of the Islamic state in Madinah. The Prophet Muhammad (PBUH) personally oversaw its collection and distribution, appointing dedicated officers ('Amileen) to ensure transparency and efficiency.</p>
+            
+            <p>During the Caliphate of Abu Bakr (RA), the nascent Muslim community faced its first major crisis when some tribes refused to pay Zakat after the Prophet's passing. The firm stance taken by Abu Bakr - declaring that he would fight those who distinguished between Salah and Zakat - established the non-negotiable nature of this obligation.</p>
+
+            <p>The golden age under Umar ibn Abdul Aziz witnessed such effective Zakat administration that historians record instances where collectors could not find eligible recipients in certain regions - the entire population had been lifted above the poverty line.</p>
         </div>
-    </div>
 
-    <hr class="section-divider">
+        <hr class="section-divider">
 
-    <div class="mega-section" id="nisab-eligibility">
-        <h2><i class="fas fa-balance-scale"></i> 2. Nisab & Eligibility Criteria</h2>
-        <p>Before calculating Zakat, one must determine if they meet the threshold (Nisab) and have held that wealth for one lunar year (Hawl).</p>
-        
-        <div class="info-card">
-            <h3>Understanding the Nisab Threshold</h3>
-            <table class="data-table">
+        <!-- Nisab and Eligibility -->
+        <div class="premium-card">
+            <h2><i class="fas fa-scale-balanced"></i> Understanding Nisab: The Wealth Threshold</h2>
+            <p>Nisab is the minimum amount of wealth a Muslim must possess before Zakat becomes obligatory. This threshold serves as a protection mechanism - ensuring that only those with surplus wealth contribute, while those struggling to meet basic needs are exempt and may even be recipients of Zakat.</p>
+
+            <h3><i class="fas fa-coins"></i> The Two Standards: Gold and Silver</h3>
+            <p>Islamic jurisprudence recognizes two Nisab thresholds, based on the precious metals that formed the basis of currency in the time of the Prophet (PBUH):</p>
+
+            <table class="royal-table">
                 <thead>
                     <tr>
-                        <th>Asset Type</th>
-                        <th>Nisab Requirement</th>
-                        <th>2026 Estimated Value (USD)</th>
-                        <th>Application</th>
+                        <th>Standard</th>
+                        <th>Quantity</th>
+                        <th>2026 Approximate Value (USD)</th>
+                        <th>Recommended For</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Gold</td>
-                        <td>87.48 grams (or 7.5 Tolas)</td>
-                        <td>$5,800 - $6,200</td>
-                        <td>Used for jewelry and gold investments.</td>
+                        <td><strong>Gold Nisab</strong></td>
+                        <td>87.48 grams (7.5 Tolas)</td>
+                        <td>$5,800 - $6,500</td>
+                        <td>Gold jewelry, luxury investments</td>
                     </tr>
                     <tr>
-                        <td>Silver</td>
-                        <td>612.36 grams (or 52.5 Tolas)</td>
-                        <td>$450 - $550</td>
-                        <td>Standard threshold for cash and general assets.</td>
+                        <td><strong>Silver Nisab</strong></td>
+                        <td>612.36 grams (52.5 Tolas)</td>
+                        <td>$450 - $650</td>
+                        <td>Cash, savings, general assets</td>
                     </tr>
                 </tbody>
             </table>
-            <p class="note"><strong>Note:</strong> Most scholars recommend using the silver threshold for cash and savings to maximize the benefit for the poor.</p>
-        </div>
 
-        <div class="info-card">
-            <h3>Who Must Pay?</h3>
-            <ul class="checklist">
-                <li><i class="fas fa-check-circle"></i> <strong>Muslim:</strong> The individual must be a practicing Muslim.</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Sane & Adult:</strong> Though some schools of thought apply it to minors/insane via guardians.</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Complete Ownership:</strong> You must have full control and possession of the asset.</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Productive Wealth:</strong> Assets that have the potential to grow.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="mega-section">
-        <h2><i class="fas fa-gem"></i> 3. Gold, Silver, and Precious Metals</h2>
-        <div class="info-card">
-            <p>Zakat is due on all forms of gold and silver, whether in the form of coins, bullion, or jewelry. There are nuances regarding "personal use" jewelry vs. "investment" jewelry.</p>
-            
-            <div class="example-box">
-                <h4>Example Calculation: Mixed Jewelry</h4>
-                <p>Fatima has 100g of 22k gold jewelry. The Nisab is 87.48g.</p>
-                <ol>
-                    <li>Check if weight exceeds Nisab: 100g > 87.48g (Yes).</li>
-                    <li>Determine current 22k market rate (e.g., $65/g).</li>
-                    <li>Total Value: $6,500.</li>
-                    <li>Zakat Due (2.5%): $162.50.</li>
-                </ol>
+            <div class="info-highlight">
+                <strong>Scholarly Consensus in 2026:</strong> The majority of contemporary scholars recommend using the Silver Nisab for calculating Zakat on cash and liquid assets. This is because silver has depreciated significantly relative to gold over the centuries, making the silver threshold lower and thus more beneficial for the poor. Using the silver standard means more people become eligible to pay Zakat, resulting in greater wealth circulation.
             </div>
 
-            <table class="data-table">
+            <h3><i class="fas fa-calendar-alt"></i> The Hawl: One Lunar Year</h3>
+            <p>It is not sufficient to merely reach the Nisab threshold once. For Zakat to become due, you must maintain wealth at or above the Nisab for one complete lunar (Hijri) year. This is called the Hawl.</p>
+
+            <div class="calculation-box">
+                <h4><i class="fas fa-calculator"></i> Practical Example: Tracking Your Hawl</h4>
+                <div class="calculation-step">
+                    <strong>Day 1 (1st Ramadan 1447):</strong> Ahmad has $1,000 in savings. Silver Nisab is $500. His Hawl begins.
+                </div>
+                <div class="calculation-step">
+                    <strong>Day 180 (15th Safar 1448):</strong> Ahmad's account temporarily drops to $300 for one month.
+                </div>
+                <div class="calculation-step">
+                    <strong>Day 210:</strong> Balance rises back to $800.
+                </div>
+                <div class="calculation-step">
+                    <strong>Day 354 (1st Ramadan 1448):</strong> Ahmad has $2,500. His Hawl is complete. Zakat of $62.50 (2.5%) is due.
+                </div>
+                <p><em>Note: The temporary dip below Nisab does not reset the Hawl according to the Hanafi school, which is more accommodating. Other schools may require the Hawl to restart.</em></p>
+            </div>
+
+            <h3><i class="fas fa-users"></i> Who Must Pay Zakat?</h3>
+            <div class="luxury-grid">
+                <div class="luxury-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>A Muslim</h4>
+                    <p>Zakat is obligatory only upon Muslims. Non-Muslims have their own forms of charity and social obligations.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Sane & Mature</h4>
+                    <p>While most scholars exempt children and the mentally incapacitated, the Maliki school holds that guardians should pay Zakat on behalf of minors if they possess wealth.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Complete Ownership</h4>
+                    <p>You must have full, unencumbered control over the wealth. Frozen assets, jointly owned property without clear division, or wealth you cannot access does not count.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Zakatable Assets</h4>
+                    <p>Not all possessions are subject to Zakat. Your primary residence, personal vehicle, and household necessities are exempt.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Gold and Silver Detailed -->
+        <div class="premium-card">
+            <h2><i class="fas fa-gem"></i> Zakat on Gold, Silver & Precious Metals</h2>
+            <p>Gold and silver hold a special place in Islamic economics as they were the primary mediums of exchange and stores of value in the time of the Prophet (PBUH). Today, whether in the form of jewelry, coins, or bullion, these precious metals remain subject to Zakat.</p>
+
+            <h3><i class="fas fa-ring"></i> The Jewelry Debate: Personal Use vs. Investment</h3>
+            <p>One of the most frequently asked questions in contemporary Zakat jurisprudence concerns gold jewelry. The scholars have differed on this matter:</p>
+
+            <div class="luxury-grid">
+                <div class="luxury-card">
+                    <i class="fas fa-landmark"></i>
+                    <h4>Hanafi Position</h4>
+                    <p><strong>Zakat is due on ALL gold and silver jewelry</strong>, regardless of whether it is worn regularly or kept in storage. The reasoning is that gold and silver are inherently wealth, and the form they take does not change their essence.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-balance-scale-right"></i>
+                    <h4>Shafi'i, Maliki & Hanbali Position</h4>
+                    <p><strong>No Zakat on jewelry meant for personal adornment</strong> within customary limits. However, if you have excessive jewelry, or jewelry held as an investment, Zakat becomes obligatory.</p>
+                </div>
+            </div>
+
+            <div class="info-highlight">
+                <strong>HISABIFY Recommendation:</strong> In the spirit of piety and maximizing benefit to the needy, we encourage following the Hanafi position or, at minimum, paying Zakat on jewelry you rarely wear. Many contemporary scholars note that in affluent societies, what was once "normal" jewelry has often exceeded reasonable limits.
+            </div>
+
+            <h3><i class="fas fa-weight"></i> Calculating Zakat on Mixed Karat Gold</h3>
+            <p>Modern jewelry often comes in various purities: 24K (pure), 22K, 21K, and 18K. To calculate Zakat accurately, you must determine the pure gold content:</p>
+
+            <div class="calculation-box">
+                <h4><i class="fas fa-calculator"></i> Step-by-Step: 22K Gold Necklace</h4>
+                <div class="calculation-step">
+                    <strong>Step 1:</strong> Weigh your jewelry. Let's say your 22K necklace weighs 100 grams.
+                </div>
+                <div class="calculation-step">
+                    <strong>Step 2:</strong> Calculate pure gold content: 100g × (22/24) = 91.67g of pure gold.
+                </div>
+                <div class="calculation-step">
+                    <strong>Step 3:</strong> Check if it exceeds Nisab: 91.67g > 87.48g (Yes, Zakat is due).
+                </div>
+                <div class="calculation-step">
+                    <strong>Step 4:</strong> Find current market rate for 22K gold: Let's say $60 per gram.
+                </div>
+                <div class="calculation-step">
+                    <strong>Step 5:</strong> Total value: 100g × $60 = $6,000
+                </div>
+                <div class="calculation-step">
+                    <strong>Step 6:</strong> Zakat payable: $6,000 × 2.5% = <strong>$150</strong>
+                </div>
+            </div>
+
+            <table class="royal-table">
                 <thead>
                     <tr>
-                        <th>Item Type</th>
+                        <th>Type of Gold/Silver Asset</th>
                         <th>Zakat Status</th>
-                        <th>Reasoning</th>
+                        <th>Valuation Method</th>
+                        <th>Notes</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Gold/Silver Bullion</td>
-                        <td>Always Zakat-able</td>
-                        <td>Pure investment/wealth storage.</td>
+                        <td>Always Zakatable</td>
+                        <td>Current market price</td>
+                        <td>Pure investment asset</td>
                     </tr>
                     <tr>
-                        <td>Personal Jewelry</td>
-                        <td>Subject to Madhhab</td>
-                        <td>Hanafi: Zakat is due. Others: Not due if within "reasonable" use.</td>
+                        <td>Gold/Silver Coins</td>
+                        <td>Always Zakatable</td>
+                        <td>Market value or face value (higher)</td>
+                        <td>Includes collectible coins</td>
                     </tr>
                     <tr>
-                        <td>Diamonds/Rubies</td>
-                        <td>Exempt</td>
-                        <td>No Zakat on stones themselves unless for trade.</td>
+                        <td>Personal Jewelry (Hanafi)</td>
+                        <td>Zakatable</td>
+                        <td>Current market/resale value</td>
+                        <td>All personal jewelry</td>
+                    </tr>
+                    <tr>
+                        <td>Personal Jewelry (Other schools)</td>
+                        <td>Exempt if reasonable</td>
+                        <td>N/A</td>
+                        <td>Must be for personal use only</td>
+                    </tr>
+                    <tr>
+                        <td>Diamonds, Rubies, Pearls</td>
+                        <td>Exempt (unless for trade)</td>
+                        <td>N/A</td>
+                        <td>Only the gold/silver setting is zakatable</td>
+                    </tr>
+                    <tr>
+                        <td>White Gold</td>
+                        <td>Zakatable</td>
+                        <td>Based on gold content</td>
+                        <td>Treated as regular gold</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
 
-    <div class="mega-section">
-        <h2><i class="fas fa-wallet"></i> 4. Cash, Bank Accounts, and Savings</h2>
-        <div class="info-card">
-            <p>This category includes all liquid funds held in any currency, digital wallet, or financial institution.</p>
-            <div class="grid-3-col">
-                <div class="mini-card">
-                    <h4>Current Accounts</h4>
-                    <p>Total balance on the Zakat anniversary date is subject to 2.5%.</p>
+        <hr class="section-divider">
+
+        <!-- Cryptocurrency Section -->
+        <div class="premium-card">
+            <h2><i class="fab fa-bitcoin"></i> Zakat on Cryptocurrency & Digital Assets</h2>
+            <p>The emergence of cryptocurrency has created one of the most discussed topics in contemporary Islamic finance. Bitcoin, Ethereum, and thousands of other digital currencies represent a new form of wealth that didn't exist in classical Islamic jurisprudence. However, the fundamental principles of Zakat remain applicable.</p>
+
+            <h3><i class="fas fa-question-circle"></i> Is Cryptocurrency Halal?</h3>
+            <p>Before discussing Zakat, we must address permissibility. Scholars have varying opinions on cryptocurrency:</p>
+
+            <div class="luxury-grid">
+                <div class="luxury-card">
+                    <i class="fas fa-check-circle" style="color: #16a34a;"></i>
+                    <h4>Permissible View</h4>
+                    <p>Many contemporary scholars (including Mufti Taqi Usmani, Sh. Joe Bradford) view cryptocurrency as a permissible digital asset, similar to commodities like gold. They are Zakatable if held as investment.</p>
                 </div>
-                <div class="mini-card">
-                    <h4>Digital Wallets</h4>
-                    <p>Includes PayPal, Venmo, Apple Pay, and mobile money balances.</p>
+                <div class="luxury-card">
+                    <i class="fas fa-exclamation-triangle" style="color: #dc2626;"></i>
+                    <h4>Cautious View</h4>
+                    <p>Some scholars express concern about excessive speculation, lack of intrinsic value, and use in illicit activities. They advise caution but don't outright prohibit ownership.</p>
                 </div>
-                <div class="mini-card">
-                    <h4>Pensions/401k</h4>
-                    <p>Zakat is due on the accessible portion or the employer contribution minus penalties.</p>
+                <div class="luxury-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Case-by-Case View</h4>
+                    <p>Others differentiate between cryptocurrencies: utility tokens for blockchain services may be permissible, while purely speculative coins are questionable.</p>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="mega-section">
-        <h2><i class="fas fa-briefcase"></i> 5. Business & Trade Goods</h2>
-        <div class="info-card">
-            <p>Business owners must calculate Zakat on their "circulating capital." This does not include fixed assets like the shop building, machinery, or delivery trucks.</p>
-            
-            <div class="formula-box">
-                <p><strong>Zakat Formula for Business:</strong></p>
-                <p class="equation">Zakat = (Cash + Stock/Inventory + Trade Receivables) - (Immediate Business Liabilities)</p>
+            <div class="info-highlight">
+                <strong>HISABIFY Position:</strong> We follow the permissible view for mainstream cryptocurrencies like Bitcoin and Ethereum, treating them as digital commodities subject to Zakat. However, we strongly advise avoiding meme coins, gambling tokens, or projects with no real utility.
             </div>
 
-            <table class="data-table">
+            <h3><i class="fas fa-coins"></i> How to Calculate Zakat on Crypto</h3>
+            <p>Cryptocurrency should be treated similarly to gold - as a store of value. The calculation is straightforward:</p>
+
+            <div class="calculation-box">
+                <h4><i class="fas fa-calculator"></i> Example: Mixed Crypto Portfolio</h4>
+                <div class="calculation-step">
+                    <strong>Portfolio Holdings (Zakat Date: 15th Ramadan 1448):</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>0.15 BTC @ $85,000 = $12,750</li>
+                        <li>3.5 ETH @ $3,200 = $11,200</li>
+                        <li>5,000 USDT (Stablecoin) = $5,000</li>
+                        <li>Various Altcoins = $2,800</li>
+                    </ul>
+                </div>
+                <div class="calculation-step">
+                    <strong>Total Portfolio Value:</strong> $31,750
+                </div>
+                <div class="calculation-step">
+                    <strong>Check Nisab:</strong> $31,750 > $550 (Silver Nisab) ✓
+                </div>
+                <div class="calculation-step">
+                    <strong>Zakat Due (2.5%):</strong> $31,750 × 0.025 = <strong>$793.75</strong>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-chart-line"></i> Special Crypto Considerations</h3>
+            <table class="royal-table">
                 <thead>
                     <tr>
-                        <th>Business Asset</th>
-                        <th>Include in Zakat?</th>
-                        <th>Valuation Method</th>
+                        <th>Crypto Type</th>
+                        <th>Zakat Treatment</th>
+                        <th>Reasoning</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Finished Goods Inventory</td>
-                        <td>Yes</td>
-                        <td>Current Resale Value (Market Price)</td>
+                        <td>Bitcoin, Ethereum (HODLing)</td>
+                        <td>2.5% on market value annually</td>
+                        <td>Treated as investment/store of value</td>
                     </tr>
                     <tr>
-                        <td>Raw Materials</td>
-                        <td>Yes</td>
-                        <td>Cost Price</td>
+                        <td>Stablecoins (USDT, USDC)</td>
+                        <td>2.5% annually</td>
+                        <td>Equivalent to cash holdings</td>
                     </tr>
                     <tr>
-                        <td>Work in Progress (WIP)</td>
-                        <td>Yes</td>
-                        <td>Value of materials + partial labor</td>
+                        <td>DeFi Staking Rewards</td>
+                        <td>Zakat on profits when withdrawn</td>
+                        <td>Similar to business income</td>
                     </tr>
                     <tr>
-                        <td>Office Furniture</td>
-                        <td>No</td>
-                        <td>Fixed asset for utility, not trade</td>
+                        <td>NFTs (held for resale)</td>
+                        <td>2.5% on market value</td>
+                        <td>Trade inventory</td>
+                    </tr>
+                    <tr>
+                        <td>NFTs (personal collection)</td>
+                        <td>Exempt</td>
+                        <td>Like personal art or collectibles</td>
+                    </tr>
+                    <tr>
+                        <td>Mining Rewards</td>
+                        <td>Zakat when sold/one year after receiving</td>
+                        <td>Treated as business income</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
 
-    <div class="mega-section">
-        <h2><i class="fas fa-chart-line"></i> 6. Modern Finance: Crypto, Stocks, & ETFs</h2>
-        <div class="info-card">
-            <p>Financial landscapes in 2026 involve complex digital assets. The same principles of Zakat apply.</p>
+            <div class="golden-quote">
+                "The principle in Shariah is that all forms of wealth are subject to Zakat unless specifically exempted. Cryptocurrency, as a modern form of wealth, falls under this general rule." - Islamic Fiqh Council
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Stocks and Shares -->
+        <div class="premium-card">
+            <h2><i class="fas fa-chart-bar"></i> Zakat on Stocks, Shares & Equity Investments</h2>
+            <p>The stock market represents one of the most common modern investment vehicles. For Muslim investors, understanding how to calculate Zakat on stocks is essential, but the method differs based on your investment strategy.</p>
+
+            <h3><i class="fas fa-briefcase"></i> Two Types of Stock Investment</h3>
             
-            <div class="grid-2-col">
-                <div class="sub-section">
-                    <h3>Cryptocurrency</h3>
-                    <p>Calculated based on the market value at the time of your Zakat date. This includes:</p>
-                    <ul>
-                        <li>Bitcoin & Ethereum (HODLings)</li>
-                        <li>Stablecoins (USDT, USDC)</li>
-                        <li>DeFi Liquidity Pools (Net Value)</li>
-                        <li>NFTs (Only if held for resale/flipping)</li>
+            <div class="luxury-grid">
+                <div class="luxury-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Trading Stocks</h4>
+                    <p>You buy and sell frequently (day trading, swing trading). Your intention is to profit from price movements. <strong>Zakat is due on the FULL market value at 2.5%.</strong></p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-seedling"></i>
+                    <h4>Investment Stocks</h4>
+                    <p>You hold for long-term dividends and growth. Your intention is to own part of the company. <strong>Zakat is due only on the Zakatable assets of the company (proportional to your shares).</strong></p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-calculator"></i> Detailed Calculation Methods</h3>
+
+            <div class="calculation-box">
+                <h4><i class="fas fa-exchange-alt"></i> Method 1: Trading Stocks (Simple)</h4>
+                <div class="calculation-step">
+                    <strong>Scenario:</strong> Fatima actively trades stocks with a portfolio worth $50,000 on her Zakat date.
+                </div>
+                <div class="calculation-step">
+                    <strong>Calculation:</strong> $50,000 × 2.5% = <strong>$1,250 Zakat</strong>
+                </div>
+                <p style="margin-top: 15px;"><em>This is straightforward because trading stocks are treated like inventory in a business - you intend to sell them for profit.</em></p>
+            </div>
+
+            <div class="calculation-box">
+                <h4><i class="fas fa-building"></i> Method 2: Investment Stocks (Complex)</h4>
+                <div class="calculation-step">
+                    <strong>Scenario:</strong> Ahmad owns 100 shares of XYZ Corporation, each worth $200 (Total: $20,000). He holds them for long-term dividends.
+                </div>
+                <div class="calculation-step">
+                    <strong>Step 1:</strong> Obtain the company's balance sheet and identify Zakatable assets:
+                    <ul style="margin-top: 10px;">
+                        <li>Cash & Cash Equivalents: $10 million</li>
+                        <li>Accounts Receivable: $5 million</li>
+                        <li>Inventory: $8 million</li>
+                        <li>Fixed Assets (buildings, equipment): $50 million</li>
                     </ul>
                 </div>
-                <div class="sub-section">
-                    <h3>Stocks & ETFs</h3>
-                    <p>If held for long-term dividends: Zakat is due only on the "Zakat-able assets" portion of the company (Cash + Inventory). If trading: Zakat is due on the full market value.</p>
+                <div class="calculation-step">
+                    <strong>Step 2:</strong> Calculate Zakatable portion: ($10M + $5M + $8M) / Total Assets = $23M / $73M = 31.5%
+                </div>
+                <div class="calculation-step">
+                    <strong>Step 3:</strong> Apply to your shares: $20,000 × 31.5% = $6,300 (Zakatable portion)
+                </div>
+                <div class="calculation-step">
+                    <strong>Step 4:</strong> Calculate Zakat: $6,300 × 2.5% = <strong>$157.50</strong>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="mega-section">
-        <h2><i class="fas fa-building"></i> 7. Real Estate & Property</h2>
-        <div class="info-card">
-            <div class="property-grid">
-                <div class="property-type">
-                    <h4>Personal Residence</h4>
-                    <p>No Zakat due on the home you live in.</p>
+            <div class="info-highlight">
+                <strong>Practical Simplification:</strong> Finding detailed balance sheet information can be challenging for average investors. Many contemporary scholars permit a simplified approach for long-term investors: pay Zakat on 1/3 of the stock value (33%), as this roughly approximates the liquid asset ratio of most companies. This would mean Ahmad pays: $20,000 × 33% × 2.5% = $165.
+            </div>
+
+            <h3><i class="fas fa-chart-pie"></i> ETFs, Mutual Funds & Index Funds</h3>
+            <p>These investment vehicles pool money to invest in multiple stocks. The same principles apply:</p>
+
+            <table class="royal-table">
+                <thead>
+                    <tr>
+                        <th>Investment Type</th>
+                        <th>Zakat Approach</th>
+                        <th>Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shariah-Compliant Stock Fund (Long-term)</td>
+                        <td>Zakatable assets method or 33% simplification</td>
+                        <td>2.5% on zakatable portion</td>
+                    </tr>
+                    <tr>
+                        <td>Index Fund (S&P 500, etc.)</td>
+                        <td>Cautious approach: 2.5% on full value</td>
+                        <td>2.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Bond Funds</td>
+                        <td>Not permissible in Islam (Riba)</td>
+                        <td>Dispose of and pay Zakat on principal</td>
+                    </tr>
+                    <tr>
+                        <td>Money Market Funds</td>
+                        <td>Treat as cash</td>
+                        <td>2.5%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3><i class="fas fa-exclamation-circle"></i> Dividends and Capital Gains</h3>
+            <p>When you receive dividends or sell stocks for profit, these earnings are immediately subject to Zakat once they've been in your possession for one lunar year (along with your other wealth). Many people pay Zakat on dividends immediately to avoid tracking complexity.</p>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Freelancing and Modern Income -->
+        <div class="premium-card">
+            <h2><i class="fas fa-laptop-code"></i> Zakat for Freelancers & Modern Professionals</h2>
+            <p>The digital economy has created new categories of income earners - freelancers, remote workers, gig economy participants, and content creators. These modern professions require special consideration when calculating Zakat.</p>
+
+            <h3><i class="fas fa-hand-holding-usd"></i> Zakat on Earned Income: A Key Distinction</h3>
+            <p>It's crucial to understand that <strong>Zakat is NOT an income tax</strong>. You don't pay Zakat on your salary or freelance earnings the moment you receive them. Instead, Zakat is due on what remains of your earnings after one lunar year.</p>
+
+            <div class="calculation-box">
+                <h4><i class="fas fa-user-tie"></i> Example: Software Developer Freelancer</h4>
+                <div class="calculation-step">
+                    <strong>Background:</strong> Bilal is a freelance web developer earning $6,000/month ($72,000/year).
                 </div>
-                <div class="property-type">
-                    <h4>Rental Property</h4>
-                    <p>No Zakat on the property value; 2.5% is due on the <strong>net rental income</strong> saved at the end of the year.</p>
+                <div class="calculation-step">
+                    <strong>His Expenses:</strong> Rent, food, utilities, family support, business tools = $4,500/month
                 </div>
-                <div class="property-type">
-                    <h4>Property for Flip</h4>
-                    <p>Zakat is due on the <strong>entire market value</strong> of the property every year it is listed for sale.</p>
+                <div class="calculation-step">
+                    <strong>Monthly Savings:</strong> $1,500
+                </div>
+                <div class="calculation-step">
+                    <strong>Zakat Calculation (After one year):</strong>
+                    <ul style="margin-top: 10px;">
+                        <li>Accumulated savings: $1,500 × 12 = $18,000</li>
+                        <li>Existing assets (laptop for work): Exempt (business tools)</li>
+                        <li>Checking account balance: $2,000</li>
+                        <li>PayPal/Stripe pending: $800</li>
+                    </ul>
+                </div>
+                <div class="calculation-step">
+                    <strong>Total Zakatable Wealth:</strong> $18,000 + $2,000 + $800 = $20,800
+                </div>
+                <div class="calculation-step">
+                    <strong>Zakat Due:</strong> $20,800 × 2.5% = <strong>$520</strong>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="mega-section">
-        <h2><i class="fas fa-seedling"></i> 8. Ushr: Agriculture and Harvest</h2>
-        <div class="info-card">
-            <p>Ushr is the Zakat on land produce. Unlike wealth Zakat, there is no one-year waiting period; it is due at the time of harvest.</p>
-            <table class="data-table">
+            <h3><i class="fas fa-wallet"></i> Digital Payment Platforms & Zakat</h3>
+            <p>Modern freelancers often have money scattered across multiple platforms:</p>
+
+            <table class="royal-table">
+                <thead>
+                    <tr>
+                        <th>Platform/Account Type</th>
+                        <th>Zakat Status</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PayPal Balance</td>
+                        <td>Zakatable</td>
+                        <td>Include full available balance</td>
+                    </tr>
+                    <tr>
+                        <td>Stripe/Payment Gateway</td>
+                        <td>Zakatable</td>
+                        <td>Funds pending transfer count</td>
+                    </tr>
+                    <tr>
+                        <td>Upwork/Fiverr Earnings</td>
+                        <td>Zakatable</td>
+                        <td>Even if not yet withdrawn</td>
+                    </tr>
+                    <tr>
+                        <td>Apple Pay/Google Pay</td>
+                        <td>Zakatable</td>
+                        <td>Digital wallets are cash equivalents</td>
+                    </tr>
+                    <tr>
+                        <td>Business Tools (Subscriptions)</td>
+                        <td>Exempt</td>
+                        <td>These are expenses, not assets</td>
+                    </tr>
+                    <tr>
+                        <td>Laptop, Camera (for work)</td>
+                        <td>Exempt</td>
+                        <td>Tools of trade are not zakatable</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3><i class="fas fa-video"></i> Content Creators & Influencers</h3>
+            <p>YouTube creators, Instagram influencers, and other content monetizers face unique Zakat situations:</p>
+
+            <div class="luxury-grid">
+                <div class="luxury-card">
+                    <i class="fab fa-youtube"></i>
+                    <h4>Ad Revenue</h4>
+                    <p>YouTube AdSense, Instagram partnerships, and sponsorship money is zakatable once it reaches your account and meets the Nisab threshold for one year.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>Merchandise Sales</h4>
+                    <p>If you sell branded merchandise, the inventory is zakatable as trade goods. Calculate Zakat on the current value of unsold stock plus cash profits.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-users"></i>
+                    <h4>Patreon/Membership</h4>
+                    <p>Recurring subscription income is treated like regular freelance earnings. Zakat is due on accumulated savings after one year.</p>
+                </div>
+            </div>
+
+            <div class="info-highlight">
+                <strong>Special Note for High Earners:</strong> If your monthly income vastly exceeds your expenses, you may reach Nisab multiple times during the year with different "batches" of money. Advanced tracking involves setting separate Hawl dates for major deposits, but for simplicity, many scholars allow calculating Zakat once annually on your total accumulated wealth.
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Agriculture Ushr -->
+        <div class="premium-card">
+            <h2><i class="fas fa-tractor"></i> Ushr: Zakat on Agriculture & Farm Produce</h2>
+            <p>Ushr represents one of the most ancient forms of Zakat, dating back to the earliest days of Islam. Unlike wealth-based Zakat which requires a one-year holding period, Ushr is due immediately upon harvest. This reflects the immediate blessing and provision that agricultural produce represents.</p>
+
+            <h3><i class="fas fa-seedling"></i> The Divine Legislation</h3>
+            <div class="golden-quote">
+                "O you who believe! Spend from the good things you have earned and from what We have brought forth for you from the earth." - Quran 2:267
+            </div>
+
+            <p>The Prophet Muhammad (PBUH) established clear guidelines for agricultural Zakat, differentiating based on the level of effort and cost required for irrigation:</p>
+
+            <table class="royal-table">
                 <thead>
                     <tr>
                         <th>Irrigation Method</th>
-                        <th>Rate Due</th>
-                        <th>Conditions</th>
+                        <th>Ushr Rate</th>
+                        <th>Reasoning</th>
+                        <th>Examples</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Natural (Rain/Springs)</td>
-                        <td>10%</td>
-                        <td>Minimum costs incurred for water.</td>
+                        <td>Natural (No cost)</td>
+                        <td>10% (1/10)</td>
+                        <td>Allah provides water freely</td>
+                        <td>Rainwater, rivers, springs, floods</td>
                     </tr>
                     <tr>
-                        <td>Artificial (Wells/Pumps)</td>
-                        <td>5%</td>
-                        <td>High cost of irrigation and labor.</td>
+                        <td>Artificial (Costly)</td>
+                        <td>5% (1/20)</td>
+                        <td>Farmer bears expense of irrigation</td>
+                        <td>Wells, tube wells, pumps, purchased water</td>
+                    </tr>
+                    <tr>
+                        <td>Mixed (Both methods)</td>
+                        <td>7.5%</td>
+                        <td>Average of natural and artificial</td>
+                        <td>Partial rain + supplemental irrigation</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
 
-    <div class="mega-section">
-        <h2><i class="fas fa-horse"></i> 9. Livestock (An'am)</h2>
-        <div class="info-card">
-            <p>Zakat is due on grazing livestock (camels, cattle, sheep, and goats) if they graze for more than six months of the year.</p>
-            <h3>Sheep and Goats Calculation Table</h3>
-            <table class="data-table">
+            <h3><i class="fas fa-wheat-awn"></i> What Crops Are Subject to Ushr?</h3>
+            <p>Ushr applies to crops that are:</p>
+            <ul style="margin-left: 30px; margin-bottom: 20px;">
+                <li><strong>Staple foods:</strong> Wheat, rice, barley, corn, dates</li>
+                <li><strong>Storable:</strong> Crops that can be dried and stored (excludes highly perishable items like leafy vegetables in some opinions)</li>
+                <li><strong>Above Nisab:</strong> The harvest must equal or exceed 5 Wasqs (approximately 653 kg or 1,440 lbs)</li>
+            </ul>
+
+            <div class="calculation-box">
+                <h4><i class="fas fa-calculator"></i> Practical Ushr Calculation</h4>
+                <div class="calculation-step">
+                    <strong>Farmer Profile:</strong> Yusuf owns 10 acres of wheat fields in Punjab, Pakistan
+                </div>
+                <div class="calculation-step">
+                    <strong>Irrigation:</strong> 60% rainwater, 40% tube well irrigation
+                </div>
+                <div class="calculation-step">
+                    <strong>Harvest:</strong> 5,000 kg of wheat
+                </div>
+                <div class="calculation-step">
+                    <strong>Market Price:</strong> $0.50/kg
+                </div>
+                <div class="calculation-step">
+                    <strong>Total Value:</strong> 5,000 kg × $0.50 = $2,500
+                </div>
+                <div class="calculation-step">
+                    <strong>Ushr Calculation:</strong> Since irrigation is mixed (60% natural), we use a proportional rate:
+                    <br>(0.60 × 10%) + (0.40 × 5%) = 6% + 2% = 8%
+                    <br><strong>OR</strong> use the standard mixed rate of 7.5%
+                </div>
+                <div class="calculation-step">
+                    <strong>Ushr Due:</strong> $2,500 × 7.5% = <strong>$187.50</strong> (or 375 kg of wheat)
+                </div>
+            </div>
+
+            <h3><i class="fas fa-apple-alt"></i> Fruits, Vegetables & Modern Farming</h3>
+            <p>Contemporary agricultural practices have introduced questions about greenhouse farming, hydroponics, and year-round harvests:</p>
+
+            <div class="luxury-grid">
+                <div class="luxury-card">
+                    <i class="fas fa-lemon"></i>
+                    <h4>Orchards & Fruit Trees</h4>
+                    <p>Fruits like dates, olives, grapes, and mangoes are subject to Ushr. Some scholars include all fruits if they meet the Nisab threshold, while others limit it to storable fruits.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-carrot"></i>
+                    <h4>Vegetables</h4>
+                    <p>Highly perishable vegetables (lettuce, tomatoes) are exempt in some schools but zakatable in others if they represent significant commercial farming. The Maliki school is more inclusive.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-flask"></i>
+                    <h4>Hydroponic Farming</h4>
+                    <p>Modern soil-less farming is treated as artificial irrigation (5% rate) due to high operational costs and technology investment.</p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-hand-holding-seedling"></i> Practical Tips for Farmers</h3>
+            <div class="info-highlight">
+                <ol style="margin-left: 20px;">
+                    <li><strong>Deduct Farming Costs First:</strong> According to some scholars, you may deduct essential farming costs (seeds, labor, fertilizer) before calculating Ushr, especially if these costs are substantial.</li>
+                    <li><strong>Multiple Harvests:</strong> If you harvest the same crop twice in one year (e.g., rice in summer and winter), Ushr is due on each harvest separately.</li>
+                    <li><strong>Shared Crops:</strong> If you sharecrop or rent farmland, Ushr is due on the actual owner's portion based on the agreement.</li>
+                    <li><strong>Cash vs. Kind:</strong> You may pay Ushr in the form of the crop itself (preferred) or its cash equivalent value.</li>
+                </ol>
+            </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- Livestock Section -->
+        <div class="premium-card">
+            <h2><i class="fas fa-horse"></i> Zakat on Livestock (An'am)</h2>
+            <p>Zakat on livestock is one of the earliest forms of Zakat, meticulously detailed in the Hadith of the Prophet (PBUH). It applies to three main types of grazing animals: camels, cattle (cows/buffalo), and sheep/goats.</p>
+
+            <h3><i class="fas fa-clipboard-check"></i> Conditions for Livestock Zakat</h3>
+            <div class="luxury-grid">
+                <div class="luxury-card">
+                    <i class="fas fa-grass"></i>
+                    <h4>Grazing Animals</h4>
+                    <p>The animals must graze freely on open pasture for the majority of the year (more than 6 months). If you feed them purchased fodder year-round, they are exempt.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-ban"></i>
+                    <h4>Not Working Animals</h4>
+                    <p>Animals used for labor (plowing, transportation) are exempt. Only animals kept for breeding, milk, or eventual sale are zakatable.</p>
+                </div>
+                <div class="luxury-card">
+                    <i class="fas fa-calendar"></i>
+                    <h4>One Year Ownership</h4>
+                    <p>Like other Zakat, you must own the animals for one complete lunar year for the obligation to become due.</p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-sheep"></i> Detailed Zakat Tables</h3>
+            
+            <h4 style="color: var(--mid-green); margin-top: 40px;">Sheep and Goats (Ghanam)</h4>
+            <table class="royal-table">
                 <thead>
                     <tr>
                         <th>Number of Animals</th>
                         <th>Zakat Due</th>
+                        <th>Notes</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>0 - 39</td>
+                        <td>1 - 39</td>
                         <td>None</td>
+                        <td>Below Nisab threshold</td>
                     </tr>
                     <tr>
                         <td>40 - 120</td>
-                        <td>1 Sheep/Goat</td>
+                        <td>1 sheep/goat</td>
+                        <td>Must be at least 1 year old</td>
                     </tr>
                     <tr>
                         <td>121 - 200</td>
-                        <td>2 Sheep/Goats</td>
+                        <td>2 sheep/goats</td>
+                        <td>-</td>
                     </tr>
                     <tr>
                         <td>201 - 399</td>
-                        <td>3 Sheep/Goats</td>
+                        <td>3 sheep/goats</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>400 - 499</td>
+                        <td>4 sheep/goats</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>500+</td>
+                        <td>1 per every 100</td>
+                        <td>-</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </div>
 
-    <div class="mega-section">
-        <h2><i class="fas fa-question-circle"></i> 10. Frequently Asked Questions</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <h4>Can I give Zakat to my parents or children?</h4>
-                <p>No. Zakat cannot be given to those for whom you are already financially responsible (ascendants and descendants). It can, however, be given to siblings, uncles, or aunts if they are eligible.</p>
-            </div>
-            <div class="faq-item">
-                <h4>What if I missed Zakat for previous years?</h4>
-                <p>You must estimate the wealth held in those years and pay the 2.5% for each missed year. This is considered a debt to Allah and the poor.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Is Zakat due on a 401k or Pension?</h4>
-                <p>Yes, but generally only on the portion you can withdraw. If there are heavy penalties for withdrawal, most scholars allow you to deduct those penalties and taxes before calculating the 2.5%.</p>
-            </div>
-        </div>
-    </div>
+            <h4 style="color: #14532d; margin-top: 40px; font-family: 'Playfair Display', serif; font-size: 28px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-cow" style="color: #c6a306;"></i> Cattle (Cows & Buffalo)
+            </h4>
 
-    <div class="mega-section">
-        <h2><i class="fas fa-lightbulb"></i> 11. Pro-Tips for Efficient Zakat Planning</h2>
-        <div class="info-card tips-grid">
-            <div class="tip">
-                <i class="fas fa-calendar-alt"></i>
-                <h4>Set a Lunar Date</h4>
-                <p>Fix a specific Hijri date (e.g., 27th of Ramadan) as your Zakat anniversary. This ensures you never miss a year.</p>
-            </div>
-            <div class="tip">
-                <i class="fas fa-minus-circle"></i>
-                <h4>Deduct Immediate Debts</h4>
-                <p>You can deduct upcoming bills, rent, and the current month's installments from your total wealth before calculating.</p>
-            </div>
-            <div class="tip">
-                <i class="fas fa-hand-holding-heart"></i>
-                <h4>Intention (Niyyah)</h4>
-                <p>Ensure you make the intention that the payment is for Zakat. Without Niyyah, the payment is considered Sadaqah (voluntary charity) but does not fulfill the obligation.</p>
+            <div style="overflow-x: auto; margin: 20px 0;">
+                <table class="royal-table" style="width: 100%; min-width: 300px;">
+                    <thead>
+                        <tr>
+                            <th>Number of Animals</th>
+                            <th>Zakat Due</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1 - 29</td><td>None</td></tr>
+                        <tr><td>30 - 39</td><td>1 Tabi' (1-year old calf)</td></tr>
+                        <tr><td>40 - 59</td><td>1 Musinnah (2-year old cow)</td></tr>
+                        <tr><td>60+</td><td>1 Tabi' for every 30, or 1 Musinnah for every 40</td></tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </div>
 
-    <div class="mega-section">
-        <h3>Comprehensive Asset Checklist</h3>
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Asset Category</th>
-                    <th>Sub-Type</th>
-                    <th>Zakat Rate</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Liquid Wealth</td><td>Cash at Home</td><td>2.5%</td><td>Include all currencies</td></tr>
-                <tr><td>Liquid Wealth</td><td>Checking Accounts</td><td>2.5%</td><td>Current balance</td></tr>
-                <tr><td>Liquid Wealth</td><td>Savings Accounts</td><td>2.5%</td><td>Current balance + interest (remove interest)</td></tr>
-                <tr><td>Investments</td><td>Gold Bullion</td><td>2.5%</td><td>Market value</td></tr>
-                <tr><td>Investments</td><td>Silver Coins</td><td>2.5%</td><td>Market value</td></tr>
-                <tr><td>Investments</td><td>Public Stocks (Trading)</td><td>2.5%</td><td>Current market price</td></tr>
-                <tr><td>Investments</td><td>Public Stocks (Long-term)</td><td>2.5%</td><td>Pro-rata share of liquid assets</td></tr>
-                <tr><td>Investments</td><td>Mutual Funds</td><td>2.5%</td><td>On liquid portion</td></tr>
-                <tr><td>Investments</td><td>Crypto Assets</td><td>2.5%</td><td>Market value on Zakat date</td></tr>
-                <tr><td>Receivables</td><td>Personal Loans Lent</td><td>2.5%</td><td>Due if the debtor is likely to pay</td></tr>
-                <tr><td>Receivables</td><td>Business Invoices</td><td>2.5%</td><td>On amounts expected to be recovered</td></tr>
-                <tr><td>Business</td><td>Raw Materials</td><td>2.5%</td><td>Cost price</td></tr>
-                <tr><td>Business</td><td>Finished Goods</td><td>2.5%</td><td>Retail price</td></tr>
-                <tr><td>Real Estate</td><td>Land for Resale</td><td>2.5%</td><td>Market value annually</td></tr>
-                <tr><td>Real Estate</td><td>Rental Income</td><td>2.5%</td><td>On remaining profit after 1 year</td></tr>
-                <tr><td>Retirement</td><td>Accessible Pension</td><td>2.5%</td><td>Net of taxes and penalties</td></tr>
-            </tbody>
-        </table>
-    </div>
+        <hr class="section-divider">
 
-    <div class="info-card final-cta">
-        <h3>Ready to Calculate?</h3>
-        <p>Use our interactive 2026 Zakat Calculator to get an exact figure based on today's market rates for Gold and Silver.</p>
-        <button class="btn-calculate">Launch Calculator</button>
-    </div>
-</div>
-<style>
-    .mega-section { padding: 40px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    .info-card { background: #f9f9f9; border-left: 5px solid #2c3e50; padding: 30px; margin-bottom: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-    .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: white; }
-    .data-table th, .data-table td { border: 1px solid #ddd; padding: 15px; text-align: left; }
-    .data-table th { background-color: #2c3e50; color: white; }
-    .grid-2-col, .grid-3-col { display: grid; gap: 20px; margin: 20px 0; }
-    .grid-2-col { grid-template-columns: 1fr 1fr; }
-    .grid-3-col { grid-template-columns: 1fr 1fr 1fr; }
-    .formula-box { background: #e8f4fd; padding: 20px; border-radius: 8px; border: 1px dashed #2980b9; text-align: center; }
-    .equation { font-size: 1.5rem; font-weight: bold; color: #2980b9; }
-    .btn-calculate { background: #27ae60; color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 1.1rem; }
-    .section-divider { border: 0; height: 1px; background: #eee; margin: 50px 0; }
-    h2 { color: #2c3e50; border-bottom: 2px solid #27ae60; padding-bottom: 10px; margin-bottom: 25px; }
-    i { margin-right: 10px; color: #27ae60; }
-</style>
-        
-        <div class="mega-section">
-            <h2>The Comprehensive Zakat Portal</h2>
-            <p>Zakat is more than just a financial obligation; it is a spiritual journey towards purifying one's soul and wealth. In 2026, HISABIFY has emerged as the leading authority in digital Islamic finance, providing Muslims across the globe with a robust platform to calculate their Zakat with absolute certainty. Our system is built on authentic Fiqh principles, ensuring that every calculation complies with the highest standards of Shariah.</p>
-            <p>Whether you are a salaried professional, a business owner, or an investor in modern assets like stocks and cryptocurrency, our <strong>Zakat Calculator 2026</strong> is programmed to handle the complexities of the modern financial landscape.</p>
+        <!-- Business Assets -->
+        <div class="premium-card">
+            <h2><i class="fas fa-store"></i> Zakat on Business Assets & Inventory</h2>
+            <p>If you are a business owner (Retail, Wholesale, or E-commerce), you must pay Zakat on your trade goods. This is calculated on the current <strong>resale value</strong> of your stock, not the cost price.</p>
+            <div class="calculation-box">
+                <h4><i class="fas fa-calculator"></i> Business Formula</h4>
+                <div class="calculation-step"><strong>Zakatable Assets =</strong> Cash + Finished Goods Value + Raw Materials + Trade Receivables</div>
+                <div class="calculation-step"><strong>Deductions =</strong> Immediate business debts (salaries, electricity bills, supplier payments due).</div>
+                <p>Zakat is 2.5% on the Net Zakatable Assets. Note: Office furniture, machinery, and delivery vans are <strong>Exempt</strong>.</p>
+            </div>
         </div>
 
-        <div class="mega-section">
-            <h2>Calculating Zakat on Various Assets</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <i class="fas fa-coins"></i>
-                    <h3>Gold & Silver</h3>
-                    <p>Zakat is mandatory if you possess 87.48 grams of Gold or 612.36 grams of Silver for one lunar year. Our tool tracks live market rates to give you the most accurate Nisab value.</p>
+        <hr class="section-divider">
+
+        <!-- Recipients of Zakat -->
+        <div class="premium-card">
+            <h2><i class="fas fa-hand-holding-heart"></i> Where Does Your Zakat Go? (Asnaf)</h2>
+            <p>The Quran (Surah At-Tawbah, Verse 60) explicitly mentions eight categories of people eligible to receive Zakat:</p>
+            <div class="luxury-grid">
+                <div class="luxury-card"><h4>1. Al-Fuqara</h4><p>The poor with minimal income.</p></div>
+                <div class="luxury-card"><h4>2. Al-Masakin</h4><p>The extremely needy.</p></div>
+                <div class="luxury-card"><h4>3. Al-Amileen</h4><p>Zakat administrators.</p></div>
+                <div class="luxury-card"><h4>4. Al-Mu'allafah</h4><p>To reconcile hearts.</p></div>
+                <div class="luxury-card"><h4>5. Fir-Riqab</h4><p>Freeing captives.</p></div>
+                <div class="luxury-card"><h4>6. Al-Gharimeen</h4><p>Those in debt.</p></div>
+                <div class="luxury-card"><h4>7. Fi-Sabilillah</h4><p>In Allah's cause.</p></div>
+                <div class="luxury-card"><h4>8. Ibnus-Sabil</h4><p>The stranded traveler.</p></div>
+            </div>
+        </div>
+
+        <div class="premium-card" style="text-align: center; background: linear-gradient(145deg, #052e16, #14532d); border: 2px solid #c6a306; color: white;">
+            <h2 style="color: #c6a306; border-bottom: none;"><i class="fas fa-brain"></i> Intelligence Hub</h2>
+            <p style="margin-bottom: 25px;">Access our deep-research database, advanced fatawa, and scholarly resources.</p>
+            <a href="knowledge-hub.html" style="display: inline-block; background: #c6a306; color: #052e16; padding: 12px 30px; border-radius: 50px; font-weight: 800; text-decoration: none; font-size: 16px; text-transform: uppercase;">
+                Enter Knowledge Hub
+            </a>
+        </div>
+
+    </div>
+
+    <footer style="background: #020617; color: #94a3b8; padding: 60px 20px 30px; margin-top: 50px; border-top: 4px solid #c6a306; width: 100%; display: block; clear: both; box-sizing: border-box;">
+        <div style="max-width: 1200px; margin: auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: left;">
+                
+                <div>
+                    <h4 style="color: #c6a306; font-family: 'Cinzel', serif; margin-bottom: 15px; font-size: 20px;">HISABIFY</h4>
+                    <p style="font-size: 14px; line-height: 1.6;">Global Zakat Standard 2026. Purifying wealth with Shariah-compliant precision for the digital age.</p>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-wallet"></i>
-                    <h3>Cash & Savings</h3>
-                    <p>All liquid cash in hand, bank accounts, and even prize bonds are subject to Zakat if the total wealth exceeds the Silver Nisab threshold.</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-building"></i>
-                    <h3>Real Estate</h3>
-                    <p>While your personal home is exempt, properties held for investment or rental income require careful Zakat assessment on the profit and value.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="mega-section" style="background: #f8fafc; border-radius: 40px; padding: 60px 40px; border: 1px solid #e2e8f0;">
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
-                <div style="flex: 1; min-width: 300px;">
-                    <h2 style="font-size: 38px; border-bottom: none;">Advanced Wealth Intelligence</h2>
-                    <p style="font-size: 19px; color: #475569;">In 2026, Zakat calculation requires more than just a basic sum. Our <strong>Intelligence Matrix</strong> is a specialized deep-dive tool that handles:</p>
-                    <ul style="list-style: none; margin-bottom: 30px;">
-                        <li style="margin-bottom: 15px; font-size: 17px;"><i class="fas fa-check-circle" style="color:var(--gold); margin-right: 10px;"></i> <strong>Gold Purity Analysis:</strong> Precise math for 18K, 21K, and 22K jewelry.</li>
-                        <li style="margin-bottom: 15px; font-size: 17px;"><i class="fas fa-check-circle" style="color:var(--gold); margin-right: 10px;"></i> <strong>Debt Liability Matrix:</strong> Real-time Shariah classification of deductible loans.</li>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: 15px; font-size: 16px;">Quick Access</h4>
+                    <ul style="list-style: none; padding: 0; font-size: 14px;">
+                        <li style="margin-bottom: 8px;"><a href="nisab.html" style="color: #94a3b8; text-decoration: none;">Live Nisab</a></li>
+                        <li style="margin-bottom: 8px;"><a href="calculators.html" style="color: #94a3b8; text-decoration: none;">Calculator</a></li>
+                        <li style="margin-bottom: 8px;"><a href="fatawa.html" style="color: #94a3b8; text-decoration: none;">Fatwa Bank</a></li>
                     </ul>
-                    <a href="intelligence.html" class="cta-gold-large" style="padding: 15px 40px; font-size: 16px;">Access Intelligence Hub</a>
                 </div>
-                <div style="flex: 0.8; min-width: 250px; background: var(--brand-green); border-radius: 30px; padding: 40px; text-align: center;">
-                    <i class="fas fa-brain" style="font-size: 60px; color: var(--gold); margin-bottom: 20px;"></i>
-                    <h4 style="color: white; font-size: 24px; font-family: 'Playfair Display';">Precision over Guesswork</h4>
+
+                <div>
+                    <h4 style="color: white; margin-bottom: 15px; font-size: 16px;">Support</h4>
+                    <p style="font-size: 14px; margin-bottom: 5px;"><i class="fas fa-envelope" style="color: #c6a306;"></i> support@hisabify.online</p>
+                    <p style="font-size: 14px;"><i class="fab fa-whatsapp" style="color: #25d366;"></i> WhatsApp Support</p>
                 </div>
-            </div>
-        </div>
 
-        <div class="mega-section">
-            <h2>Ushr: Zakat on Agriculture</h2>
-            <p>One of the most neglected aspects of Zakat is <strong>Ushr</strong> (Zakat on land produce). Islamic law distinguishes between land irrigated by natural means (rain/rivers) and land irrigated by artificial means (wells/tube wells). HISABIFY includes a dedicated module for farmers to calculate 10% or 5% Ushr based on their irrigation methods.</p>
-            <table class="nisab-table">
-                <tr><th>Method of Irrigation</th><th>Ushr Rate</th></tr>
-                <tr><td>Natural (Rain, Springs, Floods)</td><td>10% of Produce</td></tr>
-                <tr><td>Artificial (Tractor, Tube wells, Purchased Water)</td><td>5% of Produce</td></tr>
-            </table>
-        </div>
-
-        <div class="mega-section">
-            <h2>Frequently Asked Questions & Wisdom</h2>
-            <h3>Can I give Zakat to my family?</h3>
-            <p>You cannot give Zakat to your direct ascendants (parents, grandparents) or descendants (children, grandchildren) or your spouse. However, giving to needy brothers, sisters, or extended relatives is highly encouraged as it carries double the reward.</p>
-            <h3>When is the best time to pay?</h3>
-            <p>While many prefer Ramadan for extra rewards, Zakat is technically due as soon as your 'Hawl' (one lunar year) is complete. Delaying it without a valid reason is disliked in Shariah.</p>
-        </div>
-
-    </div>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <h3 style="color:white; font-family:'Cinzel'; margin-bottom: 20px;">HISABIFY</h3>
-                <p>The Global Authority in Digital Islamic Finance. Bridging the gap between faith and financial precision.</p>
             </div>
-            <div>
-                <h4>Expert Links</h4>
-                <a href="fatawa.html">Fatwa Resources</a>
-                <a href="nisab.html">Live Nisab Tracker</a>
-                <a href="knowledge-hub.html">Zakat Articles</a>
+
+            <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px;">
+                &copy; 2026 HISABIFY Global. All Rights Reserved.
             </div>
-            <div>
-                <h4>Official Support</h4>
-                <a href="mailto:hisabify.online@gmail.com" class="contact-item">
-                    <i class="fas fa-envelope"></i> hisabify.online@gmail.com
-                </a>
-                <a href="https://wa.me/923476841038" target="_blank" class="contact-item">
-                    <i class="fab fa-whatsapp wa-small-logo"></i> WhatsApp Chat
-                </a>
-                <p style="margin-top: 15px;">Active for the Global Ummah.</p>
-            </div>
-        </div>
-        <div class="bottom-line">
-            &copy; 2026 HISABIFY Global Portal | Accurate Zakat Solutions. Engineered by Abdullah.
         </div>
     </footer>
 
     <script>
-        function openMenu() { document.getElementById("navMenu").classList.add("active"); }
-        function closeMenu() { document.getElementById("navMenu").classList.remove("active"); }
+        function openMenu() { document.getElementById("navMenu").style.right = "0"; }
+        function closeMenu() { document.getElementById("navMenu").style.right = "-300px"; }
     </script>
 </body>
 </html>
