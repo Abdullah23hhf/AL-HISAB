@@ -75,23 +75,36 @@
         }
 
         /* Mobile Header - Ab buttons nazar aayenge */
+        /* ✅ FINAL MOBILE HEADER FIX */
         @media (max-width: 1024px) {
+            nav { 
+                flex-wrap: wrap !important; 
+                justify-content: space-between !important;
+            }
             .header-nav { 
-                display: flex; 
-                overflow-x: auto; 
-                white-space: nowrap;
-                padding: 10px 0;
-                gap: 10px;
-                scrollbar-width: none; 
+                display: flex !important; 
+                order: 3 !important;      
+                width: 100% !important; 
+                overflow-x: auto !important; 
+                white-space: nowrap !important; 
+                flex-wrap: nowrap !important;
+                padding: 12px 5px !important;
+                gap: 10px !important;
+                scrollbar-width: none !important; 
+                -webkit-overflow-scrolling: touch;
             }
             .header-nav::-webkit-scrollbar {
-                display: none; 
+                display: none !important;
             }
             .header-nav-btn {
-                padding: 6px 12px;
-                font-size: 11px;
+                display: inline-block !important;
+                padding: 8px 15px !important;
+                font-size: 11px !important;
+                flex-shrink: 0 !important; 
+                border-radius: 20px !important;
             }
         }
+
 
 
         .side-menu {
