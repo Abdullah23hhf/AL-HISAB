@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
 <title>About Hisabify | Leading Global Authority in Digital Zakat Calculation</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/png" href="favicon.png">
 <meta name="description" content="Learn about Hisabify, the world's most advanced Shariah-compliant Zakat calculator. We use real-time market data for Gold, Silver, and 2,000+ digital assets to empower the global Ummah.">
-
 <link href="[https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap](https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cinzel:wght@700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap)" rel="stylesheet">
 <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
 
@@ -22,15 +18,17 @@
         --light-bg: #f8fafc;
     }
 
+    /* Base Fixes */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text); line-height: 1.8; background: var(--white); }
+    html, body { overflow-x: hidden; width: 100%; position: relative; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--text); line-height: 1.8; background: var(--white); -webkit-font-smoothing: antialiased; }
 
     header {
         background: var(--white); padding: 15px 6%;
         display: flex; justify-content: space-between; align-items: center;
         box-shadow: 0 4px 30px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
     }
-    .logo { text-decoration: none; border-left: 3px solid var(--accent); padding-left: 15px; }
+    .logo { text-decoration: none; border-left: 3px solid var(--accent); padding-left: 15px; flex-shrink: 0; }
     .logo h1 { font-family: 'Cinzel', serif; font-size: 24px; color: var(--primary); margin: 0; }
     
     .home-btn { 
@@ -38,6 +36,7 @@
         padding: 10px 25px; border-radius: 50px; font-weight: 800; font-size: 13px; 
         text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;
         transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(2, 44, 34, 0.2);
+        white-space: nowrap;
     }
     .home-btn:hover { background: var(--accent); transform: translateY(-2px); }
 
@@ -45,19 +44,19 @@
         background: linear-gradient(135deg, #022c22 0%, #064e3b 100%);
         padding: 120px 6%; color: white; text-align: center;
     }
-    .hero-section h2 { font-family: 'Playfair Display', serif; font-size: 55px; margin-bottom: 20px; }
-    .hero-section p { font-size: 20px; opacity: 0.8; max-width: 800px; margin: 0 auto; font-weight: 300; }
+    .hero-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 8vw, 55px); margin-bottom: 20px; line-height: 1.2; }
+    .hero-section p { font-size: clamp(16px, 4vw, 20px); opacity: 0.8; max-width: 800px; margin: 0 auto; font-weight: 300; }
 
-    .main-content { max-width: 1200px; margin: -80px auto 80px; padding: 0 20px; }
-    .white-box { background: white; padding: 60px; border-radius: 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.08); }
+    .main-content { max-width: 1200px; margin: -80px auto 80px; padding: 0 20px; width: 100%; }
+    .white-box { background: white; padding: clamp(25px, 5vw, 60px); border-radius: 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.08); }
 
-    .story-text h3 { font-family: 'Cinzel', serif; color: var(--primary); font-size: 32px; margin-bottom: 25px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
-    .story-text p { margin-bottom: 25px; font-size: 17px; color: #475569; text-align: justify; }
+    .story-text h3 { font-family: 'Cinzel', serif; color: var(--primary); font-size: clamp(22px, 4vw, 32px); margin-bottom: 25px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; line-height: 1.3; }
+    .story-text p { margin-bottom: 25px; font-size: clamp(15px, 3vw, 17px); color: #475569; text-align: left; }
 
     .detailed-content { margin-top: 60px; }
-    .detailed-content h4 { font-family: 'Cinzel', serif; color: var(--primary); font-size: 24px; margin: 30px 0 15px; }
+    .detailed-content h4 { font-family: 'Cinzel', serif; color: var(--primary); font-size: clamp(18px, 3.5vw, 24px); margin: 30px 0 15px; }
     .detailed-content ul { list-style: none; margin-bottom: 30px; }
-    .detailed-content li { margin-bottom: 15px; padding-left: 30px; position: relative; }
+    .detailed-content li { margin-bottom: 15px; padding-left: 30px; position: relative; font-size: clamp(14px, 3vw, 16px); }
     .detailed-content li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; color: var(--accent); }
 
     .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
@@ -66,131 +65,156 @@
     .value-card h4 { font-family: 'Cinzel', serif; color: var(--primary); font-size: 20px; margin-bottom: 15px; }
 
     .founder-wrap { margin-top: 100px; background: #f1f5f9; padding: 60px; border-radius: 40px; display: flex; align-items: center; gap: 50px; }
-    .founder-avatar { width: 180px; height: 180px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 70px; color: var(--accent); font-weight: 800; }
+    .founder-avatar { width: 180px; height: 180px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 70px; color: var(--accent); font-weight: 800; flex-shrink: 0; }
     .founder-bio h4 { font-family: 'Cinzel', serif; font-size: 28px; color: var(--primary); margin-bottom: 5px; }
     .founder-bio p { margin-top: 20px; font-style: italic; color: #64748b; }
 
-    footer { background: var(--primary); color: white; padding: 50px; text-align: center; }
+    footer { background: var(--primary); color: white; padding: 50px 20px; text-align: center; }
 
+    /* Mobile Adjustments for Specific Inline-Styled Containers */
+    .mobile-stack { display: flex; gap: 40px; align-items: center; width: 100%; }
+    .data-transparency-grid { display: flex; gap: 20px; flex-wrap: wrap; text-align: center; justify-content: center; }
+
+    /* Responsive Media Queries */
     @media (max-width: 900px) {
-        .hero-section h2 { font-size: 35px; }
-        .white-box { padding: 30px; }
-        .founder-wrap { flex-direction: column; text-align: center; }
+        header { padding: 15px 4%; }
+        .hero-section { padding: 100px 4% 140px; }
+        .main-content { margin-top: -100px; }
+        .founder-wrap { flex-direction: column; text-align: center; padding: 40px 20px; }
+        .mobile-stack { flex-direction: column; text-align: center; }
+        .mobile-stack div:first-child { margin-bottom: 20px; }
+    }
+
+    @media (max-width: 600px) {
+        header { padding: 10px 4%; }
+        .logo h1 { font-size: 20px; }
+        .home-btn { padding: 8px 15px; font-size: 11px; }
+        .hero-section { padding: 80px 4% 120px; }
+        .white-box { border-radius: 25px; }
+        .value-card { padding: 30px 20px; text-align: center; }
+        .values-grid { grid-template-columns: 1fr; }
+        
+        /* Overriding problematic inline styles for mobile */
+        .founder-box-mobile { flex-direction: column !important; text-align: center !important; padding: 40px 20px !important; }
+        .founder-box-mobile div { width: 100% !important; }
+        .founder-avatar-mobile { margin: 0 auto 20px !important; }
+        
+        .stats-container-mobile { flex-direction: column !important; }
+        .stats-item-mobile { width: 100% !important; min-width: unset !important; }
+        
+        .transparency-box-mobile { flex-direction: column !important; gap: 30px !important; }
+        
+        .shariah-box-mobile { border-radius: 0 0 15px 15px !important; border-left: none !important; border-top: 5px solid var(--accent) !important; padding: 25px 15px !important; }
     }
 </style>
 
-```
-
 </head>
 <body>
-
-```
 <header>
-    <a href="index.html" class="logo"><h1>HISABIFY</h1></a>
-    <nav><a href="index.html" class="home-btn"><i class="fas fa-house"></i> Home</a></nav>
+<a href="index.html" class="logo"><h1>HISABIFY</h1></a>
+<nav><a href="index.html" class="home-btn"><i class="fas fa-house"></i> Home</a></nav>
 </header>
-
 <section class="hero-section">
-    <h2>The Science of Wealth Purification</h2>
-    <p>A bridge between 1400 years of Shariah wisdom and 21st-century financial technology.</p>
+<h2>The Science of Wealth Purification</h2>
+<p>A bridge between 1400 years of Shariah wisdom and 21st-century financial technology.</p>
 </section>
-
 <main class="main-content">
-    <div class="white-box">
-        <div class="story-text">
-            <h3>Our Vision: Standardizing Zakat</h3>
-            <p>Hisabify was born out of a critical necessity in the modern financial world. Today, wealth is no longer limited to physical gold or cash in hand. With the rise of digital banking, stock market investments, and highly volatile cryptocurrency portfolios, calculating Zakat—one of the five pillars of Islam—has become increasingly complex for the global Ummah.</p>
+<div class="white-box">
+<div class="story-text">
+<h3>Our Vision: Standardizing Zakat</h3>
+<p>Hisabify was born out of a critical necessity in the modern financial world. Today, wealth is no longer limited to physical gold or cash in hand. With the rise of digital banking, stock market investments, and highly volatile cryptocurrency portfolios, calculating Zakat—one of the five pillars of Islam—has become increasingly complex for the global Ummah.</p>
+        <p>Our mission is to eliminate the ambiguity of manual calculations. We have engineered a high-precision, automated environment where classical Islamic jurisprudence meets real-time market data. Hisabify serves as a "Global Financial Authority," providing a centralized portal for Muslims to purify their wealth with absolute confidence and mathematical accuracy.</p>
+        
+        <div class="detailed-content">
+            <h4>Why Hisabify is the Industry Standard</h4>
+            <p>Unlike traditional calculators that rely on static values or manual inputs, Hisabify integrates directly with global financial APIs to provide the most current data available. Our system is built on four core pillars:</p>
+            <ul>
+                <li><strong>Real-Time Valuation:</strong> Automatic tracking of 24k, 22k, and 18k gold and silver prices based on live spot rates from international markets.</li>
+                <li><strong>Multi-Asset Intelligence:</strong> Dedicated modules for calculating Zakat on Stocks, Real Estate, Business Assets, and over 2,000+ Cryptocurrencies.</li>
+                <li><strong>Shariah Integrity:</strong> Every formula in our code is vetted against the consensus (Ijma) of leading Shariah economic scholars to ensure zero deviation from religious standards.</li>
+                <li><strong>Privacy First Architecture:</strong> We operate on a strict "No-Data-Retention" policy. Your financial footprints are yours alone; our servers do not store your private calculations.</li>
+            </ul>
+
+            <h4>Bridging the Digital Divide</h4>
+            <p>In an era where "DeFi" (Decentralized Finance) is reshaping economies, Hisabify ensures that spiritual obligations are not left behind. We provide clarity on complex issues like Zakat on 401k, retirement funds, and liquidity pools. By providing this service for free, we aim to empower every individual Muslim with institutional-grade financial tools.</p>
             
-            <p>Our mission is to eliminate the ambiguity of manual calculations. We have engineered a high-precision, automated environment where classical Islamic jurisprudence meets real-time market data. Hisabify serves as a "Global Financial Authority," providing a centralized portal for Muslims to purify their wealth with absolute confidence and mathematical accuracy.</p>
-            
-            <div class="detailed-content">
-                <h4>Why Hisabify is the Industry Standard</h4>
-                <p>Unlike traditional calculators that rely on static values or manual inputs, Hisabify integrates directly with global financial APIs to provide the most current data available. Our system is built on four core pillars:</p>
-                <ul>
-                    <li><strong>Real-Time Valuation:</strong> Automatic tracking of 24k, 22k, and 18k gold and silver prices based on live spot rates from international markets.</li>
-                    <li><strong>Multi-Asset Intelligence:</strong> Dedicated modules for calculating Zakat on Stocks, Real Estate, Business Assets, and over 2,000+ Cryptocurrencies.</li>
-                    <li><strong>Shariah Integrity:</strong> Every formula in our code is vetted against the consensus (Ijma) of leading Shariah economic scholars to ensure zero deviation from religious standards.</li>
-                    <li><strong>Privacy First Architecture:</strong> We operate on a strict "No-Data-Retention" policy. Your financial footprints are yours alone; our servers do not store your private calculations.</li>
+            <div class="shariah-box-mobile" style="margin-top: 40px; padding: 20px; border-left: 5px solid var(--accent); background-color: #f9f9f9; border-radius: 0 15px 15px 0;">
+                <h4 style="font-family: 'Cinzel', serif; color: var(--primary); margin-bottom: 15px;">Our Shariah Governance & Sources</h4>
+                <p style="color: #444; line-height: 1.6; font-size: 15px;">
+                    To ensure 100% compliance with Islamic Law, our calculation logic is derived from:
+                </p>
+                <ul style="color: #444; line-height: 1.8; font-size: 15px; list-style: none; padding-top: 10px;">
+                    <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong>AAOIFI:</strong> Accounting and Auditing Organization for Islamic Financial Institutions (Standard No. 35).</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong>Islamic Fiqh Academy:</strong> Resolutions on modern assets and digital currencies.</li>
+                    <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong>Contemporary Scholars:</strong> Vetted by leading Shariah experts in modern finance.</li>
                 </ul>
-
-                <h4>Bridging the Digital Divide</h4>
-                <p>In an era where "DeFi" (Decentralized Finance) is reshaping economies, Hisabify ensures that spiritual obligations are not left behind. We provide clarity on complex issues like Zakat on 401k, retirement funds, and liquidity pools. By providing this service for free, we aim to empower every individual Muslim with institutional-grade financial tools.</p>
-                <div style="margin-top: 40px; padding: 20px; border-left: 5px solid var(--accent); background-color: #f9f9f9; border-radius: 0 15px 15px 0;">
-    <h4 style="font-family: 'Cinzel', serif; color: var(--primary); margin-bottom: 15px;">Our Shariah Governance & Sources</h4>
-    <p style="color: #444; line-height: 1.6; font-size: 15px;">
-        To ensure 100% compliance with Islamic Law, our calculation logic is derived from:
-    </p>
-    <ul style="color: #444; line-height: 1.8; font-size: 15px; list-style: none; padding-top: 10px;">
-        <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong>AAOIFI:</strong> Accounting and Auditing Organization for Islamic Financial Institutions (Standard No. 35).</li>
-        <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong>Islamic Fiqh Academy:</strong> Resolutions on modern assets and digital currencies.</li>
-        <li><i class="fas fa-check-circle" style="color: var(--accent);"></i> <strong>Contemporary Scholars:</strong> Vetted by leading Shariah experts in modern finance.</li>
-    </ul>
-</div>
-
             </div>
-        </div>
-<div style="margin-top: 50px; padding: 30px; border: 1px solid #e2e8f0; border-radius: 25px; background: #fff;">
-    <h4 style="font-family: 'Cinzel', serif; color: #022c22; text-align: center; margin-bottom: 20px;">Real-Time Data Transparency</h4>
-    <div style="display: flex; gap: 20px; flex-wrap: wrap; text-align: center;">
-        <div style="flex: 1; min-width: 200px;">
-            <i class="fas fa-chart-line" style="font-size: 30px; color: #d4af37;"></i>
-            <h5 style="margin-top: 10px; color: #022c22;">Live Spot Rates</h5>
-            <p style="font-size: 13px; color: #64748b;">Gold & Silver prices synced with global market APIs every minute.</p>
-        </div>
-        <div style="flex: 1; min-width: 200px;">
-            <i class="fas fa-microchip" style="font-size: 30px; color: #d4af37;"></i>
-            <h5 style="margin-top: 10px; color: #022c22;">Digital Asset Feeds</h5>
-            <p style="font-size: 13px; color: #64748b;">Crypto valuations pulled directly from institutional-grade price aggregators.</p>
         </div>
     </div>
-</div>
 
-        <div class="values-grid">
-            <div class="value-card">
-                <i class="fas fa-check-double"></i>
-                <h4>Precision</h4>
-                <p>Mathematical accuracy to the 8th decimal point for crypto and precious metals.</p>
+    <div style="margin-top: 50px; padding: 30px; border: 1px solid #e2e8f0; border-radius: 25px; background: #fff;">
+        <h4 style="font-family: 'Cinzel', serif; color: #022c22; text-align: center; margin-bottom: 20px;">Real-Time Data Transparency</h4>
+        <div class="transparency-box-mobile" style="display: flex; gap: 20px; flex-wrap: wrap; text-align: center;">
+            <div class="stats-item-mobile" style="flex: 1; min-width: 200px;">
+                <i class="fas fa-chart-line" style="font-size: 30px; color: #d4af37;"></i>
+                <h5 style="margin-top: 10px; color: #022c22;">Live Spot Rates</h5>
+                <p style="font-size: 13px; color: #64748b;">Gold & Silver prices synced with global market APIs every minute.</p>
             </div>
-            <div class="value-card">
-                <i class="fas fa-shield-alt"></i>
-                <h4>Shariah-Centric</h4>
-                <p>Algorithms audited to follow classical Fiqh for Nisab and Hawlan-al-Hawl.</p>
-            </div>
-            <div class="value-card">
-                <i class="fas fa-globe"></i>
-                <h4>Global Reach</h4>
-                <p>Supporting multiple currencies and assets for Muslims in 150+ countries.</p>
+            <div class="stats-item-mobile" style="flex: 1; min-width: 200px;">
+                <i class="fas fa-microchip" style="font-size: 30px; color: #d4af37;"></i>
+                <h5 style="margin-top: 10px; color: #022c22;">Digital Asset Feeds</h5>
+                <p style="font-size: 13px; color: #64748b;">Crypto valuations pulled directly from institutional-grade price aggregators.</p>
             </div>
         </div>
+    </div>
 
-<div style="margin-top: 80px; background: #022c22; color: white; padding: 50px; border-radius: 40px; display: flex; align-items: center; gap: 40px;">
-    <div style="width: 150px; height: 150px; background: #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 60px; color: #022c22; font-weight: 800; flex-shrink: 0;">A</div>
-    <div>
-        <span style="color: #d4af37; font-weight: 800; text-transform: uppercase; font-size: 12px;">Founder & Chief Architect</span>
-        <h4 style="font-family: 'Cinzel', serif; font-size: 32px; margin: 10px 0; color: white;">Abdullah</h4>
-        <p style="font-size: 16px; opacity: 0.9; line-height: 1.6;">
-            "Hisabify was engineered to solve the complexities of modern asset calculation. My commitment is to keep this platform a free, transparent, and accurate resource for the Global Ummah, bridging the gap between Fintech and Shariah."
-        </p>
-        <div style="margin-top: 20px; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">
-            <i class="fas fa-location-dot" style="color: #d4af37;"></i> Based in Pakistan | Serving the Global Community<br>
-            <i class="fas fa-envelope" style="color: #d4af37; margin-top: 5px;"></i> hisabify.online@gmail.com
+    <div class="values-grid">
+        <div class="value-card">
+            <i class="fas fa-check-double"></i>
+            <h4>Precision</h4>
+            <p>Mathematical accuracy to the 8th decimal point for crypto and precious metals.</p>
+        </div>
+        <div class="value-card">
+            <i class="fas fa-shield-alt"></i>
+            <h4>Shariah-Centric</h4>
+            <p>Algorithms audited to follow classical Fiqh for Nisab and Hawlan-al-Hawl.</p>
+        </div>
+        <div class="value-card">
+            <i class="fas fa-globe"></i>
+            <h4>Global Reach</h4>
+            <p>Supporting multiple currencies and assets for Muslims in 150+ countries.</p>
         </div>
     </div>
+
+    <div class="founder-box-mobile" style="margin-top: 80px; background: #022c22; color: white; padding: 50px; border-radius: 40px; display: flex; align-items: center; gap: 40px;">
+        <div class="founder-avatar-mobile" style="width: 150px; height: 150px; background: #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 60px; color: #022c22; font-weight: 800; flex-shrink: 0;">A</div>
+        <div>
+            <span style="color: #d4af37; font-weight: 800; text-transform: uppercase; font-size: 12px;">Founder & Chief Architect</span>
+            <h4 style="font-family: 'Cinzel', serif; font-size: clamp(24px, 4vw, 32px); margin: 10px 0; color: white;">Abdullah</h4>
+            <p style="font-size: clamp(14px, 3vw, 16px); opacity: 0.9; line-height: 1.6;">
+                "Hisabify was engineered to solve the complexities of modern asset calculation. My commitment is to keep this platform a free, transparent, and accurate resource for the Global Ummah, bridging the gap between Fintech and Shariah."
+            </p>
+            <div style="margin-top: 20px; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">
+                <i class="fas fa-location-dot" style="color: #d4af37;"></i> Based in Pakistan | Serving the Global Community<br>
+                <i class="fas fa-envelope" style="color: #d4af37; margin-top: 5px;"></i> hisabify.online@gmail.com
+            </div>
+        </div>
+    </div>
+
 </div>
 
-    </div>
-    <div style="margin-top: 50px; text-align: center; padding: 40px; background: #f8fafc; border-radius: 25px; border: 1px dashed #d4af37;">
-    <h3 style="font-family: 'Cinzel', serif; color: #022c22; margin-bottom: 25px;">Our Commitment to the Ummah</h3>
-    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
-        <div style="flex: 1; min-width: 150px;">
+<div style="margin-top: 50px; text-align: center; padding: clamp(20px, 5vw, 40px); background: #f8fafc; border-radius: 25px; border: 1px dashed #d4af37;">
+    <h3 style="font-family: 'Cinzel', serif; color: #022c22; margin-bottom: 25px; font-size: clamp(20px, 4vw, 28px);">Our Commitment to the Ummah</h3>
+    <div class="stats-container-mobile" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+        <div class="stats-item-mobile" style="flex: 1; min-width: 150px;">
             <h2 style="color: #d4af37; font-size: 30px; margin-bottom: 5px;">High</h2>
             <p style="font-size: 14px; font-weight: 600; color: #334155;">Precision Algorithms</p>
         </div>
-        <div style="flex: 1; min-width: 150px;">
+        <div class="stats-item-mobile" style="flex: 1; min-width: 150px;">
             <h2 style="color: #d4af37; font-size: 30px; margin-bottom: 5px;">Global</h2>
             <p style="font-size: 14px; font-weight: 600; color: #334155;">Asset Coverage</p>
         </div>
-        <div style="flex: 1; min-width: 150px;">
+        <div class="stats-item-mobile" style="flex: 1; min-width: 150px;">
             <h2 style="color: #d4af37; font-size: 30px; margin-bottom: 5px;">100%</h2>
             <p style="font-size: 14px; font-weight: 600; color: #334155;">Privacy Protected</p>
         </div>
@@ -204,17 +228,13 @@
 </div>
 
 </main>
-
-<footer>&copy; 2026 Hisabify Global Portal. All Rights Reserved. Engineered by Abdullah.
+<footer>
+&copy; 2026 Hisabify Global Portal. All Rights Reserved. Engineered by Abdullah.
 <div style="margin-top: 15px; margin-bottom: 15px; border-top: 1px solid rgba(212, 175, 55, 0.2); padding-top: 15px;">
-    <a href="privacy.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px; font-weight: 600;">Privacy Policy</a> |
-    <a href="terms.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px; font-weight: 600;">Terms & Conditions</a> |
-    <a href="contact.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px; font-weight: 600;">Contact Us</a>
+<a href="privacy.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px; font-weight: 600; display: inline-block;">Privacy Policy</a> <span style="color: #d4af37; opacity: 0.5;">|</span>
+<a href="terms.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px; font-weight: 600; display: inline-block;">Terms & Conditions</a> <span style="color: #d4af37; opacity: 0.5;">|</span>
+<a href="contact.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px; font-weight: 600; display: inline-block;">Contact Us</a>
 </div>
-
 </footer>
-
-```
-
 </body>
 </html>
