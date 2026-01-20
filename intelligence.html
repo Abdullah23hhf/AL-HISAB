@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Zakat Intelligence Matrix | Hisabify Official 2026</title>
     <link rel="icon" type="image/png" href="favicon.png">
     
@@ -20,7 +20,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: var(--text-dark); line-height: 1.8; overflow-x: hidden; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: var(--text-dark); line-height: 1.8; overflow-x: hidden; width: 100%; -webkit-font-smoothing: antialiased; }
 
         /* Navigation */
         header { 
@@ -34,7 +34,7 @@
         .site-name { font-family: 'Cinzel', serif; font-size: 24px; color: var(--brand-green); font-weight: bold; letter-spacing: 2px; }
         
         .nav-buttons { display: flex; gap: 10px; }
-        .nav-btn { text-decoration: none; font-weight: 800; font-size: 11px; padding: 10px 18px; border-radius: 10px; transition: 0.3s; text-transform: uppercase; white-space: nowrap; }
+        .nav-btn { text-decoration: none; font-weight: 800; font-size: 11px; padding: 12px 18px; border-radius: 10px; transition: 0.3s; text-transform: uppercase; white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; }
         .btn-home { border: 2px solid var(--brand-green); color: var(--brand-green); }
         .btn-home:hover { background: var(--brand-green); color: white; }
         .btn-calc { background: var(--brand-green); color: var(--gold); }
@@ -44,57 +44,87 @@
             background: linear-gradient(135deg, #052e16 0%, #0a4d25 100%); 
             color: white; padding: 100px 20px; text-align: center; position: relative;
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 8vw, 60px); margin-bottom: 20px; line-height: 1.2; }
-        .hero p { font-size: clamp(16px, 4vw, 22px); max-width: 850px; margin: 0 auto; opacity: 0.9; font-weight: 300; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 8vw, 60px); margin-bottom: 20px; line-height: 1.2; padding: 0 10px; }
+        .hero p { font-size: clamp(16px, 4vw, 22px); max-width: 850px; margin: 0 auto; opacity: 0.9; font-weight: 300; padding: 0 10px; }
         .live-indicator { margin-top: 30px; display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); padding: 10px 25px; border-radius: 50px; font-weight: 800; font-size: 12px; color: #34d399; }
         .dot { width: 10px; height: 10px; background: #34d399; border-radius: 50%; animation: blink 1.5s infinite; }
 
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
         /* Main Container */
-        .container { max-width: 1250px; margin: -60px auto 100px; padding: 0 15px; display: grid; gap: 40px; }
+        .container { max-width: 1250px; margin: -60px auto 100px; padding: 0 20px; display: grid; gap: 40px; width: 100%; }
 
-        .intel-card { background: var(--bg-glass); border-radius: 25px; padding: clamp(25px, 5vw, 60px); box-shadow: 0 40px 80px rgba(0,0,0,0.08); border: 1px solid rgba(198, 163, 6, 0.2); }
+        .intel-card { background: var(--bg-glass); border-radius: 25px; padding: clamp(20px, 5vw, 60px); box-shadow: 0 40px 80px rgba(0,0,0,0.08); border: 1px solid rgba(198, 163, 6, 0.2); overflow: hidden; }
         .section-tag { color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 10px; text-align: center; font-size: 13px; }
         .section-title { font-family: 'Playfair Display', serif; color: var(--brand-green); font-size: clamp(26px, 5vw, 42px); margin-bottom: 30px; text-align: center; line-height: 1.3; }
 
         /* Calculation Engine */
-        .purity-engine { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; background: #f1f5f9; padding: clamp(20px, 4vw, 40px); border-radius: 20px; }
+        .purity-engine { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; background: #f1f5f9; padding: clamp(20px, 4vw, 40px); border-radius: 20px; }
         .input-box { display: flex; flex-direction: column; gap: 8px; }
         .input-box label { font-weight: 800; font-size: 13px; color: var(--brand-green); }
-        .input-box input, .input-box select { padding: 15px; border: 2px solid #cbd5e1; border-radius: 12px; font-size: 16px; font-weight: 700; width: 100%; }
+        .input-box input, .input-box select { padding: 15px; border: 2px solid #cbd5e1; border-radius: 12px; font-size: 16px; font-weight: 700; width: 100%; appearance: none; -webkit-appearance: none; background-color: #fff; }
+        .input-box select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23052e16' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 15px center; background-size: 18px; }
         
-        .calc-action-btn { grid-column: 1 / -1; background: var(--brand-green); color: var(--gold); border: none; padding: 20px; border-radius: 12px; font-size: 18px; font-weight: 900; cursor: pointer; transition: 0.4s; }
+        .calc-action-btn { grid-column: 1 / -1; background: var(--brand-green); color: var(--gold); border: none; padding: 22px; border-radius: 12px; font-size: 18px; font-weight: 900; cursor: pointer; transition: 0.4s; min-height: 60px; -webkit-tap-highlight-color: transparent; }
         .calc-action-btn:hover { background: #06441d; transform: translateY(-2px); }
 
-        .result-display { display: none; margin-top: 30px; padding: 30px; border-radius: 20px; background: #fff; border: 3px dashed var(--gold); text-align: center; animation: slideUp 0.5s ease; }
+        .result-display { display: none; margin-top: 30px; padding: clamp(20px, 4vw, 30px); border-radius: 20px; background: #fff; border: 3px dashed var(--gold); text-align: center; animation: slideUp 0.5s ease; word-wrap: break-word; }
         
         /* Table Responsiveness */
-        .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 15px; }
-        .matrix-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        .matrix-table th { background: var(--brand-green); color: var(--gold); padding: 20px; text-align: left; font-size: 16px; }
-        .matrix-table td { padding: 20px; border-bottom: 1px solid #e2e8f0; font-size: 15px; background: white; }
+        .table-wrapper { 
+            overflow-x: auto; 
+            -webkit-overflow-scrolling: touch; 
+            margin: 20px -5px 0; 
+            border-radius: 15px; 
+            background: white;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+        }
+        .matrix-table { width: 100%; border-collapse: collapse; min-width: 650px; }
+        .matrix-table th { background: var(--brand-green); color: var(--gold); padding: 20px 15px; text-align: left; font-size: 15px; }
+        .matrix-table td { padding: 20px 15px; border-bottom: 1px solid #e2e8f0; font-size: 14px; background: white; line-height: 1.4; }
 
         /* Content Blocks */
-        .content-rich { max-width: 900px; margin: 0 auto; padding: 0 10px; }
-        .content-rich h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 36px); color: var(--brand-green); margin: 50px 0 20px; }
-        .content-rich p { font-size: clamp(16px, 4vw, 19px); color: #475569; margin-bottom: 25px; text-align: justify; }
-        .content-rich li { padding: 12px 0; border-bottom: 1px solid #e2e8f0; font-size: 16px; display: flex; align-items: center; gap: 12px; }
-        .content-rich li i { color: var(--gold); flex-shrink: 0; }
+        .content-rich { max-width: 900px; margin: 0 auto; padding: 0 10px; width: 100%; }
+        .content-rich h2 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 36px); color: var(--brand-green); margin: 50px 0 20px; line-height: 1.2; }
+        .content-rich p { font-size: clamp(16px, 4vw, 19px); color: #475569; margin-bottom: 25px; text-align: left; }
+        .content-rich li { padding: 15px 0; border-bottom: 1px solid #e2e8f0; font-size: 16px; display: flex; align-items: flex-start; gap: 12px; }
+        .content-rich li i { color: var(--gold); flex-shrink: 0; margin-top: 5px; }
 
         /* Footer */
-        footer { background: var(--brand-green); color: white; padding: 60px 20px; text-align: center; }
+        footer { background: var(--brand-green); color: white; padding: 60px 20px; text-align: center; width: 100%; }
         .footer-logo { font-family: 'Cinzel', serif; font-size: 30px; color: var(--gold); margin-bottom: 15px; }
+        .footer-links-container { margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            header { padding: 10px 4%; }
-            .site-name { font-size: 18px; }
-            .hero { padding: 80px 15px; }
-            .container { margin-top: -40px; gap: 30px; }
-            .nav-btn { padding: 8px 12px; font-size: 10px; }
-            .calc-action-btn { font-size: 16px; }
+        /* Tablet and Mobile Refinements */
+        @media (max-width: 992px) {
+            .container { margin-top: -50px; }
         }
+
+        @media (max-width: 768px) {
+            header { padding: 12px 15px; flex-direction: column; gap: 15px; text-align: center; }
+            .nav-buttons { width: 100%; justify-content: center; }
+            .nav-btn { flex: 1; max-width: 150px; }
+            .site-name { font-size: 20px; }
+            .hero { padding: 60px 15px; }
+            .hero h1 { font-size: 36px; }
+            .container { margin-top: -30px; gap: 25px; padding: 0 15px; }
+            .intel-card { padding: 25px 20px; border-radius: 20px; }
+            .purity-engine { grid-template-columns: 1fr; padding: 20px; }
+            .calc-action-btn { font-size: 16px; padding: 18px; }
+            .content-rich h2 { margin: 30px 0 15px; }
+            .scroll-hint { display: block; text-align: center; font-size: 11px; color: #94a3b8; margin-bottom: 8px; font-weight: bold; }
+        }
+
+        @media (max-width: 480px) {
+            .site-name { font-size: 18px; letter-spacing: 1px; }
+            .logo-icon { width: 38px; height: 38px; font-size: 18px; }
+            .nav-btn { font-size: 9px; padding: 10px 8px; }
+            .hero h1 { font-size: 30px; }
+            .hero p { font-size: 15px; }
+        }
+
+        /* Helper class for mobile table hint */
+        .scroll-hint { display: none; }
 
         @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
@@ -134,7 +164,7 @@
             <div class="purity-engine">
                 <div class="input-box">
                     <label>Total Gold Weight</label>
-                    <input type="number" id="goldWeight" placeholder="0.00">
+                    <input type="number" id="goldWeight" placeholder="0.00" inputmode="decimal">
                 </div>
                 <div class="input-box">
                     <label>Weight Unit</label>
@@ -168,6 +198,7 @@
         <div class="intel-card">
             <span class="section-tag">Shariah Jurisprudence</span>
             <h2 class="section-title">The Debt Liability Matrix</h2>
+            <div class="scroll-hint"><i class="fas fa-arrows-left-right"></i> Scroll table to view details</div>
             <div class="table-wrapper">
                 <table class="matrix-table">
                     <thead>
@@ -180,22 +211,22 @@
                     <tbody>
                         <tr>
                             <td>Current Business Debts</td>
-                            <td><span class="tag tag-yes" style="background: #dcfce7; color: #15803d; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 800;">Deductible</span></td>
+                            <td><span class="tag tag-yes" style="background: #dcfce7; color: #15803d; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 800; white-space: nowrap;">Deductible</span></td>
                             <td>Liabilities directly impacting trading capital.</td>
                         </tr>
                         <tr>
                             <td>Personal Home Mortgage</td>
-                            <td><span class="tag tag-no" style="background: #fee2e2; color: #b91c1c; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 800;">Not Deductible</span></td>
+                            <td><span class="tag tag-no" style="background: #fee2e2; color: #b91c1c; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 800; white-space: nowrap;">Not Deductible</span></td>
                             <td>Future long-term installments do not reduce current Zakat.</td>
                         </tr>
                         <tr>
                             <td>Unpaid Staff Salaries</td>
-                            <td><span class="tag tag-yes" style="background: #dcfce7; color: #15803d; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 800;">Deductible</span></td>
+                            <td><span class="tag tag-yes" style="background: #dcfce7; color: #15803d; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 800; white-space: nowrap;">Deductible</span></td>
                             <td>Debt owed to workers is a primary liability.</td>
                         </tr>
                         <tr>
                             <td>Business Expansion Loans</td>
-                            <td><span class="tag tag-no" style="background: #fee2e2; color: #b91c1c; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 800;">Partial</span></td>
+                            <td><span class="tag tag-no" style="background: #fee2e2; color: #b91c1c; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: 800; white-space: nowrap;">Partial</span></td>
                             <td>Only the current month's installment is considered.</td>
                         </tr>
                     </tbody>
@@ -211,9 +242,9 @@
             <p>One of the biggest secrets in Zakat calculation is the "Zakat Date". You don't pay Zakat when you earn money; you pay it once a lunar year has passed on your wealth.</p>
             
             <ul>
-                <li><i class="fas fa-check-circle"></i> <strong>Asset Purity:</strong> We analyze the exact gold content.</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Real-time Markets:</strong> Live Binance streams for Gold (PAXG).</li>
-                <li><i class="fas fa-check-circle"></i> <strong>Liability Intelligence:</strong> Distinguishing between valid and invalid debts.</li>
+                <li><i class="fas fa-check-circle"></i> <span><strong>Asset Purity:</strong> We analyze the exact gold content.</span></li>
+                <li><i class="fas fa-check-circle"></i> <span><strong>Real-time Markets:</strong> Live Binance streams for Gold (PAXG).</span></li>
+                <li><i class="fas fa-check-circle"></i> <span><strong>Liability Intelligence:</strong> Distinguishing between valid and invalid debts.</span></li>
             </ul>
 
             <h2>Zakat on Modern Investments: 2026 Perspective</h2>
@@ -226,9 +257,11 @@
         <div class="footer-logo">HISABIFY</div>
         <p>The Global Gold Standard for Zakat Calculation & Financial Integrity.</p>
         <p style="opacity: 0.5; margin-top: 40px; font-size: 12px;">&copy; 2026 Hisabify Engineering. All Shariah Formulas are Authenticated.</p>
-        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
-            <a href="privacy.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px;">Privacy Policy</a> |
-            <a href="terms.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px;">Terms</a> |
+        <div class="footer-links-container">
+            <a href="privacy.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px;">Privacy Policy</a>
+            <span style="color:rgba(255,255,255,0.2)">|</span>
+            <a href="terms.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px;">Terms</a>
+            <span style="color:rgba(255,255,255,0.2)">|</span>
             <a href="contact.html" style="color: #d4af37; text-decoration: none; font-size: 13px; margin: 0 10px;">Contact</a>
         </div>
     </footer>
@@ -248,6 +281,7 @@
             };
             ws.onerror = () => {
                 document.getElementById('syncStatus').innerHTML = 'Offline: Using Default Rates';
+                currentGoldRate = 75; // Fallback rate
             };
         }
 
@@ -267,16 +301,18 @@
             const resultDiv = document.getElementById('intelResult');
             resultDiv.style.display = 'block';
             document.getElementById('reportText').innerHTML = `
-                <div style="font-size:clamp(24px, 5vw, 32px); font-weight:900; color:var(--brand-green); margin-bottom:15px;">
+                <div style="font-size:clamp(24px, 5vw, 32px); font-weight:900; color:var(--brand-green); margin-bottom:15px; line-height:1.2;">
                     Zakat Owed: $${zakatAmount.toLocaleString(undefined, {minimumFractionDigits: 2})}
                 </div>
                 <p>Equivalent to <strong>${pure24KWeight.toFixed(3)}g</strong> Pure 24K Gold.</p>
-                <p style="margin-top:15px; font-size:13px; border-top:1px solid #eee; padding-top:15px;">
+                <div style="margin-top:15px; font-size:13px; border-top:1px solid #eee; padding-top:15px; opacity:0.8;">
                     Market Value: $${totalMarketValue.toLocaleString()} | Rate: $${currentGoldRate.toFixed(2)}/g
-                </p>
+                </div>
             `;
             
-            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => {
+                resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         }
 
         window.onload = initLiveSync;
