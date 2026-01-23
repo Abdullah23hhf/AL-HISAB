@@ -177,16 +177,32 @@
             connectBinance();
         }
 
-        window.execute = function(id) {
-            const val = parseFloat(document.getElementById(`inp-${id}`).value) || 0;
-            const resDiv = document.getElementById(`res-${id}`);
-            const item = config.find(x => x.id === id);
-            let rate = (item.key === 'cash') ? 1 : rates[item.key] || 0;
-            if(id === 'nisab') resDiv.innerText = val >= (rates.gold*87.48) ? "ZAKAT DUE" : "BELOW NISAB";
-            else if(id === 'agri') resDiv.innerText = "Ushr: " + (val*0.1).toFixed(2) + " Kg";
-            else resDiv.innerText = "Total Zakat: $" + (val * rate * 0.025).toLocaleString();
-            resDiv.style.display = 'block';
-        }
+window.execute = function(id) {
+    const val = parseFloat(document.getElementById(`inp-${id}`).value) || 0;
+    const resDiv = document.getElementById(`res-${id}`);
+    const item = config.find(x => x.id === id);
+    let rate = (item.key === 'cash') ? 1 : rates[item.key] || 0;
+
+    // Result Calculation
+    let resultText = "";
+    if(id === 'nisab') resultText = val >= (rates.gold*87.48) ? "ZAKAT DUE" : "BELOW NISAB";
+    else if(id === 'agri') resultText = "Ushr: " + (val*0.1).toFixed(2) + " Kg";
+    else resultText = "Total Zakat: $" + (val * rate * 0.025).toLocaleString();
+
+    // Support Button Section
+    const supportHTML = `
+        <div style="margin-top: 15px; padding: 12px; border: 1px dashed #c6a306; border-radius: 8px; background: #fffcf0;">
+            <p style="font-size: 18px; font-weight: 900; margin-bottom: 10px;">${resultText}</p>
+            <p style="margin-bottom: 8px; color: #475569; font-size: 12px; font-weight: 600;">If this tool helped you, support Hisabify:</p>
+            <a href="https://www.buymeacoffee.com/hisabify" target="_blank">
+                <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=hisabify&button_colour=052e16&font_colour=ffffff&font_family=Inter&outline_colour=ffffff&coffee_colour=FFDD00" style="height: 35px; width: auto;"/>
+            </a>
+        </div>`;
+
+    resDiv.innerHTML = supportHTML; 
+    resDiv.style.display = 'block';
+}
+
         window.onload = init;
     </script>
     <script src="https://pl28538978.effectivegatecpm.com/16/1b/62/161b62365cb20fdd25b15ad18eceb42a.js"></script>
