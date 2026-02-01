@@ -4,6 +4,11 @@
     <loc>https://hisabify.online/</loc>
     <priority>1.0</priority>
   </url>
+
+  <url>
+    <loc>https://hisabify.online/hisabify-elite.html</loc>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://hisabify.online/calculators.html</loc>
     <priority>0.9</priority>
@@ -16,6 +21,7 @@
     <loc>https://hisabify.online/nisab.html</loc>
     <priority>0.9</priority>
   </url>
+
   <url>
     <loc>https://hisabify.online/knowledge-hub.html</loc>
     <priority>0.8</priority>
@@ -24,6 +30,7 @@
     <loc>https://hisabify.online/fatawa.html</loc>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://hisabify.online/guidelines.html</loc>
     <priority>0.7</priority>
@@ -36,6 +43,7 @@
     <loc>https://hisabify.online/faqs.html</loc>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://hisabify.online/references.html</loc>
     <priority>0.6</priority>
@@ -48,6 +56,7 @@
     <loc>https://hisabify.online/contact.html</loc>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://hisabify.online/accessibility.html</loc>
     <priority>0.5</priority>
